@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Introduction to Geodynamic Modelling's documentation!
-================================================================
+Welcome to the Introduction to Geodynamic Modelling course!
+===========================================================
 
 .. toctree::
    :maxdepth: 2

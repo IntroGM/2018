@@ -6,10 +6,15 @@
 Welcome to the Introduction to Geodynamic Modelling course!
 ===========================================================
 
+.. ipython:: python
+
+    a = 4
+    print(a)
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
 
 
 Indices and tables

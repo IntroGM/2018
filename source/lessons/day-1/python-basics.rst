@@ -36,12 +36,10 @@ We are assuming you already have some familiarity with Python, but we'll quickly
 
 1. Python can be used as a simple calculator.
 
-   .. code:: python
+   .. ipython:: python
 
-       >>> 1 + 1
-       2
-       >>> 5 * 7
-       35
+       1 + 1
+       5 * 7
 
 2. The list of basic arithmetic operations that can be done by default
    in Python is in the table below.

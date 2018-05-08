@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic elements of Python &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="prev" title="Welcome to the Introduction to Geodynamic Modelling course!" href="../../index.html"/>
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Day 1</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic elements of Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-arithmetic-and-modules">Variables, arithmetic and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists-and-indices">Lists and indices</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Basic elements of Python</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/lessons/day-1/python-basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-elements-of-python">
+<h1>Basic elements of Python<a class="headerlink" href="#basic-elements-of-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<p>This lesson is inspired by the <a class="reference external" href="https://v4.software-carpentry.org/python/index.html">Programming in Python lessons</a> from the <a class="reference external" href="http://software-carpentry.org/">Software Carpentry organization</a>.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">We can start by opening a new IPython window.
+To do this, open a new Terminal window and type <code class="docutils literal notranslate"><span class="pre">ipython</span></code>.
+You should see an IPython prompt that looks something like the following:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipython
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+
+In [1]:
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now we are ready to start.</p>
+</div>
+<div class="section" id="variables-arithmetic-and-modules">
+<h2>Variables, arithmetic and modules<a class="headerlink" href="#variables-arithmetic-and-modules" title="Permalink to this headline">¶</a></h2>
+<p>We are assuming you already have some familiarity with Python, but we’ll quickly review some basic features and operations.</p>
+<ol class="arabic">
+<li><p class="first">Python can be used as a simple calculator.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
+<span class="go">35</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The list of basic arithmetic operations that can be done by default
+in Python is in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="16%" />
+<col width="28%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Symbol</th>
+<th class="head">Example syntax</th>
+<th class="head">Returned value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Addition</td>
+<td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>Subtraction</td>
+<td><code class="docutils literal notranslate"><span class="pre">-</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Multiplication</td>
+<td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">6</span></code></td>
+</tr>
+<tr class="row-odd"><td>Division</td>
+<td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Exponentiation</td>
+<td><code class="docutils literal notranslate"><span class="pre">**</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">2**3</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">8</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>For anything more advanced, we need to use a <em>function</em>.
+Functions are pieces of code that perform a single action such as
+printing information to the screen (e.g., the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function).
+Functions exist for a huge number of operations in Python.
+Python has a few basic functions available by default, but to use most functions we need to load a load a <em>module</em>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">0.1411200080598672</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<p>A <em>module</em> (or <em>library</em>) is a group of code items such as functions that are
+related to one another. Modules are loaded using <code class="docutils literal notranslate"><span class="pre">import</span></code>.
+Functions that are part of the module <code class="docutils literal notranslate"><span class="pre">modulename</span></code> could then be
+used by typing <code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code>
+is a function that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by
+typing <code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.
+Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="go">3.141592653589793</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="go">1.2246467991473532e-16</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p class="first">Functions can also be combined.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="go">The square root of 4 is 2.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>Variables</em> can be used to store values calculated in expressions and
+used for other calculations.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tempCelsius</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
+<span class="go">10.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+<span class="go">temperature in Fahrenheit: 50.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Values stored in <em>variables</em> can also be updated.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tempCelsius</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius is now:&#39;</span><span class="p">,</span> <span class="n">tempCelsius</span><span class="p">)</span>
+<span class="go">temperature in Celsius is now: 15.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperature in Celsius:&#39;</span><span class="p">,</span> <span class="n">tempCelsius</span><span class="p">,</span> <span class="s1">&#39;and in Fahrenheit:&#39;</span><span class="p">,</span> <span class="n">tempFahrenheit</span><span class="p">)</span>
+<span class="go">temperature in Celsius: 15.0 and in Fahrenheit: 59.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">One of the nice options in IPython is that you can see which
+variables are in memory by typing <code class="docutils literal notranslate"><span class="pre">%whos</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">whos</span>
+<span class="go">Variable                  Type      Data/Info</span>
+<span class="go">---------------------------------------------</span>
+<span class="go">TemperatureInFahrenheit   float     59.0</span>
+<span class="go">temp_celsius              float     20.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">There are 4 basic <em>data types</em> in Python as shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="43%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data type name</th>
+<th class="head">Data type</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>Whole integer values</td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<td>Decimal values</td>
+<td><code class="docutils literal notranslate"><span class="pre">3.1415</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">str</span></code></td>
+<td>Character strings</td>
+<td><code class="docutils literal notranslate"><span class="pre">'Hot'</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">bool</span></code></td>
+<td>True/false values</td>
+<td><code class="docutils literal notranslate"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>The data types are displayed when using <code class="docutils literal notranslate"><span class="pre">%whos</span></code>, but can also be
+found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will see, the data types
+are important because some are not compatible with one another.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">WeatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">WeatherForecast</span><span class="p">)</span>
+<span class="go">str</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">TemperatureInFahrenheit</span><span class="p">)</span>
+<span class="go">float</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TemperatureInFahrenheit</span> <span class="o">=</span> <span class="n">TemperatureInFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">WeatherForecast</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">TypeError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-21-7046bdc97a54&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 TemperatureInFahrenheit = TemperatureInFahrenheit + 5.0 * WeatherForecast</span>
+
+<span class="go">TypeError: can&#39;t multiply sequence by non-int of type &#39;float&#39;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="lists-and-indices">
+<h2>Lists and indices<a class="headerlink" href="#lists-and-indices" title="Permalink to this headline">¶</a></h2>
+<p>Let’s now consider an example of some rock samples collected during a recent field excursion.
+Rather than having individual variables for each of the samples, we can store many related values in a <em>collection</em>.
+The simplest type of <em>collection</em> in Python is a <strong>list</strong>.</p>
+<ol class="arabic">
+<li><p class="first">Let’s first create a list of selected <code class="docutils literal notranslate"><span class="pre">SampleID</span></code> values.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SampleIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DW-NP-03&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-12&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-33&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-48&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">[&#39;DW-NP-03&#39;, &#39;DW-NP-12&#39;, &#39;DW-NP-33&#39;, &#39;DW-NP-48&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">list</span>
+</pre></div>
+</div>
+<p>Here we have a list of 4 <code class="docutils literal notranslate"><span class="pre">SampleID</span></code> values in a list called
+<code class="docutils literal notranslate"><span class="pre">SampleIDs</span></code>. As you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes
+this as a list. Lists can be created using the square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code>
+and <code class="docutils literal notranslate"><span class="pre">]</span></code>), with commas separating the values in the list.</p>
+</li>
+<li><p class="first">To access an individual value in the list we need to use an <strong>index
+value</strong>. An <strong>index value</strong> is a number that refers to a given
+position in the list. Let’s check out the first value in our list as
+an example:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">&#39;DW-NP-12&#39;</span>
+</pre></div>
+</div>
+<p>Remember, Python (and many other programming languages) start values stored in collections with the index value 0.</p>
+</li>
+<li><p class="first">We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Just as expected, there are 4 values in our list and <code class="docutils literal notranslate"><span class="pre">len(SampleIDs)</span></code> returns a value of 4.</p>
+</li>
+</ol>
+<div class="topic">
+<p class="topic-title first">Exercise - Getting to know lists</p>
+<ul class="simple">
+<li>Create a Python list containing 4 items/values and store it with the variable <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.</li>
+<li>After you have created the list, check its data type, then use the index values to check the data types of the contents of the list.</li>
+<li>What kinds of data can you store in lists? Does it all need to be the same data type?</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../index.html" class="btn btn-neutral" title="Welcome to the Introduction to Geodynamic Modelling course!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -190,10 +190,12 @@
 <li>Modify the model <em>input file</em>, e.g., <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">~/douar/inputs/rift.txt</span></code></li>
 <li><em>Submit</em> the job: <code class="docutils literal notranslate"><span class="pre">~/bin/submitdouar.sh</span> <span class="pre">-i</span> <span class="pre">~/douar/inputs/rift.txt</span> <span class="pre">-n</span> <span class="pre">16</span></code></li>
 <li><em>Monitor</em> the job status: <code class="docutils literal notranslate"><span class="pre">squeue</span></code></li>
-<li><em>Post-process</em> the output:
-- <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/globalscratch/clusteruser/douar/rift_20180514100500/OUT</span></code>
-- <code class="docutils literal notranslate"><span class="pre">~/bin/process_outbin.sh</span></code>
-- Note that the directory name of the output is formed from the model name (<code class="docutils literal notranslate"><span class="pre">rift</span></code>) and the date and time of the job submission</li>
+<li><em>Post-process</em> the output:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/globalscratch/clusteruser/douar/rift_20180514100500/OUT</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">~/bin/process_outbin.sh</span></code></li>
+<li>Note that the directory name of the output is formed from the model name (<code class="docutils literal notranslate"><span class="pre">rift</span></code>) and the date and time of the job submission</li>
+</ul>
+</li>
 <li>Copy <em>VTK files</em> to your local machine (see instructions above) to be opened in ParaView</li>
 </ol>
 <p>You can <em>cancel</em> your job with <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">jobid</span></code> where jobid is the numerical ID of the job, and can be found using <code class="docutils literal notranslate"><span class="pre">squeue</span></code></p>

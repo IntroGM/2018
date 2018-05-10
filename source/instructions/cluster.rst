@@ -42,11 +42,13 @@ To copy files from DOUAR output to the current directory on loca machine:
 Running DOUAR models
 --------------------
 
-1. Modify the model input file, e.g., ``nano ~/douar/inputs/rift.txt``
-2. Submit the job: ``~/bin/submitdouar.sh -i ~/douar/inputs/rift.txt -n 16``
-3. Monitor the job status: ``squeue``
-4. Post-process the output:
+1. Modify the model *input file*, e.g., ``nano ~/douar/inputs/rift.txt``
+2. *Submit* the job: ``~/bin/submitdouar.sh -i ~/douar/inputs/rift.txt -n 16``
+3. *Monitor* the job status: ``squeue``
+4. *Post-process* the output:
    - ``cd /globalscratch/clusteruser/douar/rift_20180514100500/OUT``
    - ``~/bin/process_outbin.sh``
    - Note that the directory name of the output is formed from the model name (``rift``) and the date and time of the job submission
-5. Copy VTK files to your local machine (see instructions above) to be opened in ParaView
+5. Copy *VTK files* to your local machine (see instructions above) to be opened in ParaView
+
+You can *cancel* your job with ``scancel jobid`` where jobid is the numerical ID of the job, and can be found using ``squeue``

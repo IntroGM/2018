@@ -16,6 +16,12 @@ Welcome to the Introduction to Geodynamic Modelling course!
 
     lessons/day-1/python-basics
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Technical instructions
+
+    instructions/cluster
+
 Indices and tables
 ==================
 

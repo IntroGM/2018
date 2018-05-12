@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Basics element of Python\n",
+    "# Basic elements of Python\n",
     "This lesson aims to provide an overview of some of the basic elements in the Python programming language. In the first section these include how to define and use variables, the concept of a data type and how to determine the data type of a variable in Python, and Python lists. Later parts of the lesson introduce the [NumPy numerical Python library](http://www.numpy.org/), and the main conceptual programming components we will use: functions, loops, and conditional statements.\n",
     "\n",
     "Please note that this is not intended to be a comprehensive introduction, but rather something to give you enough background to be able to work on the programming assignments later in this course. For more about basic Python programming we refer you to the [Geo-Python course lessons](https://geo-python.github.io), [Codecademy](https://www.codecademy.com/learn/python), and the [Interactive Python Tutorial](https://www.learnpython.org/).\n",

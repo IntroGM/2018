@@ -184,10 +184,9 @@ nbsphinx_prolog = r"""
 
         This page was generated from `{{ docname }}`__.
         Interactive online version:
-        :raw-html:`<a href="https://mybinder.org/v2/gh/spatialaudio/nbsphinx/{{ env.config.release }}?filepath={{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a href="https://mybinder.org/v2/gh/IntroGM/{{ env.config.release }}/master?filepath={{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
 
-    __ https://github.com/IntroGM/blob/
-        {{ env.config.release }}/{{ docname }}
+    __ https://github.com/IntroGM/{{ env.config.release }}/blob/master/{{ docname }}
 
 .. raw:: latex
 
@@ -198,3 +197,5 @@ nbsphinx_prolog = r"""
     \noindent\rule{\textwidth}{0.4pt}}
     \vspace{-2\baselineskip}
 """
+
+nbsphinx_allow_errors = True

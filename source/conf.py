@@ -40,6 +40,7 @@ release = '2018'
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
+    'nbsphinx',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'sphinx.ext.githubpages',
@@ -67,7 +68,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -170,3 +171,30 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+# This is processed by Jinja2 and inserted before each notebook
+nbsphinx_prolog = r"""
+{% set docname = env.doc2path(env.docname, base='source') %}
+
+.. only:: html
+
+    .. role:: raw-html(raw)
+        :format: html
+
+    .. nbinfo::
+
+        This page was generated from `{{ docname }}`__.
+        Interactive online version:
+        :raw-html:`<a href="https://mybinder.org/v2/gh/spatialaudio/nbsphinx/{{ env.config.release }}?filepath={{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a>`
+
+    __ https://github.com/IntroGM/blob/
+        {{ env.config.release }}/{{ docname }}
+
+.. raw:: latex
+
+    \vfil\penalty-1\vfilneg
+    \vspace{\baselineskip}
+    \textcolor{gray}{The following section was generated from
+    \texttt{\strut{}{{ docname }}}\\[-0.5\baselineskip]
+    \noindent\rule{\textwidth}{0.4pt}}
+    \vspace{-2\baselineskip}
+"""

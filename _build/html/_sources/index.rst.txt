@@ -11,9 +11,24 @@ Welcome to the Introduction to Geodynamic Modelling course!
     :align: center
     :alt: A geodynamic model
 
+The `Helsinki University Geodynamics Group <https://wiki.helsinki.fi/pages/viewpage.action?pageId=113252575>`__ is offering a one-week short course titled “Introduction to geodynamic modelling” for master's/PhD students and interested researchers.
+
+Course goals
+------------
+
+- Understand the fundamental physical equations solved in numerical geodynamic models, how they work, and how they affect numerical experiments
+- Learn how to convert the main equations used to model lithospheric deformation into simple programs
+- Develop a background understanding of geodynamics that allows you to properly understand the behavior of geodynamic numerical models
+
 .. toctree::
    :maxdepth: 2
    :caption: Course information
+
+   course-info/course-info
+   course-info/learning-goals
+   course-info/grading
+   course-info/resources
+   course-info/licensing
 
 .. toctree::
     :maxdepth: 2

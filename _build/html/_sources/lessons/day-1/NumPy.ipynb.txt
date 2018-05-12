@@ -1,0 +1,361 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Introduction to NumPy\n",
+    "\n",
+    "## Introducing NumPy\n",
+    "\n",
+    "[NumPy](http://www.numpy.org/) is a library for Python designed for efficient scientific (numerical) computing.\n",
+    "It is an essential library in Python that is used under the hood in many other modules.\n",
+    "Here, we will get a sense of a few things NumPy can do.\n",
+    "\n",
+    "##### 1. To start using the NumPy module we will need to `import` it."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The `import library as` syntax can be used to give the library a different name in memory.\n",
+    "Since we may want to use NumPy many time, shortening `numpy` to `np` is helpful.\n",
+    "\n",
+    "##### 2. A common NumPy task is to create your own *arrays* to make a variable that has a range from one value to another.\n",
+    "A NumPy array is similar in concept to a Python list, but only contains data of one type.\n",
+    "If we wanted to calculate the `sin()` of a variable `x` at 10 points from zero to 2 * pi, we could do the following."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = np.linspace(0., 2 * np.pi, 10)\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this case, `x` starts at zero and goes to 2 * pi in 10 increments.\n",
+    "Alternatively, if we wanted to specify the size of the increments for a new variable `x2`, we could use the `np.arange()` function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x2 = np.arange(0.0, 2 * np.pi, 0.5)\n",
+    "print(x2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this case, `x2` starts at zero and goes to the largest value that is smaller than 2 * pi by increments of 0.5.\n",
+    "Both of these types of array options are useful in different situations.\n",
+    "\n",
+    "##### 3. To calculate the sine function values, we can simply use the `np.sin()` function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sine = np.sin(x)\n",
+    "print(sine)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that performing calculations on NumPy arrays will produce output in an array.\n",
+    "\n",
+    "##### 4. As before, we can check out the type of data in our arrays `x` and `x2` using the `type()` function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "type(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so we have something new here.\n",
+    "NumPy has its own data types that are part of the module.\n",
+    "In this case, our data is stored in an NumPy *n*-dimensional array.\n",
+    "\n",
+    "##### 5. How much data do we have in our `x` variable?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(x.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "10 rows of data, 1 column.\n",
+    "In this case the single column value is suppressed.\n",
+    "`shape` is a *member* or *attribute* of `x`, and is part of any NumPy `ndarray`.\n",
+    "Printing `x.shape` tells us the size of the array.\n",
+    "\n",
+    "##### 6. We can also check the data type of our data columns by using `x.dtype`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(x.dtype)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "OK, so it seems that all the data in our file is float data type, i.e., decimal numbers (stored with a precision of 64 bytes).\n",
+    "\n",
+    "##### 7. Like lists, we can find any value in an array by using it's *indices*.\n",
+    "We can also extract parts of an array using *index slicing*.\n",
+    "Perhaps we only want the first three values out of array `x`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x[0:3]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nice! Note that in this case, the range of index values for the first 3 rows is 0-3.\n",
+    "The data extracted will start at `0` and go up to, but not include `3`.\n",
+    "\n",
+    "## Useful functions \n",
+    "\n",
+    "##### 1. Like normal variables, array variables can also be used for various mathematical operations."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "doublex = x * 2.0\n",
+    "print(doublex)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 2. In addition to the *attributes* we saw prevously for NumPy `ndarray` variables, there are also many *methods* that are part of the `ndarray` data type."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(x.mean())\n",
+    "print(doublex.mean())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "No surprises here. If we think of *variables* as nouns, *methods* are verbs, actions for the variable values.\n",
+    "**NOTE**: When using methods, you always include the parentheses `()` to be clear we are referring to a *method* and not an *attribute*.\n",
+    "There are many other useful `ndarray` methods, such as `x.min()`, `x.max()`, and `x.std()` (standard deviation).\n",
+    "\n",
+    "##### 3. *Methods* can also act on part of an array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(x[0:5].mean())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 4. Zeros and ones.\n",
+    "It is pretty common that you will need to create arrays full of zeros or ones to store output from calculations.\n",
+    "NumPy includes well-named functions for doing this."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "zeros = np.zeros(10)\n",
+    "print(zeros)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ones = np.ones(10)\n",
+    "print(ones)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 5. A word of caution, and the need for copies of arrays.\n",
+    "Unlike many data types in Python, assigning an existing NumPy array to a new variable *does not* create a copy of the array, but rather simply creates pointer to the original array.\n",
+    "Consider the example below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = np.ones(10)\n",
+    "b = a\n",
+    "a += 4\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Oh no!\n",
+    "Here, we can see that even after assigning the values of array `a` to array ``b`` changes to `a` will affect `b`.\n",
+    "This is because array `b` is simply a reference to `a`.\n",
+    "But what if we want to save the values of `a` to another array without having them change when `a` changes?\n",
+    "For this we need to use `np.copy()`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = np.copy(a)\n",
+    "a += 3\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(c)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`np.copy()` creates a complete copy of the referenced array that is independent of its source.\n",
+    "This is less efficient, so NumPy defaults to using pointers instead of making complete copies of arrays.\n",
+    "\n",
+    "### Exercise - Mean of the cosine\n",
+    "- Create a NumPy array `x3` with a range of -π to +π (inclusive) with 20 increments\n",
+    "- Calculate the cosine of `x3` and store it as `cosine`\n",
+    "- What is the mean value of `cosine`?\n",
+    "- Is this value what you expect?\n",
+    "- What happens if you use a larger number of increments for `x3`?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# As was the case before, use this cell to complete the exercise\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

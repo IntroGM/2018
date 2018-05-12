@@ -1,0 +1,185 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Functions\n",
+    "\n",
+    "## Sources\n",
+    "This lesson is partly based on the [Software Carpentry group's](http://software-carpentry.org) lessons on [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## What is a function?\n",
+    "\n",
+    "A function is a block of organized, reusable code that can make your code more effective, clearer to read and easier to handle.\n",
+    "You can think functions as little self-contained programs that can perform a specific task which you can use repeatedly in your code.\n",
+    "One of the basic principles in good programming is \"not to repeat yourself\", i.e. you shouldn't have duplicate lines of code in your script.\n",
+    "Functions are a way to avoid such situations and they can save you a lot of time and effort as you don't need to retell the computer what to do every time it does a common task, such as converting temperatures from Fahrenheit to Celsius."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Anatomy of a function\n",
+    "Let's consider again the task of converting temperatures from Fahrenheit to Celsius.\n",
+    "Such an operation is a fairly common task when dealing with temperature data.\n",
+    "\n",
+    "Let's define our first function called `celsius_to_fahr`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def celsius_to_fahr(temp):\n",
+    "    return 9/5 * temp + 32"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The function definition opens with the keyword `def` followed by the name of the function and a list of parameter names in parentheses.\n",
+    "The body of the function - the statements that are executed when it runs - is indented below the definition line.\n",
+    "\n",
+    "When we call the function, the values we pass to it are assigned to the corresponding parameter variables so that we can use them inside the function (e.g., the variable `temp` in this function example).\n",
+    "Inside the function, we use a return statement to define the value that should be given when the function is used."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calling functions\n",
+    "\n",
+    "##### 1. Let's try running our function.\n",
+    "Calling our self-defined function is no different from calling any other function such as `print()`.\n",
+    "You need to call it with its name and send your value to the required parameter(s) inside the parentheses."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "freezing_point =  celsius_to_fahr(0)\n",
+    "print('Freezing point of water in Fahrenheit:', freezing_point)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Boiling point of water in Fahrenheit:', celsius_to_fahr(100))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "##### 2. Now that we know how to create a function to convert Celsius to Fahrenheit, let's create another function called `kelvin_to_celsius`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def kelvin_to_celsius(temp_k):\n",
+    "    return temp_k - 273.15"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 3. And let's use it in a similar way as the earlier one."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "absolute_zero = kelvin_to_celsius(temp_k=0)\n",
+    "print('Absolute zero in Celsius:', absolute_zero)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 4. What about converting Kelvins to Fahrenheit?\n",
+    "We could write out an own formula for it, but we don’t need to.\n",
+    "Instead, we can compose it by using the two functions we have already created and calling those from the function we are now creating."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def kelvin_to_fahr(temp_k):\n",
+    "    # Kelvin in celsius\n",
+    "    temp_c = kelvin_to_celsius(temp_k)\n",
+    "    # Celsius in Fahrenheit\n",
+    "    temp_f = celsius_to_fahr(temp_c)\n",
+    "    # Return the result\n",
+    "    return temp_f"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "##### 5. Let's use the function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "absolute_zero_f = kelvin_to_fahr(temp_k=0)\n",
+    "print('Absolute zero in Fahrenheit:', absolute_zero_f)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

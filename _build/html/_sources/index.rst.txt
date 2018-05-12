@@ -14,7 +14,11 @@ Welcome to the Introduction to Geodynamic Modelling course!
     :maxdepth: 2
     :caption: Day 1
 
-    lessons/day-1/python-basics
+    lessons/day-1/Python-basics.ipynb
+    lessons/day-1/Functions.ipynb
+    lessons/day-1/NumPy.ipynb
+    lessons/day-1/for-loops.ipynb
+    lessons/day-1/Conditional-statements.ipynb
 
 .. toctree::
     :maxdepth: 2

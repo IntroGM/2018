@@ -6,6 +6,11 @@
 Welcome to the Introduction to Geodynamic Modelling course!
 ===========================================================
 
+.. figure:: img/LK0042-cropped.gif
+    :width: 700px
+    :align: center
+    :alt: A geodynamic model
+
 .. toctree::
    :maxdepth: 2
    :caption: Course information

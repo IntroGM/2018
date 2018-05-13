@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to geodynamic modelling &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Key physical processes and concepts" href="physical-processes.html" />
+    <link rel="prev" title="License and terms of usage" href="../../course-info/licensing.html" />
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to geodynamic modelling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Let's-get-to-know-one-another">Let’s get to know one another</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Who-are-we?">Who are we?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Who-are-you?">Who are you?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Practical-matters">Practical matters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Where-are-we?">Where are we?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Toilets">Toilets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Coffee/tea">Coffee/tea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lunch">Lunch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Computer-stuff-and-course-website">Computer stuff and course website</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Computers-in-this-classroom">Computers in this classroom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Software">Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Course-website">Course website</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Course-goals-and-learning-objectives">Course goals and learning objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Course-goals">Course goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Learning-objectives">Learning objectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Working-methods">Working methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Schedule">Schedule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Day-1">Day 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Day-2">Day 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Day-3">Day 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Day-4">Day 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Day-5">Day 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Any-questions?">Any questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to geodynamic modelling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/day-1/Course-overview.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/lessons/day-1/Course-overview.ipynb">source/lessons/day-1/Course-overview.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/lessons/day-1/Course-overview.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Introduction-to-geodynamic-modelling">
+<h1>Introduction to geodynamic modelling<a class="headerlink" href="#Introduction-to-geodynamic-modelling" title="Permalink to this headline">¶</a></h1>
+<p><em>Course overview</em></p>
+<p>Lars Kaislaniemi and David Whipp</p>
+<p>14-18 May 2018</p>
+<div class="section" id="Let's-get-to-know-one-another">
+<h2>Let’s get to know one another<a class="headerlink" href="#Let's-get-to-know-one-another" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Who-are-we?">
+<h3>Who are we?<a class="headerlink" href="#Who-are-we?" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Dave Whipp, Associate professor<ul>
+<li>Geodynamics of convergent orogens</li>
+<li>Geomorphology</li>
+</ul>
+</li>
+<li>Lars Kaislaniemi, Postdoctoral researcher<ul>
+<li>Geodynamics of the Bolivian Andes</li>
+<li>Mantle dynamics and geochemistry</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Who-are-you?">
+<h3>Who are you?<a class="headerlink" href="#Who-are-you?" title="Permalink to this headline">¶</a></h3>
+<p><ul style="width: 50%;"><li><p>Name</p>
+</li><li><p>Home university &amp; program</p>
+</li><li><p>Status (Ph.D., MSc, etc.)</p>
+</li><li><p>Thesis topic</p>
+</li><li><p>Experience with coding and/or modelling</p>
+</li></ul></p></div>
+</div>
+<div class="section" id="Practical-matters">
+<h2>Practical matters<a class="headerlink" href="#Practical-matters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Where-are-we?">
+<h3>Where are we?<a class="headerlink" href="#Where-are-we?" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="D211" src="../../_images/D211.png" />
+<p class="caption"><span class="caption-text">D211</span></p>
+</div>
+</div>
+<div class="section" id="Toilets">
+<h3>Toilets<a class="headerlink" href="#Toilets" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="Toilets" src="../../_images/toilets.png" />
+<p class="caption"><span class="caption-text">Toilets</span></p>
+</div>
+</div>
+<div class="section" id="Coffee/tea">
+<h3>Coffee/tea<a class="headerlink" href="#Coffee/tea" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="Coffee/tea" src="../../_images/coffee.png" />
+<p class="caption"><span class="caption-text">Coffee/tea</span></p>
+</div>
+</div>
+<div class="section" id="Lunch">
+<h3>Lunch<a class="headerlink" href="#Lunch" title="Permalink to this headline">¶</a></h3>
+<p><ul style="width: 50%;"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">You</span> <span class="n">can</span> <span class="n">get</span> <span class="n">a</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">full</span> <span class="n">hot</span> <span class="n">lunch</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span> <span class="n">at</span> <span class="n">the</span> <span class="n">Chemicum</span><span class="p">,</span> <span class="n">Excatum</span><span class="p">,</span> <span class="ow">or</span> <span class="n">Dynamicum</span> <span class="p">(</span><span class="n">pricier</span><span class="p">,</span> <span class="n">but</span> <span class="n">a</span> <span class="n">bit</span> <span class="n">better</span><span class="p">)</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">The</span> <span class="n">Unicafe</span> <span class="p">(</span><span class="n">coffee</span> <span class="o">/</span> <span class="n">tea</span> <span class="n">spot</span><span class="p">)</span> <span class="n">also</span> <span class="n">has</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">sandwiches</span> <span class="o">/</span> <span class="n">paninis</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</ul></p></div>
+</div>
+<div class="section" id="Computer-stuff-and-course-website">
+<h2>Computer stuff and course website<a class="headerlink" href="#Computer-stuff-and-course-website" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Computers-in-this-classroom">
+<h3>Computers in this classroom<a class="headerlink" href="#Computers-in-this-classroom" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>It’s best if you use your own computer for this course</li>
+<li>Computers in this classroom can also be used, but require a
+University of Helsinki IT account</li>
+</ul>
+</div>
+<div class="section" id="Software">
+<h3>Software<a class="headerlink" href="#Software" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>All software used in this course is freely available</li>
+<li>A list of software available for download is provided on the course
+website (next slide)</li>
+</ul>
+</div>
+<div class="section" id="Course-website">
+<h3>Course website<a class="headerlink" href="#Course-website" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>All course materials will be posted to the course website:
+<a class="reference external" href="https://introgm.github.io">https://introgm.github.io</a><ul>
+<li>This page will provide links to lecture slides, scripts used for
+the course, and other materials</li>
+<li>We will be updating the page as we go.</li>
+</ul>
+</li>
+<li>The materials are freely available for use by anyone, subject to the
+license, so feel free to share with your friends/colleagues!</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Course-goals-and-learning-objectives">
+<h2>Course goals and learning objectives<a class="headerlink" href="#Course-goals-and-learning-objectives" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Course-goals">
+<h3>Course goals<a class="headerlink" href="#Course-goals" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Understand the fundamental physical equations solved in numerical
+geodynamic models, how they work, and how they affect numerical
+experiments</li>
+<li>Learn how to convert the main equations used to model lithospheric
+deformation into simple programs</li>
+<li>Develop a background understanding of geodynamics that allows you to
+properly understand the behavior of geodynamic numerical models</li>
+</ul>
+</div>
+<div class="section" id="Learning-objectives">
+<h3>Learning objectives<a class="headerlink" href="#Learning-objectives" title="Permalink to this headline">¶</a></h3>
+<p>At the end of this course, students should be able to:</p>
+<ul class="simple">
+<li>Solve partial differential equations using the finite-difference
+method</li>
+<li>Differentiate between and implement various boundary and initial
+conditions in numerical models</li>
+<li>Create their own 1D geodynamic models and know how to use modern 3D
+numerical geodynamic modelling software to simulate common physical
+processes in the Earth (heat transfer, rock deformation, etc.)</li>
+</ul>
+</div>
+<div class="section" id="Working-methods">
+<h3>Working methods<a class="headerlink" href="#Working-methods" title="Permalink to this headline">¶</a></h3>
+<p align="left"><p>The course involves a combination of lectures and computer-based
+exercises</p>
+</p><ul class="simple">
+<li>We will try to keep lectures to a minimum, but we do need to present
+some material you will need to complete the computer exercises</li>
+<li>For the computer exercises, you should work together with the others
+in the course and we will discuss your solutions after you have
+completed each exercise</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Schedule">
+<h2>Schedule<a class="headerlink" href="#Schedule" title="Permalink to this headline">¶</a></h2>
+<p style="font-size:24px"><p><strong>*Subject to change - Last updated 13.5.2018*</strong></p>
+</p><p style="font-size:24px"><p><strong>*Press space to view each day*</strong></p>
+</p><div class="section" id="Day-1">
+<h3>Day 1<a class="headerlink" href="#Day-1" title="Permalink to this headline">¶</a></h3>
+<p style="font-size:24px"><p>09:30-10:00 - Course overview and introductions 10:00-10:50 - Key
+physical processes/concepts</p>
+<p>10:50-11:05 - <strong>*Coffee/tea break*</strong></p>
+<p>11:05-11:45 - Key physical processes/concepts (ctd.) 11:45-12:15 -
+Solving equations 12:15-12:30 - <em>Computer setup/introduction</em> (optional)</p>
+<p>12:30-13:30 - <strong>*Lunch*</strong></p>
+<p>13:30-14:50 - Python/computing essentials</p>
+<p>14:50-15:05 - <strong>*Coffee/tea break*</strong></p>
+<p>15:05-16:30 - Python/computing essentials (ctd.)</p>
+</p></div>
+<div class="section" id="Day-2">
+<h3>Day 2<a class="headerlink" href="#Day-2" title="Permalink to this headline">¶</a></h3>
+<p style="font-size:24px"><p>09:30-10:50 - The finite difference method, part I</p>
+<p>10:50-11:05 - <strong>*Coffee/tea break*</strong></p>
+<p>11:05-12:30 - The finite difference method, part I (ctd.)</p>
+<p>12:30-13:30 - <strong>*Lunch*</strong></p>
+<p>13:30-15:00 - Heat conduction and advection in 1D</p>
+<p>15:00-15:15 - <strong>*Coffee/tea break*</strong></p>
+<p>15:15-16:30 - Heat conduction and advection in 1D (ctd.)</p>
+</p></div>
+<div class="section" id="Day-3">
+<h3>Day 3<a class="headerlink" href="#Day-3" title="Permalink to this headline">¶</a></h3>
+<p style="font-size:24px"><p>09:30-10:50 - Solving the momentum and continuity equations</p>
+<p>10:50-11:05 - <strong>*Coffee/tea break*</strong></p>
+<p>11:05-12:30 - Solving the momentum and continuity equations (ctd.)</p>
+<p>12:30-13:30 - <strong>*Lunch*</strong></p>
+<p>13:30-15:00 - Testing your code and benchmarking</p>
+<p>15:00-15:15 - <strong>*Coffee/tea break*</strong></p>
+<p>15:15-16:00 - The marker-in-cell technique 16:00-16:30 - Putting it all
+together</p>
+</p></div>
+<div class="section" id="Day-4">
+<h3>Day 4<a class="headerlink" href="#Day-4" title="Permalink to this headline">¶</a></h3>
+<p style="font-size:24px"><p>09:30-10:50 - Introduction to DOUAR</p>
+<p>10:50-11:05 - <strong>*Coffee/tea break*</strong></p>
+<p>11:05-12:30 - Cluster computing</p>
+<p>12:30-13:30 - <strong>*Lunch*</strong></p>
+<p>13:30-15:00 - Running a DOUAR model</p>
+<p>15:00-15:15 - <strong>*Coffee/tea break*</strong></p>
+<p>15:15-16:30 - 3D visualization with ParaView</p>
+</p></div>
+<div class="section" id="Day-5">
+<h3>Day 5<a class="headerlink" href="#Day-5" title="Permalink to this headline">¶</a></h3>
+<p style="font-size:24px"><p>09:30-10:50 - Modifying the DOUAR models and re-running experiments</p>
+<p>10:50-11:05 - <strong>*Coffee/tea break*</strong></p>
+<p>11:05-12:30 - Modifying the DOUAR models and re-running experiments
+(ctd.)</p>
+<p>12:30-13:30 - <strong>*Lunch*</strong></p>
+<p>13:30-13:45 - Course project description 13:45-15:00 - Free time for
+experimentation with DOUAR</p>
+<p>15:00-15:15 - <strong>*Coffee/tea break*</strong></p>
+<p>15:15-16:30 - Free time for experimentation with DOUAR (ctd.)</p>
+</p></div>
+</div>
+<div class="section" id="Any-questions?">
+<h2>Any questions?<a class="headerlink" href="#Any-questions?" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="physical-processes.html" class="btn btn-neutral float-right" title="Key physical processes and concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../course-info/licensing.html" class="btn btn-neutral" title="License and terms of usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

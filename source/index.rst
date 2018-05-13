@@ -34,6 +34,9 @@ Course goals
     :maxdepth: 2
     :caption: Day 1
 
+    lessons/day-1/Course-overview.ipynb
+    lessons/day-1/physical-processes
+    lessons/day-1/solving-equations
     lessons/day-1/python-basics.ipynb
     lessons/day-1/Functions.ipynb
     lessons/day-1/NumPy.ipynb

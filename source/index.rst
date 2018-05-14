@@ -29,6 +29,7 @@ Course goals
    course-info/grading
    course-info/resources
    course-info/licensing
+   course-info/previous-years
 
 .. toctree::
     :maxdepth: 2

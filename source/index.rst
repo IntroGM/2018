@@ -38,11 +38,11 @@ Course goals
     lessons/day-1/Course-overview.ipynb
     lessons/day-1/physical-processes
     lessons/day-1/solving-equations
-    lessons/day-1/python-basics.ipynb
-    lessons/day-1/Functions.ipynb
-    lessons/day-1/NumPy.ipynb
-    lessons/day-1/for-loops.ipynb
-    lessons/day-1/Conditional-statements.ipynb
+    notebooks/day-1/python-basics.ipynb
+    notebooks/day-1/Functions.ipynb
+    notebooks/day-1/NumPy.ipynb
+    notebooks/day-1/for-loops.ipynb
+    notebooks/day-1/Conditional-statements.ipynb
 
 .. toctree::
     :maxdepth: 2

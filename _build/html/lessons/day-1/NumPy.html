@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul class="current">
@@ -106,18 +107,18 @@
 <li class="toctree-l1"><a class="reference internal" href="Functions.html">Functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to NumPy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Introducing-NumPy">Introducing NumPy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#1.-To-start-using-the-NumPy-module-we-will-need-to-import-it.">1. To start using the NumPy module we will need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#1.-To-start-using-the-NumPy-module-we-will-need-to-import-it.">1. To start using the NumPy module we will need to <code class="docutils literal"><span class="pre">import</span></code> it.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#2.-A-common-NumPy-task-is-to-create-your-own-arrays-to-make-a-variable-that-has-a-range-from-one-value-to-another.">2. A common NumPy task is to create your own <em>arrays</em> to make a variable that has a range from one value to another.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function.">3. To calculate the sine function values, we can simply use the <code class="docutils literal notranslate"><span class="pre">np.sin()</span></code> function.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function.">4. As before, we can check out the type of data in our arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#5.-How-much-data-do-we-have-in-our-x-variable?">5. How much data do we have in our <code class="docutils literal notranslate"><span class="pre">x</span></code> variable?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype">6. We can also check the data type of our data columns by using <code class="docutils literal notranslate"><span class="pre">x.dtype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function.">3. To calculate the sine function values, we can simply use the <code class="docutils literal"><span class="pre">np.sin()</span></code> function.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function.">4. As before, we can check out the type of data in our arrays <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">x2</span></code> using the <code class="docutils literal"><span class="pre">type()</span></code> function.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5.-How-much-data-do-we-have-in-our-x-variable?">5. How much data do we have in our <code class="docutils literal"><span class="pre">x</span></code> variable?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype">6. We can also check the data type of our data columns by using <code class="docutils literal"><span class="pre">x.dtype</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#7.-Like-lists,-we-can-find-any-value-in-an-array-by-using-it's-indices.">7. Like lists, we can find any value in an array by using it’s <em>indices</em>.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Useful-functions">Useful functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#1.-Like-normal-variables,-array-variables-can-also-be-used-for-various-mathematical-operations.">1. Like normal variables, array variables can also be used for various mathematical operations.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type.">2. In addition to the <em>attributes</em> we saw prevously for NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> variables, there are also many <em>methods</em> that are part of the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> data type.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type.">2. In addition to the <em>attributes</em> we saw prevously for NumPy <code class="docutils literal"><span class="pre">ndarray</span></code> variables, there are also many <em>methods</em> that are part of the <code class="docutils literal"><span class="pre">ndarray</span></code> data type.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#3.-Methods-can-also-act-on-part-of-an-array.">3. <em>Methods</em> can also act on part of an array.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-Zeros-and-ones.">4. Zeros and ones.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#5.-A-word-of-caution,-and-the-need-for-copies-of-arrays.">5. A word of caution, and the need for copies of arrays.</a><ul>
@@ -394,32 +395,32 @@ efficient scientific (numerical) computing. It is an essential library
 in Python that is used under the hood in many other modules. Here, we
 will get a sense of a few things NumPy can do.</p>
 <div class="section" id="1.-To-start-using-the-NumPy-module-we-will-need-to-import-it.">
-<h3>1. To start using the NumPy module we will need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.<a class="headerlink" href="#1.-To-start-using-the-NumPy-module-we-will-need-to-import-it." title="Permalink to this headline">¶</a></h3>
+<h3>1. To start using the NumPy module we will need to <code class="docutils literal"><span class="pre">import</span></code> it.<a class="headerlink" href="#1.-To-start-using-the-NumPy-module-we-will-need-to-import-it." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">library</span> <span class="pre">as</span></code> syntax can be used to give the library a
+<p>The <code class="docutils literal"><span class="pre">import</span> <span class="pre">library</span> <span class="pre">as</span></code> syntax can be used to give the library a
 different name in memory. Since we may want to use NumPy many time,
-shortening <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to <code class="docutils literal notranslate"><span class="pre">np</span></code> is helpful.</p>
+shortening <code class="docutils literal"><span class="pre">numpy</span></code> to <code class="docutils literal"><span class="pre">np</span></code> is helpful.</p>
 </div>
 <div class="section" id="2.-A-common-NumPy-task-is-to-create-your-own-arrays-to-make-a-variable-that-has-a-range-from-one-value-to-another.">
 <h3>2. A common NumPy task is to create your own <em>arrays</em> to make a variable that has a range from one value to another.<a class="headerlink" href="#2.-A-common-NumPy-task-is-to-create-your-own-arrays-to-make-a-variable-that-has-a-range-from-one-value-to-another." title="Permalink to this headline">¶</a></h3>
 <p>A NumPy array is similar in concept to a Python list, but only contains
-data of one type. If we wanted to calculate the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> of a variable
-<code class="docutils literal notranslate"><span class="pre">x</span></code> at 10 points from zero to 2 * pi, we could do the following.</p>
+data of one type. If we wanted to calculate the <code class="docutils literal"><span class="pre">sin()</span></code> of a variable
+<code class="docutils literal"><span class="pre">x</span></code> at 10 points from zero to 2 * pi, we could do the following.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -430,19 +431,19 @@ data of one type. If we wanted to calculate the <code class="docutils literal no
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.          0.6981317   1.3962634   2.0943951   2.7925268   3.4906585
-  4.1887902   4.88692191  5.58505361  6.28318531]
+[0.         0.6981317  1.3962634  2.0943951  2.7925268  3.4906585
+ 4.1887902  4.88692191 5.58505361 6.28318531]
 </pre></div></div>
 </div>
-<p>In this case, <code class="docutils literal notranslate"><span class="pre">x</span></code> starts at zero and goes to 2 * pi in 10 increments.
+<p>In this case, <code class="docutils literal"><span class="pre">x</span></code> starts at zero and goes to 2 * pi in 10 increments.
 Alternatively, if we wanted to specify the size of the increments for a
-new variable <code class="docutils literal notranslate"><span class="pre">x2</span></code>, we could use the <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function.</p>
+new variable <code class="docutils literal"><span class="pre">x2</span></code>, we could use the <code class="docutils literal"><span class="pre">np.arange()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
 </pre></div>
@@ -453,21 +454,21 @@ new variable <code class="docutils literal notranslate"><span class="pre">x2</sp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.   0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6. ]
+[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6. ]
 </pre></div></div>
 </div>
-<p>In this case, <code class="docutils literal notranslate"><span class="pre">x2</span></code> starts at zero and goes to the largest value that
+<p>In this case, <code class="docutils literal"><span class="pre">x2</span></code> starts at zero and goes to the largest value that
 is smaller than 2 * pi by increments of 0.5. Both of these types of
 array options are useful in different situations.</p>
 </div>
 <div class="section" id="3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function.">
-<h3>3. To calculate the sine function values, we can simply use the <code class="docutils literal notranslate"><span class="pre">np.sin()</span></code> function.<a class="headerlink" href="#3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function." title="Permalink to this headline">¶</a></h3>
+<h3>3. To calculate the sine function values, we can simply use the <code class="docutils literal"><span class="pre">np.sin()</span></code> function.<a class="headerlink" href="#3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">sine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sine</span><span class="p">)</span>
 </pre></div>
@@ -478,32 +479,32 @@ array options are useful in different situations.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[  0.00000000e+00   6.42787610e-01   9.84807753e-01   8.66025404e-01
-   3.42020143e-01  -3.42020143e-01  -8.66025404e-01  -9.84807753e-01
-  -6.42787610e-01  -2.44929360e-16]
+[ 0.00000000e+00  6.42787610e-01  9.84807753e-01  8.66025404e-01
+  3.42020143e-01 -3.42020143e-01 -8.66025404e-01 -9.84807753e-01
+ -6.42787610e-01 -2.44929360e-16]
 </pre></div></div>
 </div>
 <p>Note that performing calculations on NumPy arrays will produce output in
 an array.</p>
 </div>
 <div class="section" id="4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function.">
-<h3>4. As before, we can check out the type of data in our arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.<a class="headerlink" href="#4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function." title="Permalink to this headline">¶</a></h3>
+<h3>4. As before, we can check out the type of data in our arrays <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">x2</span></code> using the <code class="docutils literal"><span class="pre">type()</span></code> function.<a class="headerlink" href="#4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>numpy.ndarray
 </pre></div>
 </div>
@@ -513,13 +514,13 @@ part of the module. In this case, our data is stored in an NumPy
 <em>n</em>-dimensional array.</p>
 </div>
 <div class="section" id="5.-How-much-data-do-we-have-in-our-x-variable?">
-<h3>5. How much data do we have in our <code class="docutils literal notranslate"><span class="pre">x</span></code> variable?<a class="headerlink" href="#5.-How-much-data-do-we-have-in-our-x-variable?" title="Permalink to this headline">¶</a></h3>
+<h3>5. How much data do we have in our <code class="docutils literal"><span class="pre">x</span></code> variable?<a class="headerlink" href="#5.-How-much-data-do-we-have-in-our-x-variable?" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -533,18 +534,18 @@ part of the module. In this case, our data is stored in an NumPy
 </pre></div></div>
 </div>
 <p>10 rows of data, 1 column. In this case the single column value is
-suppressed. <code class="docutils literal notranslate"><span class="pre">shape</span></code> is a <em>member</em> or <em>attribute</em> of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and is part
-of any NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. Printing <code class="docutils literal notranslate"><span class="pre">x.shape</span></code> tells us the size of the
+suppressed. <code class="docutils literal"><span class="pre">shape</span></code> is a <em>member</em> or <em>attribute</em> of <code class="docutils literal"><span class="pre">x</span></code>, and is part
+of any NumPy <code class="docutils literal"><span class="pre">ndarray</span></code>. Printing <code class="docutils literal"><span class="pre">x.shape</span></code> tells us the size of the
 array.</p>
 </div>
 <div class="section" id="6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype">
-<h3>6. We can also check the data type of our data columns by using <code class="docutils literal notranslate"><span class="pre">x.dtype</span></code><a class="headerlink" href="#6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype" title="Permalink to this headline">¶</a></h3>
+<h3>6. We can also check the data type of our data columns by using <code class="docutils literal"><span class="pre">x.dtype</span></code><a class="headerlink" href="#6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -563,30 +564,30 @@ decimal numbers (stored with a precision of 64 bytes).</p>
 <div class="section" id="7.-Like-lists,-we-can-find-any-value-in-an-array-by-using-it's-indices.">
 <h3>7. Like lists, we can find any value in an array by using it’s <em>indices</em>.<a class="headerlink" href="#7.-Like-lists,-we-can-find-any-value-in-an-array-by-using-it's-indices." title="Permalink to this headline">¶</a></h3>
 <p>We can also extract parts of an array using <em>index slicing</em>. Perhaps we
-only want the first three values out of array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+only want the first three values out of array <code class="docutils literal"><span class="pre">x</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([ 0.       ,  0.6981317,  1.3962634])
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([0.       , 0.6981317, 1.3962634])
 </pre></div>
 </div>
 </div>
 <p>Nice! Note that in this case, the range of index values for the first 3
-rows is 0-3. The data extracted will start at <code class="docutils literal notranslate"><span class="pre">0</span></code> and go up to, but
-not include <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+rows is 0-3. The data extracted will start at <code class="docutils literal"><span class="pre">0</span></code> and go up to, but
+not include <code class="docutils literal"><span class="pre">3</span></code>.</p>
 </div>
 </div>
 <div class="section" id="Useful-functions">
@@ -594,11 +595,11 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 <div class="section" id="1.-Like-normal-variables,-array-variables-can-also-be-used-for-various-mathematical-operations.">
 <h3>1. Like normal variables, array variables can also be used for various mathematical operations.<a class="headerlink" href="#1.-Like-normal-variables,-array-variables-can-also-be-used-for-various-mathematical-operations." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">doublex</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mf">2.0</span>
 <span class="k">print</span><span class="p">(</span><span class="n">doublex</span><span class="p">)</span>
 </pre></div>
@@ -609,19 +610,19 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[  0.           1.3962634    2.7925268    4.1887902    5.58505361
-   6.98131701   8.37758041   9.77384381  11.17010721  12.56637061]
+[ 0.          1.3962634   2.7925268   4.1887902   5.58505361  6.98131701
+  8.37758041  9.77384381 11.17010721 12.56637061]
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type.">
-<h3>2. In addition to the <em>attributes</em> we saw prevously for NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> variables, there are also many <em>methods</em> that are part of the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> data type.<a class="headerlink" href="#2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type." title="Permalink to this headline">¶</a></h3>
+<h3>2. In addition to the <em>attributes</em> we saw prevously for NumPy <code class="docutils literal"><span class="pre">ndarray</span></code> variables, there are also many <em>methods</em> that are part of the <code class="docutils literal"><span class="pre">ndarray</span></code> data type.<a class="headerlink" href="#2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">doublex</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
@@ -632,25 +633,25 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-3.14159265359
-6.28318530718
+3.141592653589793
+6.283185307179586
 </pre></div></div>
 </div>
 <p>No surprises here. If we think of <em>variables</em> as nouns, <em>methods</em> are
 verbs, actions for the variable values. <strong>NOTE</strong>: When using methods,
-you always include the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> to be clear we are referring
+you always include the parentheses <code class="docutils literal"><span class="pre">()</span></code> to be clear we are referring
 to a <em>method</em> and not an <em>attribute</em>. There are many other useful
-<code class="docutils literal notranslate"><span class="pre">ndarray</span></code> methods, such as <code class="docutils literal notranslate"><span class="pre">x.min()</span></code>, <code class="docutils literal notranslate"><span class="pre">x.max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">x.std()</span></code>
+<code class="docutils literal"><span class="pre">ndarray</span></code> methods, such as <code class="docutils literal"><span class="pre">x.min()</span></code>, <code class="docutils literal"><span class="pre">x.max()</span></code>, and <code class="docutils literal"><span class="pre">x.std()</span></code>
 (standard deviation).</p>
 </div>
 <div class="section" id="3.-Methods-can-also-act-on-part-of-an-array.">
 <h3>3. <em>Methods</em> can also act on part of an array.<a class="headerlink" href="#3.-Methods-can-also-act-on-part-of-an-array." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -660,7 +661,7 @@ to a <em>method</em> and not an <em>attribute</em>. There are many other useful
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.3962634016
+1.3962634015954634
 </pre></div></div>
 </div>
 </div>
@@ -670,11 +671,11 @@ to a <em>method</em> and not an <em>attribute</em>. There are many other useful
 ones to store output from calculations. NumPy includes well-named
 functions for doing this.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span>
 </pre></div>
@@ -685,15 +686,15 @@ functions for doing this.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span>
 </pre></div>
@@ -704,7 +705,7 @@ functions for doing this.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
+[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 </pre></div></div>
 </div>
 </div>
@@ -714,11 +715,11 @@ functions for doing this.</p>
 new variable <em>does not</em> create a copy of the array, but rather simply
 creates pointer to the original array. Consider the example below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a</span> <span class="o">+=</span> <span class="mi">4</span>
@@ -731,15 +732,15 @@ creates pointer to the original array. Consider the example below.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
+[5. 5. 5. 5. 5. 5. 5. 5. 5. 5.]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -749,20 +750,20 @@ creates pointer to the original array. Consider the example below.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
+[5. 5. 5. 5. 5. 5. 5. 5. 5. 5.]
 </pre></div></div>
 </div>
 <p>Oh no! Here, we can see that even after assigning the values of array
-<code class="docutils literal notranslate"><span class="pre">a</span></code> to array <code class="docutils literal notranslate"><span class="pre">b</span></code> changes to <code class="docutils literal notranslate"><span class="pre">a</span></code> will affect <code class="docutils literal notranslate"><span class="pre">b</span></code>. This is because
-array <code class="docutils literal notranslate"><span class="pre">b</span></code> is simply a reference to <code class="docutils literal notranslate"><span class="pre">a</span></code>. But what if we want to save
-the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> to another array without having them change when
-<code class="docutils literal notranslate"><span class="pre">a</span></code> changes? For this we need to use <code class="docutils literal notranslate"><span class="pre">np.copy()</span></code>.</p>
+<code class="docutils literal"><span class="pre">a</span></code> to array <code class="docutils literal"><span class="pre">b</span></code> changes to <code class="docutils literal"><span class="pre">a</span></code> will affect <code class="docutils literal"><span class="pre">b</span></code>. This is because
+array <code class="docutils literal"><span class="pre">b</span></code> is simply a reference to <code class="docutils literal"><span class="pre">a</span></code>. But what if we want to save
+the values of <code class="docutils literal"><span class="pre">a</span></code> to another array without having them change when
+<code class="docutils literal"><span class="pre">a</span></code> changes? For this we need to use <code class="docutils literal"><span class="pre">np.copy()</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">+=</span> <span class="mi">3</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -774,15 +775,15 @@ the values of <code class="docutils literal notranslate"><span class="pre">a</sp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 8.  8.  8.  8.  8.  8.  8.  8.  8.  8.]
+[8. 8. 8. 8. 8. 8. 8. 8. 8. 8.]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -792,28 +793,28 @@ the values of <code class="docutils literal notranslate"><span class="pre">a</sp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
+[5. 5. 5. 5. 5. 5. 5. 5. 5. 5.]
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">np.copy()</span></code> creates a complete copy of the referenced array that is
+<p><code class="docutils literal"><span class="pre">np.copy()</span></code> creates a complete copy of the referenced array that is
 independent of its source. This is less efficient, so NumPy defaults to
 using pointers instead of making complete copies of arrays.</p>
 <div class="section" id="Exercise---Mean-of-the-cosine">
 <h4>Exercise - Mean of the cosine<a class="headerlink" href="#Exercise---Mean-of-the-cosine" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li>Create a NumPy array <code class="docutils literal notranslate"><span class="pre">x3</span></code> with a range of -π to +π (inclusive) with
+<li>Create a NumPy array <code class="docutils literal"><span class="pre">x3</span></code> with a range of -π to +π (inclusive) with
 20 increments</li>
-<li>Calculate the cosine of <code class="docutils literal notranslate"><span class="pre">x3</span></code> and store it as <code class="docutils literal notranslate"><span class="pre">cosine</span></code></li>
-<li>What is the mean value of <code class="docutils literal notranslate"><span class="pre">cosine</span></code>?</li>
+<li>Calculate the cosine of <code class="docutils literal"><span class="pre">x3</span></code> and store it as <code class="docutils literal"><span class="pre">cosine</span></code></li>
+<li>What is the mean value of <code class="docutils literal"><span class="pre">cosine</span></code>?</li>
 <li>Is this value what you expect?</li>
-<li>What happens if you use a larger number of increments for <code class="docutils literal notranslate"><span class="pre">x3</span></code>?</li>
+<li>What happens if you use a larger number of increments for <code class="docutils literal"><span class="pre">x3</span></code>?</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># As was the case before, use this cell to complete the exercise</span>
 
 </pre></div>
@@ -891,7 +892,9 @@ using pointers instead of making complete copies of arrays.</p>
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

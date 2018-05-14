@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul class="current">
@@ -117,7 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Lists-and-indices">Lists and indices</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#1.-Let's-first-create-a-list-of-selected-SampleID-values.">1. Let’s first create a list of selected SampleID values.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#2.-To-access-an-individual-value-in-the-list-we-need-to-use-an-index-value.">2. To access an individual value in the list we need to use an <em>index value</em>.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-We-can-find-the-length-of-a-list-using-the-len()-function.">3. We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.-We-can-find-the-length-of-a-list-using-the-len()-function.">3. We can find the length of a list using the <code class="docutils literal"><span class="pre">len()</span></code> function.</a></li>
 </ul>
 </li>
 </ul>
@@ -433,41 +434,41 @@ operations you can perform using Python.</p>
 <p>Remember, you can press <strong>Shift-Enter</strong> to execute the code in the cells
 below. Try it out and see what you get.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[1]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>2
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>35
 </pre></div>
 </div>
@@ -493,79 +494,79 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Addition</td>
-<td><code class="docutils literal notranslate"><span class="pre">+</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+<td><code class="docutils literal"><span class="pre">+</span></code></td>
+<td><code class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal"><span class="pre">4</span></code></td>
 </tr>
 <tr class="row-odd"><td>Subtraction</td>
-<td><code class="docutils literal notranslate"><span class="pre">-</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+<td><code class="docutils literal"><span class="pre">-</span></code></td>
+<td><code class="docutils literal"><span class="pre">4</span> <span class="pre">-</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal"><span class="pre">2</span></code></td>
 </tr>
 <tr class="row-even"><td>Multiplication</td>
-<td><code class="docutils literal notranslate"><span class="pre">*</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">6</span></code></td>
+<td><code class="docutils literal"><span class="pre">*</span></code></td>
+<td><code class="docutils literal"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></td>
+<td><code class="docutils literal"><span class="pre">6</span></code></td>
 </tr>
 <tr class="row-odd"><td>Division</td>
-<td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+<td><code class="docutils literal"><span class="pre">/</span></code></td>
+<td><code class="docutils literal"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">2</span></code></td>
+<td><code class="docutils literal"><span class="pre">2</span></code></td>
 </tr>
 <tr class="row-even"><td>Exponentiation</td>
-<td><code class="docutils literal notranslate"><span class="pre">**</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">2**3</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">8</span></code></td>
+<td><code class="docutils literal"><span class="pre">**</span></code></td>
+<td><code class="docutils literal"><span class="pre">2**3</span></code></td>
+<td><code class="docutils literal"><span class="pre">8</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>For anything more advanced, we need to load a <em>module</em>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">math</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>0.1411200080598672
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>2.0
 </pre></div>
 </div>
@@ -574,52 +575,52 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 <ol class="arabic simple">
 <li>A <em>module</em>, also known as a <em>library</em>, is a group of code items such
 as functions that are related to one another. Modules are loaded
-using <code class="docutils literal notranslate"><span class="pre">import</span></code>. Functions that are part of the module
-<code class="docutils literal notranslate"><span class="pre">modulename</span></code> could then be used by typing
-<code class="docutils literal notranslate"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">sin()</span></code> is a function
-that is part of the <code class="docutils literal notranslate"><span class="pre">math</span></code> module, and used by typing
-<code class="docutils literal notranslate"><span class="pre">math.sin()</span></code> with some number between the parentheses.</li>
+using <code class="docutils literal"><span class="pre">import</span></code>. Functions that are part of the module
+<code class="docutils literal"><span class="pre">modulename</span></code> could then be used by typing
+<code class="docutils literal"><span class="pre">modulename.functionname()</span></code>. For example, <code class="docutils literal"><span class="pre">sin()</span></code> is a function
+that is part of the <code class="docutils literal"><span class="pre">math</span></code> module, and used by typing
+<code class="docutils literal"><span class="pre">math.sin()</span></code> with some number between the parentheses.</li>
 <li>Within a given Jupyter Notebook the variables you define earlier in
 the notebook will be available for use in the cells that follow as
 long as you have already executed the cells.</li>
-<li>Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</li>
+<li>Modules may also contain constants such as <code class="docutils literal"><span class="pre">math.pi</span></code>.</li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>3.141592653589793
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>1.2246467991473532e-16
 </pre></div>
 </div>
@@ -628,11 +629,11 @@ long as you have already executed the cells.</li>
 <div class="section" id="3.-Functions-can-also-be-combined.">
 <h4>3. Functions can also be combined.<a class="headerlink" href="#3.-Functions-can-also-be-combined." title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -646,11 +647,11 @@ long as you have already executed the cells.</li>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;The square root of 4 is&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -667,11 +668,11 @@ The square root of 4 is 2.0
 <div class="section" id="4.-Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations.">
 <h4>4. <em>Variables</em> can be used to store values calculated in expressions and used for other calculations.<a class="headerlink" href="#4.-Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations." title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">tempCelsius</span> <span class="o">=</span> <span class="mf">10.0</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tempCelsius</span><span class="p">)</span>
 </pre></div>
@@ -686,11 +687,11 @@ The square root of 4 is 2.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Fahrenheit:&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="n">tempCelsius</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -704,13 +705,13 @@ Temperature in Fahrenheit: 50.0
 </pre></div></div>
 </div>
 <p>Note that if you try to run some code that accesses a variable that has
-not yet been defined you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> message.</p>
+not yet been defined you will get a <code class="docutils literal"><span class="pre">NameError</span></code> message.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Celsius:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span> <span class="o">*</span> <span class="p">(</span><span class="n">tempFahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -733,18 +734,18 @@ in a later cell and execute that cell, we can return to the earlier one
 and the code should now work. That was a bit of a complicated sentence,
 so let’s test this all out. First, execute the Python code in the cell
 below. Then, return to the cell above this text and run it again. See
-how the error message has gone away? <code class="docutils literal notranslate"><span class="pre">tempFahrenheit</span></code> has now been
-defined and thus the cell above no longer generates a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> when
+how the error message has gone away? <code class="docutils literal"><span class="pre">tempFahrenheit</span></code> has now been
+defined and thus the cell above no longer generates a <code class="docutils literal"><span class="pre">NameError</span></code> when
 the code is executed.</p>
-<p>Note that the number beside the cell, for example <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you
+<p>Note that the number beside the cell, for example <code class="docutils literal"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you
 the order in which the Python cells have been executed. This way you can
 see a history of the commands you’ve executed</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="mi">32</span>
 </pre></div>
 </div>
@@ -765,54 +766,54 @@ see a history of the commands you’ve executed</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">int</span></code></td>
 <td>Whole integer values</td>
-<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+<td><code class="docutils literal"><span class="pre">4</span></code></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">float</span></code></td>
 <td>Decimal values</td>
-<td><code class="docutils literal notranslate"><span class="pre">3.1415</span></code></td>
+<td><code class="docutils literal"><span class="pre">3.1415</span></code></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">str</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">str</span></code></td>
 <td>Character strings</td>
-<td><code class="docutils literal notranslate"><span class="pre">'Hot'</span></code></td>
+<td><code class="docutils literal"><span class="pre">'Hot'</span></code></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">bool</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">bool</span></code></td>
 <td>True/false values</td>
-<td><code class="docutils literal notranslate"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>The data type can be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will
+<p>The data type can be found using the <code class="docutils literal"><span class="pre">type()</span></code> function. As you will
 see, the data types are important because some are not compatible with
 one another.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">weatherForecast</span> <span class="o">=</span> <span class="s1">&#39;Hot&#39;</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">weatherForecast</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>str
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">type</span><span class="p">(</span><span class="n">tempFahrenheit</span><span class="p">)</span>
 <span class="n">tempFahrenheit</span> <span class="o">=</span> <span class="n">tempFahrenheit</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">weatherForecast</span>
 </pre></div>
@@ -832,7 +833,7 @@ one another.</p>
 <span class="ansi-red-fg">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;float&#39;
 </pre></div></div>
 </div>
-<p>In this case we get at <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> because we are trying to execute a
+<p>In this case we get at <code class="docutils literal"><span class="pre">TypeError</span></code> because we are trying to execute a
 math operation with data types that are not compatible. There is no way
 in Python to multpily numbers with a character string.</p>
 </div>
@@ -846,11 +847,11 @@ simplest type of collection in Python is a <strong>list</strong>.</p>
 <div class="section" id="1.-Let's-first-create-a-list-of-selected-SampleID-values.">
 <h4>1. Let’s first create a list of selected SampleID values.<a class="headerlink" href="#1.-Let's-first-create-a-list-of-selected-SampleID-values." title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">SampleIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DW-NP-03&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-12&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-33&#39;</span><span class="p">,</span> <span class="s1">&#39;DW-NP-48&#39;</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
 </pre></div>
@@ -865,28 +866,28 @@ simplest type of collection in Python is a <strong>list</strong>.</p>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">type</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>list
 </pre></div>
 </div>
 </div>
 <p>Here we have a list of 4 SampleID values in a list called SampleIDs. As
-you can see, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function recognizes this as a list. Lists
-can be created using the square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>), with commas
+you can see, the <code class="docutils literal"><span class="pre">type()</span></code> function recognizes this as a list. Lists
+can be created using the square brackets (<code class="docutils literal"><span class="pre">[</span></code> and <code class="docutils literal"><span class="pre">]</span></code>), with commas
 separating the values in the list.</p>
 </div>
 <div class="section" id="2.-To-access-an-individual-value-in-the-list-we-need-to-use-an-index-value.">
@@ -894,11 +895,11 @@ separating the values in the list.</p>
 <p>An index value is a number that refers to a given position in the list.
 Let’s check out the first value in our list as an example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -912,32 +913,32 @@ DW-NP-12
 </pre></div></div>
 </div>
 <p>Note that Python (and many other programming languages) start values
-stored in collections with the index value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+stored in collections with the index value <code class="docutils literal"><span class="pre">0</span></code>.</p>
 </div>
 <div class="section" id="3.-We-can-find-the-length-of-a-list-using-the-len()-function.">
-<h4>3. We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.<a class="headerlink" href="#3.-We-can-find-the-length-of-a-list-using-the-len()-function." title="Permalink to this headline">¶</a></h4>
+<h4>3. We can find the length of a list using the <code class="docutils literal"><span class="pre">len()</span></code> function.<a class="headerlink" href="#3.-We-can-find-the-length-of-a-list-using-the-len()-function." title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="nb">len</span><span class="p">(</span><span class="n">SampleIDs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>Out[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area highlight-none"><div class="highlight"><pre>
 <span></span>4
 </pre></div>
 </div>
 </div>
-<p>Just as expected, there are 4 values in our list and <code class="docutils literal notranslate"><span class="pre">len(SampleIDs)</span></code>
-returns a value of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<p>Just as expected, there are 4 values in our list and <code class="docutils literal"><span class="pre">len(SampleIDs)</span></code>
+returns a value of <code class="docutils literal"><span class="pre">4</span></code>.</p>
 </div>
 </div>
 </div>
@@ -945,18 +946,18 @@ returns a value of <code class="docutils literal notranslate"><span class="pre">
 <h2>Exercise - Getting to know lists<a class="headerlink" href="#Exercise---Getting-to-know-lists" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Create a Python list containing 4 items/values and store it with the
-variable <code class="docutils literal notranslate"><span class="pre">myList</span></code>.</li>
+variable <code class="docutils literal"><span class="pre">myList</span></code>.</li>
 <li>After you have created the list, check its data type, then use the
 index values to check the data types of the contents of the list.</li>
 <li>What kinds of data can you store in lists? Does each list value need
 to be the same data type?</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># You can create your example list in this cell</span>
 <span class="c1"># By the way, you can comment lines in Python (or a Jupyter Notebook Python cell)</span>
 <span class="c1"># by starting the line with a number sign</span>
@@ -1036,7 +1037,9 @@ to be the same data type?</li>
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

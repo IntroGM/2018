@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul class="current">
@@ -107,13 +108,13 @@
 <li class="toctree-l1"><a class="reference internal" href="NumPy.html">Introduction to NumPy</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">for loops</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Sources">Sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Basics-of-for-loops">Basics of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Basics-of-for-loops">Basics of <code class="docutils literal"><span class="pre">for</span></code> loops</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#1.-Loops-allow-parts-of-code-to-be-repeated-over-some-number-of-times.">1. Loops allow parts of code to be repeated over some number of times.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-for-loops-in-Python-have-the-general-form-below.">2. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops in Python have the general form below.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-for-loops-in-Python-have-the-general-form-below.">2. <code class="docutils literal"><span class="pre">for</span></code> loops in Python have the general form below.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#3.-Let's-consider-another-example.">3. Let’s consider another example.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-A-loop-can-be-used-to-iterate-over-any-list-of-values-in-Python.">4. A loop can be used to iterate over any list of values in Python.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values.">5. Often when you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#6.-One-of-the-drawbacks-in-the-example-above-is-that-we-need-to-know-the-length-of-the-list-before-running-that-for-loop-example.">6. One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal notranslate"><span class="pre">for</span></code> loop example.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values.">5. Often when you use <code class="docutils literal"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6.-One-of-the-drawbacks-in-the-example-above-is-that-we-need-to-know-the-length-of-the-list-before-running-that-for-loop-example.">6. One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal"><span class="pre">for</span></code> loop example.</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---Putting-it-together">Exercise - Putting it together</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---Let's-get-functional">Exercise - Let’s get functional</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Exercise---Drag-race">Exercise - Drag race</a></li>
@@ -388,16 +389,16 @@ group’s</a> lessons on <a class="reference external" href="http://swcarpentry.
 Python</a>.</p>
 </div>
 <div class="section" id="Basics-of-for-loops">
-<h2>Basics of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#Basics-of-for-loops" title="Permalink to this headline">¶</a></h2>
+<h2>Basics of <code class="docutils literal"><span class="pre">for</span></code> loops<a class="headerlink" href="#Basics-of-for-loops" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="1.-Loops-allow-parts-of-code-to-be-repeated-over-some-number-of-times.">
 <h3>1. Loops allow parts of code to be repeated over some number of times.<a class="headerlink" href="#1.-Loops-allow-parts-of-code-to-be-repeated-over-some-number-of-times." title="Permalink to this headline">¶</a></h3>
-<p>One of the simple loop options in Python is the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p>One of the simple loop options in Python is the <code class="docutils literal"><span class="pre">for</span></code> loop.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;rock&#39;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
@@ -417,25 +418,25 @@ k
 </div>
 </div>
 <div class="section" id="2.-for-loops-in-Python-have-the-general-form-below.">
-<h3>2. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops in Python have the general form below.<a class="headerlink" href="#2.-for-loops-in-Python-have-the-general-form-below." title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+<h3>2. <code class="docutils literal"><span class="pre">for</span></code> loops in Python have the general form below.<a class="headerlink" href="#2.-for-loops-in-Python-have-the-general-form-below." title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
     <span class="n">do</span> <span class="n">things</span> <span class="k">with</span> <span class="n">variable</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">variable</span></code> can have any name you like, and the statement of the
-<code class="docutils literal notranslate"><span class="pre">for</span></code> loop must end with a <code class="docutils literal notranslate"><span class="pre">:</span></code>. The code that should be executed as
-part of the loop must be indented beneath the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and the
+<p>The <code class="docutils literal"><span class="pre">variable</span></code> can have any name you like, and the statement of the
+<code class="docutils literal"><span class="pre">for</span></code> loop must end with a <code class="docutils literal"><span class="pre">:</span></code>. The code that should be executed as
+part of the loop must be indented beneath the <code class="docutils literal"><span class="pre">for</span></code> loop, and the
 typical indentation is 4 spaces. There is not additional special word
 needed to end the loop, just change the indentation back to normal.</p>
 </div>
 <div class="section" id="3.-Let's-consider-another-example.">
 <h3>3. Let’s consider another example.<a class="headerlink" href="#3.-Let's-consider-another-example." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">:</span>
     <span class="n">length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">+</span> <span class="mi">1</span>
@@ -443,11 +444,11 @@ needed to end the loop, just change the indentation back to normal.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s1">&#39;letters&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -460,15 +461,15 @@ needed to end the loop, just change the indentation back to normal.</p>
 There are 10 letters
 </pre></div></div>
 </div>
-<p>Note that the variable used in the loop, <code class="docutils literal notranslate"><span class="pre">letter</span></code> is just a normal
+<p>Note that the variable used in the loop, <code class="docutils literal"><span class="pre">letter</span></code> is just a normal
 variable and still exists after the loop has completed with the final
 value given to letter.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;After the loop, letter is&#39;</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -487,11 +488,11 @@ After the loop, letter is e
 <p>So far we have considered only character strings, but we could also
 write a loop that performs a calculation a specified number of times.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
@@ -510,21 +511,21 @@ write a loop that performs a calculation a specified number of times.</p>
 </pre></div></div>
 </div>
 <p>What happens here? Well, in this case, we use a special function called
-<code class="docutils literal notranslate"><span class="pre">range()</span></code> to give us a list of 5 numbers <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> and then
+<code class="docutils literal"><span class="pre">range()</span></code> to give us a list of 5 numbers <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> and then
 print each number in the list to the screen. When given an integer
-(whole number) as an argument, <code class="docutils literal notranslate"><span class="pre">range()</span></code> will produce a list of
+(whole number) as an argument, <code class="docutils literal"><span class="pre">range()</span></code> will produce a list of
 numbers with a length equal to the specified number. The list starts at
-zero and ends with <code class="docutils literal notranslate"><span class="pre">number-1</span></code>.</p>
+zero and ends with <code class="docutils literal"><span class="pre">number-1</span></code>.</p>
 </div>
 <div class="section" id="5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values.">
-<h3>5. Often when you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.<a class="headerlink" href="#5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values." title="Permalink to this headline">¶</a></h3>
+<h3>5. Often when you use <code class="docutils literal"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.<a class="headerlink" href="#5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values." title="Permalink to this headline">¶</a></h3>
 <p>Let’s consider an example.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
 </pre></div>
@@ -539,11 +540,11 @@ zero and ends with <code class="docutils literal notranslate"><span class="pre">
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
     <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
 <span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
@@ -559,20 +560,20 @@ zero and ends with <code class="docutils literal notranslate"><span class="pre">
 </pre></div></div>
 </div>
 <p>So, what happened? We first create a list of 6 numbers. Then, we loop
-over 6 values using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function and add each value to the
-existing location in <code class="docutils literal notranslate"><span class="pre">myList</span></code>.</p>
+over 6 values using the <code class="docutils literal"><span class="pre">range()</span></code> function and add each value to the
+existing location in <code class="docutils literal"><span class="pre">myList</span></code>.</p>
 </div>
 <div class="section" id="6.-One-of-the-drawbacks-in-the-example-above-is-that-we-need-to-know-the-length-of-the-list-before-running-that-for-loop-example.">
-<h3>6. One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal notranslate"><span class="pre">for</span></code> loop example.<a class="headerlink" href="#6.-One-of-the-drawbacks-in-the-example-above-is-that-we-need-to-know-the-length-of-the-list-before-running-that-for-loop-example." title="Permalink to this headline">¶</a></h3>
+<h3>6. One of the drawbacks in the example above is that we need to know the length of the list before running that <code class="docutils literal"><span class="pre">for</span></code> loop example.<a class="headerlink" href="#6.-One-of-the-drawbacks-in-the-example-above-is-that-we-need-to-know-the-length-of-the-list-before-running-that-for-loop-example." title="Permalink to this headline">¶</a></h3>
 <p>However, we already know how to find the length of a list using the
-<code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and we can take advantage of this knowledge to make
-our <code class="docutils literal notranslate"><span class="pre">for</span></code> loop more flexible.</p>
+<code class="docutils literal"><span class="pre">len()</span></code> function, and we can take advantage of this knowledge to make
+our <code class="docutils literal"><span class="pre">for</span></code> loop more flexible.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)):</span>
     <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span>
 <span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
@@ -587,24 +588,24 @@ our <code class="docutils literal notranslate"><span class="pre">for</span></cod
 [0.0, 3.0, 6.0, 9.0, 12.0, 15.0]
 </pre></div></div>
 </div>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function with <code class="docutils literal notranslate"><span class="pre">range()</span></code> to perform calcluations
+<p>Using the <code class="docutils literal"><span class="pre">len()</span></code> function with <code class="docutils literal"><span class="pre">range()</span></code> to perform calcluations
 using list or array values is an <em>extremely</em> common operation in Python.</p>
 <div class="section" id="Exercise---Putting-it-together">
 <h4>Exercise - Putting it together<a class="headerlink" href="#Exercise---Putting-it-together" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li>Create a new NumPy array called <code class="docutils literal notranslate"><span class="pre">numbers</span></code> that starts at 1 and goes
+<li>Create a new NumPy array called <code class="docutils literal"><span class="pre">numbers</span></code> that starts at 1 and goes
 to 100 in increments of 1</li>
-<li>Create a new NumPy array of zeros called <code class="docutils literal notranslate"><span class="pre">squared</span></code> that is the same
-size as <code class="docutils literal notranslate"><span class="pre">numbers</span></code></li>
-<li>Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, calculate the square of each value in
-<code class="docutils literal notranslate"><span class="pre">numbers</span></code> and store it in the corresponding location in <code class="docutils literal notranslate"><span class="pre">squared</span></code></li>
+<li>Create a new NumPy array of zeros called <code class="docutils literal"><span class="pre">squared</span></code> that is the same
+size as <code class="docutils literal"><span class="pre">numbers</span></code></li>
+<li>Using a <code class="docutils literal"><span class="pre">for</span></code> loop, calculate the square of each value in
+<code class="docutils literal"><span class="pre">numbers</span></code> and store it in the corresponding location in <code class="docutils literal"><span class="pre">squared</span></code></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># You can put your code for the exercise above in here :)</span>
 
 </pre></div>
@@ -615,18 +616,18 @@ size as <code class="docutils literal notranslate"><span class="pre">numbers</sp
 <h4>Exercise - Let’s get functional<a class="headerlink" href="#Exercise---Let's-get-functional" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Take your code above and use it to create a new Python function
-<code class="docutils literal notranslate"><span class="pre">square()</span></code> that accepts a NumPy array and returns an array of
+<code class="docutils literal"><span class="pre">square()</span></code> that accepts a NumPy array and returns an array of
 squared values</li>
 <li>Do you get the expected results when using your function?</li>
 <li>Can you break your function (get it to give an error message)? If so,
 how?</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Put your code for the exercise above in here</span>
 
 </pre></div>
@@ -635,15 +636,15 @@ how?</li>
 </div>
 <div class="section" id="Exercise---Drag-race">
 <h4>Exercise - Drag race<a class="headerlink" href="#Exercise---Drag-race" title="Permalink to this headline">¶</a></h4>
-<p>IPython has a magic function called <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> that you can use in a
+<p>IPython has a magic function called <code class="docutils literal"><span class="pre">%timeit</span></code> that you can use in a
 Jupyter Notebook to calculate how long it takes a line of code (or
 program) to execute.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="k">timeit</span> np.ones(100000000).mean()
 </pre></div>
@@ -654,26 +655,26 @@ program) to execute.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-441 ms ± 4.99 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+595 ms ± 34 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div></div>
 </div>
-<p>We can use this now to compare the performance of your new <code class="docutils literal notranslate"><span class="pre">square()</span></code>
+<p>We can use this now to compare the performance of your new <code class="docutils literal"><span class="pre">square()</span></code>
 function with calculating the square of values directly in NumPy</p>
 <ul class="simple">
-<li>Create a new NumPy array called <code class="docutils literal notranslate"><span class="pre">input</span></code> that goes from 1 to 10 in
+<li>Create a new NumPy array called <code class="docutils literal"><span class="pre">input</span></code> that goes from 1 to 10 in
 increments of 0.0000001</li>
-<li>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> with your function above to calculate the square of
-<code class="docutils literal notranslate"><span class="pre">input</span></code>, storing the output in an array called <code class="docutils literal notranslate"><span class="pre">out1</span></code></li>
+<li>Use <code class="docutils literal"><span class="pre">%timeit</span></code> with your function above to calculate the square of
+<code class="docutils literal"><span class="pre">input</span></code>, storing the output in an array called <code class="docutils literal"><span class="pre">out1</span></code></li>
 <li>Compare the performance of your function to simply squaring the
-<code class="docutils literal notranslate"><span class="pre">input</span></code> array directly and storing its output as <code class="docutils literal notranslate"><span class="pre">out2</span></code></li>
+<code class="docutils literal"><span class="pre">input</span></code> array directly and storing its output as <code class="docutils literal"><span class="pre">out2</span></code></li>
 <li>Can you see any benefits to using NumPy?</li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Put your code for the exercise above in here</span>
 
 </pre></div>
@@ -751,7 +752,9 @@ increments of 0.0000001</li>
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

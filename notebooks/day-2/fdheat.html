@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Finite differences for heat equation &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Stability of the heat equation FD approximation" href="stability.html"/>
+        <link rel="prev" title="Introduction to finite differences" href="fdbasics.html"/>
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Finite differences for heat equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Do">Do</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Boundary-conditions,-initial-conditions">Boundary conditions, initial conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#FD,-heat-equation,-and-cooling-of-an-intrusion">FD, heat equation, and cooling of an intrusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Do">Do</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffadv.html">Heat diffusion + advection</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Finite differences for heat equation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/notebooks/day-2/fdheat.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-2/fdheat.ipynb">source/notebooks/day-2/fdheat.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-2/fdheat.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Finite-differences-for-heat-equation">
+<h1>Finite differences for heat equation<a class="headerlink" href="#Finite-differences-for-heat-equation" title="Permalink to this headline">¶</a></h1>
+<p>Simple 1D diffusion-only constant-conductivity heat equation is</p>
+<div class="math notranslate nohighlight">
+\[\rho C_p \frac{\partial T}{\partial t} = k \frac{\partial^2 T}{\partial x^2}\]</div>
+<p>The second-order spatial derivative of temperature can be approximated
+with finite differences:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_1}^{t=t_1}
+\approx \left(\frac{\partial T}{\partial x}\Big\vert_{x=x_1+0.5\Delta x}^{t=t_1} - \frac{\partial T}{\partial x}\Big\vert_{x=x_1-0.5\Delta x}^{t=t_1}\right) / \Delta x
+\approx \left(\frac{T_{x=x_1+\Delta x}^{t=t_1} - T_{x=x_1}^{t=t_1}}{\Delta x} - \frac{T_{x=x_1}^{t=t_1} - T_{x=x_1-\Delta x}^{t=t_1}}{\Delta x}\right) / \Delta x
+= \frac{T_{x=x_1+\Delta x}^{t=t_1} - 2T_{x=x_1}^{t=t_1} + T_{x=x_1 - \Delta x}^{t=t_1}}{(\Delta x)^2}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(x_1 - \Delta x = x_0\)</span> and <span class="math notranslate nohighlight">\(x_1 + \Delta x = x_2\)</span>, we
+get</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_1}^{t=t_1} \approx \frac{T_{x=x_2}^{t=t_1} - 2T_{x=x_1}^{t=t_1} + T_{x=x_0}^{t=t_1}}{(\Delta x)^2} = \frac{T_{2}^{1} - 2T_{1}^{1} + T_{0}^{1}}{(\Delta x)^2}\]</div>
+<p>where the last formula uses the short hand notation for indices. Note
+that here the superscripts do not mean “to power” but are indices for
+time steps.</p>
+<p>Using the same short hand notation, we can approximate the time
+derivative of the temperature:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t}\Big\vert_{x=x_1}^{t=t_1} \approx \frac{T_1^2-T_1^1}{\Delta t}\]</div>
+<p>These approximations can be generalized:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_i}^{t=t_q} \approx \frac{T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q}}{(\Delta x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t}\Big\vert_{x=x_i}^{t=t_q} \approx \frac{T_i^{q+1}-T_i^q}{\Delta t}\]</div>
+<p>And thus the full finite differences approximation of the heat equation
+can be written as</p>
+<div class="math notranslate nohighlight">
+\[\rho C_p \frac{T_i^{q+1}-T_i^q}{\Delta t} = k \frac{T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q}}{(\Delta x)^2}\]</div>
+<p>This applies to <em>any</em> <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(i\)</span>. If we know <span class="math notranslate nohighlight">\(T\)</span>
+everywhere at time <span class="math notranslate nohighlight">\(t_q\)</span>, we can calculate <span class="math notranslate nohighlight">\(T\)</span> at time
+<span class="math notranslate nohighlight">\(t_{q+1} = t_q + \Delta t\)</span>.</p>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>How would the implicit (backward difference in time) approximation
+look like for the heat equation? Recall that in the implicit
+approximation we used the values from the next time step to
+approximate the derivative. What is the problem in calculating
+<span class="math notranslate nohighlight">\(T_i^q\)</span> using the implicit approximation?</li>
+</ul>
+<div class="section" id="Boundary-conditions,-initial-conditions">
+<h3>Boundary conditions, initial conditions<a class="headerlink" href="#Boundary-conditions,-initial-conditions" title="Permalink to this headline">¶</a></h3>
+<p>To start calculating the values of <span class="math notranslate nohighlight">\(T\)</span>, we need the <em>initial</em>
+values at some time <span class="math notranslate nohighlight">\(t_0\)</span>. This temperature field is the so called
+<em>initial condition</em> for our problem. It is a type of boundary condition
+that applies to a temporally variable field.</p>
+<p>(Spatial) boundary conditions are needed because when applying finite
+differences to a differential equation (in space), we need the
+surrounding values, such as <span class="math notranslate nohighlight">\(T_{i+1}\)</span> and <span class="math notranslate nohighlight">\(T_{i-1}\)</span> in the
+case of heat equation, to calculate the next value of <span class="math notranslate nohighlight">\(T_{i}\)</span>.
+These values are not available if we are near the geometrical boundary
+of the problem.</p>
+</div>
+<div class="section" id="FD,-heat-equation,-and-cooling-of-an-intrusion">
+<h3>FD, heat equation, and cooling of an intrusion<a class="headerlink" href="#FD,-heat-equation,-and-cooling-of-an-intrusion" title="Permalink to this headline">¶</a></h3>
+<p>Next we will use finite differences to model the cooling of a (very
+large) magma intrusion within the crust. The crust is limited by the
+upper surface and the crust-mantle boundary at the bottom. It is 35 km
+thick and intruded by a horizontal, granitic magma intrusion (sill) that
+extends from 5 km to 10 km depth. Our task is to calculate the
+temperature distribution in the crust after 100 kyrs.</p>
+<p>Our strategy for solving the problem in Python is following:</p>
+<ol class="arabic simple" start="0">
+<li>Draw a picture!</li>
+<li>Decide on model geometry and physical parameters<ul>
+<li>one-dimensional</li>
+<li>homogeneous physical parameters</li>
+<li><span class="math notranslate nohighlight">\(\Rightarrow\)</span> we can use the equation above</li>
+</ul>
+</li>
+<li>Set physical parameters (<span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(C_p\)</span>, <span class="math notranslate nohighlight">\(k\)</span>)</li>
+<li>Set geometrical parameters (<span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(\Delta x\)</span>
+<span class="math notranslate nohighlight">\(\Rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">nx</span></code>)</li>
+<li>Set total run time and time step size (<span class="math notranslate nohighlight">\(t_{total}\)</span>,
+<span class="math notranslate nohighlight">\(\Delta t\)</span> <span class="math notranslate nohighlight">\(\Rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">nt</span></code>)</li>
+<li>Decide and set boundary condition values <span class="math notranslate nohighlight">\(T_0\)</span> and
+<span class="math notranslate nohighlight">\(T_{nx-1}\)</span></li>
+<li>Create two arrays that hold the temperature, size <code class="docutils literal notranslate"><span class="pre">nx</span></code> elements<ul>
+<li><code class="docutils literal notranslate"><span class="pre">Tnew</span></code> for <span class="math notranslate nohighlight">\(T^{q+1}\)</span></li>
+<li><code class="docutils literal notranslate"><span class="pre">Tprev</span></code> for <span class="math notranslate nohighlight">\(T^{q}\)</span></li>
+</ul>
+</li>
+<li>Create an array for grid point locations (<span class="math notranslate nohighlight">\(x\)</span> coordinates),
+size <code class="docutils literal notranslate"><span class="pre">nx</span></code></li>
+<li>Set <code class="docutils literal notranslate"><span class="pre">Tprev</span></code> to hold the initial temperature field<ul>
+<li>Linear geotherm throughout the crust, constant temperature within
+the sill</li>
+</ul>
+</li>
+<li>Start the loop that iterates over all the time steps. Within the time
+step:<ul>
+<li>Set the temperature at the boundaries, according to boundary
+conditions, at <code class="docutils literal notranslate"><span class="pre">Tnew[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">Tnew[nx-1]</span></code></li>
+<li>Calculate remaining (internal grid points) within <code class="docutils literal notranslate"><span class="pre">Tnew</span></code> based
+on values of <code class="docutils literal notranslate"><span class="pre">Tprev</span></code></li>
+<li>Prepare for next time step: Copy all values of <code class="docutils literal notranslate"><span class="pre">Tnew</span></code> to
+<code class="docutils literal notranslate"><span class="pre">Tprev</span></code></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Use the following frame to start implementing the code. Once the code
+seems to work, experiment with it:<ul>
+<li>How does changing values of <code class="docutils literal notranslate"><span class="pre">Cp</span></code> and <code class="docutils literal notranslate"><span class="pre">rho</span></code> affect the results?</li>
+<li>Give <code class="docutils literal notranslate"><span class="pre">dt</span></code> values that are close to the critical time step. How
+do the results change?</li>
+<li>Can the code handle intrusions that are only 500 m in width?</li>
+</ul>
+</li>
+<li>What have silently assumed in the implementation of the code? E.g.
+can we model the problem in simplified 1D world? What kind of
+physical processes, that are likely to be present, have we omitted?</li>
+</ul>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Frame for FD solution for heat diffusion</span>
+<span class="c1"># Fill in lines marked with &quot;(...)&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Set material properties</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># rock density, kg m^-3</span>
+<span class="n">Cp</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c1"># rock heat capacity, J kg^-1 K^-1</span>
+<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="c1"># rock heat conductivity, W m^-1 K^-1</span>
+
+<span class="c1"># Set geometry and dimensions</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>        <span class="c1"># thickness of the crust, m</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="c1"># number of grid points, -</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;dx is&quot;</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">silltop</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># depth of the top of the sill, m</span>
+<span class="n">sillbott</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># depth of the bottom of the sill, m</span>
+
+<span class="c1"># Set total time and time step</span>
+<span class="n">t_total</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>           <span class="c1"># total run time, s</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>                <span class="c1"># time step, s</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">t_total</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Calculating&quot;</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="s2">&quot;time steps&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set boundary temperature values and intrusion temperature</span>
+<span class="n">Tsurf</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>      <span class="c1"># surface temperature, deg C</span>
+<span class="n">Tmoho</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>      <span class="c1"># Moho temperature, deg C</span>
+<span class="n">Tintrusion</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># Intrusion temperature, deg C</span>
+
+<span class="c1"># TODO: Create arrays to hold temperature fields.</span>
+<span class="c1"># These need to have `nx` elements and can be</span>
+<span class="c1"># set to zero for now.</span>
+<span class="n">Tnew</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">Tprev</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># TODO: Create coordinates of the grid points.</span>
+<span class="c1"># We want `x` to have evenly spaced values</span>
+<span class="c1"># from zero to `L`, with `nx` elements.</span>
+<span class="c1"># Use `np.linspace()`.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Generate initial temperature field.</span>
+<span class="c1">#</span>
+<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="c1"># TODO: Add condition that tests whether</span>
+    <span class="c1"># element `ix` of `x` is inside the sill.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">...</span><span class="p">):</span>
+        <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tintrusion</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># x[ix] is outside the sill.</span>
+        <span class="c1"># This assumes linear geotherm between</span>
+        <span class="c1"># surface temperature and moho temperature</span>
+        <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">Tmoho</span> <span class="o">-</span> <span class="n">Tsurf</span><span class="p">)</span> <span class="o">/</span> <span class="n">L</span>
+
+<span class="c1"># Plot initial temperature field</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tprev</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T initial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Start the loop over time steps</span>
+<span class="n">curtime</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">curtime</span> <span class="o">&lt;</span> <span class="n">t_total</span><span class="p">:</span>
+    <span class="n">curtime</span> <span class="o">=</span> <span class="n">curtime</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="c1"># TODO: Set boundary conditions.</span>
+    <span class="c1"># Set elements zero and `nx-1` of the new temperature field</span>
+    <span class="c1"># to surface temperature and Moho temperature, respectively</span>
+    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+    <span class="c1"># Calculate next values of the internal grid points</span>
+    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># TODO: Calculate the new temperature at Tnew[ix] based</span>
+        <span class="c1"># on values in `Tprev`, `k`, `dt`, `rho` and `Cp`.</span>
+        <span class="c1"># Use FD approximation from above and rearrange it</span>
+        <span class="c1"># to get an expression for T_i^{q+1}. Be extra careful</span>
+        <span class="c1"># with correct placement of parentheses!</span>
+        <span class="n">Tnew</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+    <span class="c1"># Copy values from Tnew to Tprev</span>
+    <span class="n">Tprev</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">Tnew</span><span class="p">[:]</span>
+
+
+<span class="c1"># Plot the final temperature field</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tnew</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T final&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stability.html" class="btn btn-neutral float-right" title="Stability of the heat equation FD approximation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fdbasics.html" class="btn btn-neutral" title="Introduction to finite differences" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

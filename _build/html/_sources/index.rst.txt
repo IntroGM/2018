@@ -46,6 +46,15 @@ Course goals
 
 .. toctree::
     :maxdepth: 2
+    :caption: Day 2
+
+    notebooks/day-2/fdbasics.ipynb
+    notebooks/day-2/fdheat.ipynb
+    notebooks/day-2/stability.ipynb
+    notebooks/day-2/diffadv.ipynb
+
+.. toctree::
+    :maxdepth: 2
     :caption: Technical instructions
 
     instructions/cluster

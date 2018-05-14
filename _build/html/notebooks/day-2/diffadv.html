@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heat diffusion + advection &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Using geo-hpcc cluster" href="../../instructions/cluster.html"/>
+        <link rel="prev" title="Stability of the heat equation FD approximation" href="stability.html"/>
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Heat diffusion + advection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Do">Do</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Heat diffusion + advection</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/notebooks/day-2/diffadv.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-2/diffadv.ipynb">source/notebooks/day-2/diffadv.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-2/diffadv.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Heat-diffusion-+-advection">
+<h1>Heat diffusion + advection<a class="headerlink" href="#Heat-diffusion-+-advection" title="Permalink to this headline">¶</a></h1>
+<p>If we add advection and internal heat generation to our heat equation,
+we get</p>
+<div class="math notranslate nohighlight">
+\[\rho C_p \left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}\right) = k \frac{\partial^2 T}{\partial x^2} + H\]</div>
+<p>Leaving only the time derivative on the left-hand side,</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial x^2} + \frac{H}{\rho C_p} - v_x\frac{\partial T}{\partial x}\]</div>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Write the finite difference approximation for (i.e. <em>discretize</em>) the
+diffusion-advection equation. Use forward difference in time and
+central difference in space. Write the expression in form
+<span class="math notranslate nohighlight">\(T_i^{q+1} = \ldots~T^q~\mathrm{terms~only~on~this~side}~\ldots\)</span></li>
+<li>Modify the intrusion code below (or use the one you modified
+previously):<ul>
+<li>Add variables that store the internal heat production <span class="math notranslate nohighlight">\(H\)</span>
+and the advection velocity <span class="math notranslate nohighlight">\(v_x\)</span> (what are suitable values?)</li>
+<li>Modify the line within the time loop that calculates the next
+valuer of <span class="math notranslate nohighlight">\(T\)</span>: include the terms for heat generation and
+advection</li>
+</ul>
+</li>
+<li>Start with <span class="math notranslate nohighlight">\(H=0\)</span> and <span class="math notranslate nohighlight">\(v_x = 0\)</span>. Gradually change these
+values. How does the results change as you give non-zero values for
+these? What happens if <span class="math notranslate nohighlight">\(v_x &gt; 0\)</span> compared to <span class="math notranslate nohighlight">\(v_x &lt; 0\)</span>?
+What if <span class="math notranslate nohighlight">\(v_x\)</span> has a large (positive or negative) value?</li>
+<li>Extra:<ul>
+<li>Remove the initial hot intrusion. Instead, add spatially variable
+internal heat generation. For this, you will need to introduce new
+numpy array (of size <code class="docutils literal notranslate"><span class="pre">nx</span></code>), fill it with values of internal heat
+generation, and use it (<code class="docutils literal notranslate"><span class="pre">H[ix]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">H</span></code>) when you
+calculate the new temperature value.</li>
+<li>Calculating heat flow:<ul>
+<li>Heat flow is defined as <span class="math notranslate nohighlight">\(q=k\frac{dT}{dx}\)</span>. Write an
+approximation for <span class="math notranslate nohighlight">\(q\)</span> by replacing the derivative with a
+finite difference expression.</li>
+<li>Modify the code so that you create an array (of size <code class="docutils literal notranslate"><span class="pre">nt</span></code>)
+that stores surface heat flow values each time step. Within the
+time loop, calculate each time step the heat flow between two
+topmost grid points.</li>
+<li>After the time loop, plot the recorded surface heat flow
+history.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">yr2sec</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">365.25</span>  <span class="c1"># num of seconds in a year</span>
+
+<span class="c1"># Set material properties</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">2900</span>   <span class="c1"># kg m^-3</span>
+<span class="n">Cp</span> <span class="o">=</span> <span class="mi">900</span>     <span class="c1"># J kg^-1 K^-1</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">2.5</span>      <span class="c1"># W m^-1 K^-1</span>
+
+<span class="c1"># Set geometry and dimensions</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">35e3</span>         <span class="c1"># m</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">30</span>          <span class="c1"># -</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># m</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;dx is&quot;</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">silltop</span> <span class="o">=</span> <span class="mf">5e3</span>    <span class="c1"># m</span>
+<span class="n">sillbott</span> <span class="o">=</span> <span class="mf">10e3</span>  <span class="c1"># m</span>
+
+<span class="c1"># Set total time and time step</span>
+<span class="n">t_total</span> <span class="o">=</span> <span class="mf">0.1e6</span> <span class="o">*</span> <span class="n">yr2sec</span>          <span class="c1"># s</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1e4</span> <span class="o">*</span> <span class="n">yr2sec</span>                 <span class="c1"># s</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">t_total</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>  <span class="c1"># -</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Calculating&quot;</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="s2">&quot;time steps&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set boundary temperature values and intrusion temperature</span>
+<span class="n">Tsurf</span> <span class="o">=</span> <span class="mf">0.0</span>        <span class="c1"># deg C</span>
+<span class="n">Tmoho</span> <span class="o">=</span> <span class="mf">600.0</span>      <span class="c1"># deg C</span>
+<span class="n">Tintrusion</span> <span class="o">=</span> <span class="mf">700.0</span> <span class="c1"># deg C</span>
+
+<span class="c1"># Create arrays to hold temperature fields</span>
+<span class="n">Tnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+<span class="n">Tprev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span>
+
+<span class="c1"># Create coordinates of the grid points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+
+<span class="c1"># Generate initial temperature field</span>
+<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">sillbott</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">silltop</span><span class="p">):</span>
+        <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tintrusion</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">Tmoho</span> <span class="o">-</span> <span class="n">Tsurf</span><span class="p">)</span> <span class="o">/</span> <span class="n">L</span>
+
+<span class="c1"># Plot initial temperature field</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tprev</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T initial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Start the loop over time steps</span>
+<span class="n">curtime</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">curtime</span> <span class="o">&lt;</span> <span class="n">t_total</span><span class="p">:</span>
+    <span class="n">curtime</span> <span class="o">=</span> <span class="n">curtime</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="c1"># boundary conditions</span>
+    <span class="n">Tnew</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tsurf</span>
+    <span class="n">Tnew</span><span class="p">[</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tmoho</span>
+
+    <span class="c1"># internal grid points</span>
+    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">Tnew</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">+</span> <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">Cp</span><span class="p">)</span> <span class="o">+</span> <span class="n">Tprev</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
+
+    <span class="c1"># copy Tnew to Tprev</span>
+    <span class="n">Tprev</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">Tnew</span><span class="p">[:]</span>
+
+
+<span class="c1"># Plot the final temperature field</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tnew</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T final&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<div class="highlight"><pre>
+dx is 1206.896551724138 m
+Calculating 10 time steps
+</pre></div></div>
+</div>
+<div class="nboutput container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../_images/notebooks_day-2_diffadv_4_1.png" src="../../_images/notebooks_day-2_diffadv_4_1.png" />
+</div>
+</div>
+<div class="nboutput nblast container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../_images/notebooks_day-2_diffadv_4_2.png" src="../../_images/notebooks_day-2_diffadv_4_2.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../instructions/cluster.html" class="btn btn-neutral float-right" title="Using geo-hpcc cluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stability.html" class="btn btn-neutral" title="Stability of the heat equation FD approximation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

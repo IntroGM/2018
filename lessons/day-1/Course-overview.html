@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Key physical processes and concepts" href="physical-processes.html" />
-    <link rel="prev" title="Past versions of this course" href="../../course-info/previous-years.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Key physical processes and concepts" href="physical-processes.html"/>
+        <link rel="prev" title="Past versions of this course" href="../../course-info/previous-years.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -144,6 +146,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/for-loops.html">for loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/Conditional-statements.html">Conditional statements</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/diffadv.html">Heat diffusion + advection</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -158,54 +167,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction to geodynamic modelling</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction to geodynamic modelling</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/lessons/day-1/Course-overview.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -290,7 +279,7 @@ Interactive online version:
 </div>
 <div class="section" id="Lunch">
 <h3>Lunch<a class="headerlink" href="#Lunch" title="Permalink to this headline">¶</a></h3>
-<p><ul style="width: 50%;"><div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">You</span> <span class="n">can</span> <span class="n">get</span> <span class="n">a</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">full</span> <span class="n">hot</span> <span class="n">lunch</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span> <span class="n">at</span> <span class="n">the</span> <span class="n">Chemicum</span><span class="p">,</span> <span class="n">Excatum</span><span class="p">,</span> <span class="ow">or</span> <span class="n">Dynamicum</span> <span class="p">(</span><span class="n">pricier</span><span class="p">,</span> <span class="n">but</span> <span class="n">a</span> <span class="n">bit</span> <span class="n">better</span><span class="p">)</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<p><ul style="width: 50%;"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">You</span> <span class="n">can</span> <span class="n">get</span> <span class="n">a</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">full</span> <span class="n">hot</span> <span class="n">lunch</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span> <span class="n">at</span> <span class="n">the</span> <span class="n">Chemicum</span><span class="p">,</span> <span class="n">Excatum</span><span class="p">,</span> <span class="ow">or</span> <span class="n">Dynamicum</span> <span class="p">(</span><span class="n">pricier</span><span class="p">,</span> <span class="n">but</span> <span class="n">a</span> <span class="n">bit</span> <span class="n">better</span><span class="p">)</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">The</span> <span class="n">Unicafe</span> <span class="p">(</span><span class="n">coffee</span> <span class="o">/</span> <span class="n">tea</span> <span class="n">spot</span><span class="p">)</span> <span class="n">also</span> <span class="n">has</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">sandwiches</span> <span class="o">/</span> <span class="n">paninis</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -436,16 +425,15 @@ experimentation with DOUAR</p>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="physical-processes.html" class="btn btn-neutral float-right" title="Key physical processes and concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="physical-processes.html" class="btn btn-neutral float-right" title="Key physical processes and concepts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../course-info/previous-years.html" class="btn btn-neutral" title="Past versions of this course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../course-info/previous-years.html" class="btn btn-neutral" title="Past versions of this course" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -458,7 +446,7 @@ experimentation with DOUAR</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -480,11 +468,9 @@ experimentation with DOUAR</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -499,13 +485,14 @@ experimentation with DOUAR</p>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

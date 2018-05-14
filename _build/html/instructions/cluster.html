@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,12 +23,20 @@
   
 
   
+  
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Conditional statements" href="../notebooks/day-1/Conditional-statements.html" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../index.html"/>
+        <link rel="prev" title="Heat diffusion + advection" href="../notebooks/day-2/diffadv.html"/>
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -39,9 +45,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -56,7 +61,7 @@
 
           
             
-            <img src="../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -85,10 +90,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../course-info/learning-goals.html">Learning goals</a></li>
@@ -107,6 +109,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-1/NumPy.html">Introduction to NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-1/for-loops.html">for loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/day-2/diffadv.html">Heat diffusion + advection</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul class="current">
@@ -127,54 +136,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>Using geo-hpcc cluster</li>
-    
-    
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Using geo-hpcc cluster</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/instructions/cluster.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -206,18 +195,18 @@
 <p>To access the command line:</p>
 <ol class="arabic simple">
 <li>Open PuTTY</li>
-<li><em>Host name</em>: <code class="docutils literal"><span class="pre">dh2-seismo1203.seismo.helsinki.fi</span></code></li>
+<li><em>Host name</em>: <code class="docutils literal notranslate"><span class="pre">dh2-seismo1203.seismo.helsinki.fi</span></code></li>
 <li>Click <em>Open</em></li>
-<li>Type in the given username (<code class="docutils literal"><span class="pre">proxyuser</span></code>) and password</li>
-<li>Give command <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi</span></code>, where <code class="docutils literal"><span class="pre">clusteruser</span></code> is the provided username</li>
+<li>Type in the given username (<code class="docutils literal notranslate"><span class="pre">proxyuser</span></code>) and password</li>
+<li>Give command <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi</span></code>, where <code class="docutils literal notranslate"><span class="pre">clusteruser</span></code> is the provided username</li>
 </ol>
 <p>To access the files:</p>
 <ol class="arabic simple">
 <li>Open WinSCP</li>
-<li>Click <em>New Site</em>, fill in <em>Host name</em>: <code class="docutils literal"><span class="pre">geo-hpfe.seismo.helsinki.fi</span></code>, <em>User name</em> (<code class="docutils literal"><span class="pre">clusteruser</span></code>) and <em>Password</em> will be provided.</li>
+<li>Click <em>New Site</em>, fill in <em>Host name</em>: <code class="docutils literal notranslate"><span class="pre">geo-hpfe.seismo.helsinki.fi</span></code>, <em>User name</em> (<code class="docutils literal notranslate"><span class="pre">clusteruser</span></code>) and <em>Password</em> will be provided.</li>
 <li>Click <em>Advanced…</em></li>
 <li>Choose <em>Connection</em>, <em>Tunnel</em>, and check <em>Connect through SSH tunnel</em></li>
-<li>Fill in values: <em>Host name</em>: <code class="docutils literal"><span class="pre">dh2-seismo1203.seismo.helsinki.fi</span></code>, <em>User name</em> (<code class="docutils literal"><span class="pre">proxyuser</span></code>) and <em>Password</em></li>
+<li>Fill in values: <em>Host name</em>: <code class="docutils literal notranslate"><span class="pre">dh2-seismo1203.seismo.helsinki.fi</span></code>, <em>User name</em> (<code class="docutils literal notranslate"><span class="pre">proxyuser</span></code>) and <em>Password</em></li>
 <li>Click <em>OK</em></li>
 <li>Click <em>Save</em></li>
 <li>Click <em>Login</em></li>
@@ -228,43 +217,42 @@
 <h2>Connecting from Linux<a class="headerlink" href="#connecting-from-linux" title="Permalink to this headline">¶</a></h2>
 <p>To access the command line:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">proxyuser&#64;dh2-seismo1203.seismo.helsinki.fi</span></code></li>
-<li><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">proxyuser&#64;dh2-seismo1203.seismo.helsinki.fi</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi</span></code></li>
 </ol>
 <p>Note, usernames need to be replaced with the provided individual usernames.</p>
 <p>To copy files from DOUAR output to the current directory on loca machine:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">scp</span> <span class="pre">-oProxyCommand=&quot;ssh</span> <span class="pre">-W</span> <span class="pre">%h:%p</span> <span class="pre">proxyuser&#64;dh2-seismo1203.seismo.helsinki.fi&quot;</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi:/globalscratch/clusteruser/douar/modelname/OUT/*.vtk</span> <span class="pre">.</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-oProxyCommand=&quot;ssh</span> <span class="pre">-W</span> <span class="pre">%h:%p</span> <span class="pre">proxyuser&#64;dh2-seismo1203.seismo.helsinki.fi&quot;</span> <span class="pre">clusteruser&#64;geo-hpfe.seismo.helsinki.fi:/globalscratch/clusteruser/douar/modelname/OUT/*.vtk</span> <span class="pre">.</span></code></li>
 </ol>
 </div>
 <div class="section" id="running-douar-models">
 <h2>Running DOUAR models<a class="headerlink" href="#running-douar-models" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Modify the model <em>input file</em>, e.g., <code class="docutils literal"><span class="pre">nano</span> <span class="pre">~/douar/inputs/rift.txt</span></code></li>
-<li><em>Submit</em> the job: <code class="docutils literal"><span class="pre">~/bin/submitdouar.sh</span> <span class="pre">-i</span> <span class="pre">~/douar/inputs/rift.txt</span> <span class="pre">-n</span> <span class="pre">16</span></code></li>
-<li><em>Monitor</em> the job status: <code class="docutils literal"><span class="pre">squeue</span></code></li>
+<li>Modify the model <em>input file</em>, e.g., <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">~/douar/inputs/rift.txt</span></code></li>
+<li><em>Submit</em> the job: <code class="docutils literal notranslate"><span class="pre">~/bin/submitdouar.sh</span> <span class="pre">-i</span> <span class="pre">~/douar/inputs/rift.txt</span> <span class="pre">-n</span> <span class="pre">16</span></code></li>
+<li><em>Monitor</em> the job status: <code class="docutils literal notranslate"><span class="pre">squeue</span></code></li>
 <li><em>Post-process</em> the output:<ul>
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/globalscratch/clusteruser/douar/rift_20180514100500/OUT</span></code></li>
-<li><code class="docutils literal"><span class="pre">~/bin/process_outbin.sh</span></code></li>
-<li>Note that the directory name of the output is formed from the model name (<code class="docutils literal"><span class="pre">rift</span></code>) and the date and time of the job submission</li>
+<li><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/globalscratch/clusteruser/douar/rift_20180514100500/OUT</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">~/bin/process_outbin.sh</span></code></li>
+<li>Note that the directory name of the output is formed from the model name (<code class="docutils literal notranslate"><span class="pre">rift</span></code>) and the date and time of the job submission</li>
 </ul>
 </li>
 <li>Copy <em>VTK files</em> to your local machine (see instructions above) to be opened in ParaView</li>
 </ol>
-<p>You can <em>cancel</em> your job with <code class="docutils literal"><span class="pre">scancel</span> <span class="pre">jobid</span></code> where jobid is the numerical ID of the job, and can be found using <code class="docutils literal"><span class="pre">squeue</span></code></p>
+<p>You can <em>cancel</em> your job with <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">jobid</span></code> where jobid is the numerical ID of the job, and can be found using <code class="docutils literal notranslate"><span class="pre">squeue</span></code></p>
 </div>
 </div>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../notebooks/day-1/Conditional-statements.html" class="btn btn-neutral" title="Conditional statements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../notebooks/day-2/diffadv.html" class="btn btn-neutral" title="Heat diffusion + advection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -277,7 +265,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -299,11 +287,9 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -318,13 +304,14 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

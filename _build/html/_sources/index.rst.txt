@@ -55,6 +55,13 @@ Course goals
 
 .. toctree::
     :maxdepth: 2
+    :caption: Day 3
+
+    notebooks/day-3/stokes.ipynb
+    notebooks/day-3/channel.ipynb
+
+.. toctree::
+    :maxdepth: 2
     :caption: Technical instructions
 
     instructions/cluster

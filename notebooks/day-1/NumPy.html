@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="for loops" href="for-loops.html" />
-    <link rel="prev" title="Functions" href="Functions.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="for loops" href="for-loops.html"/>
+        <link rel="prev" title="Functions" href="Functions.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -139,6 +141,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/diffadv.html">Heat diffusion + advection</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -153,54 +162,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction to NumPy</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction to NumPy</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/notebooks/day-1/NumPy.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -403,7 +392,7 @@ in Python that is used under the hood in many other modules. Here, we
 will get a sense of a few things NumPy can do.</p>
 <div class="section" id="1.-To-start-using-the-NumPy-module-we-will-need-to-import-it.">
 <h3>1. To start using the NumPy module we will need to <code class="docutils literal notranslate"><span class="pre">import</span></code> it.<a class="headerlink" href="#1.-To-start-using-the-NumPy-module-we-will-need-to-import-it." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
@@ -422,7 +411,7 @@ shortening <code class="docutils literal notranslate"><span class="pre">numpy</s
 <p>A NumPy array is similar in concept to a Python list, but only contains
 data of one type. If we wanted to calculate the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> of a variable
 <code class="docutils literal notranslate"><span class="pre">x</span></code> at 10 points from zero to 2 * pi, we could do the following.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
@@ -433,10 +422,10 @@ data of one type. If we wanted to calculate the <code class="docutils literal no
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 0.          0.6981317   1.3962634   2.0943951   2.7925268   3.4906585
   4.1887902   4.88692191  5.58505361  6.28318531]
@@ -445,7 +434,7 @@ data of one type. If we wanted to calculate the <code class="docutils literal no
 <p>In this case, <code class="docutils literal notranslate"><span class="pre">x</span></code> starts at zero and goes to 2 * pi in 10 increments.
 Alternatively, if we wanted to specify the size of the increments for a
 new variable <code class="docutils literal notranslate"><span class="pre">x2</span></code>, we could use the <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> function.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
@@ -456,10 +445,10 @@ new variable <code class="docutils literal notranslate"><span class="pre">x2</sp
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 0.   0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6. ]
 </pre></div></div>
@@ -470,7 +459,7 @@ array options are useful in different situations.</p>
 </div>
 <div class="section" id="3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function.">
 <h3>3. To calculate the sine function values, we can simply use the <code class="docutils literal notranslate"><span class="pre">np.sin()</span></code> function.<a class="headerlink" href="#3.-To-calculate-the-sine-function-values,-we-can-simply-use-the-np.sin()-function." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
@@ -481,10 +470,10 @@ array options are useful in different situations.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [  0.00000000e+00   6.42787610e-01   9.84807753e-01   8.66025404e-01
    3.42020143e-01  -3.42020143e-01  -8.66025404e-01  -9.84807753e-01
@@ -496,7 +485,7 @@ an array.</p>
 </div>
 <div class="section" id="4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function.">
 <h3>4. As before, we can check out the type of data in our arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.<a class="headerlink" href="#4.-As-before,-we-can-check-out-the-type-of-data-in-our-arrays-x-and-x2-using-the-type()-function." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
@@ -506,7 +495,7 @@ an array.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[5]:
 </pre></div>
@@ -522,7 +511,7 @@ part of the module. In this case, our data is stored in an NumPy
 </div>
 <div class="section" id="5.-How-much-data-do-we-have-in-our-x-variable?">
 <h3>5. How much data do we have in our <code class="docutils literal notranslate"><span class="pre">x</span></code> variable?<a class="headerlink" href="#5.-How-much-data-do-we-have-in-our-x-variable?" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
@@ -532,10 +521,10 @@ part of the module. In this case, our data is stored in an NumPy
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 (10,)
 </pre></div></div>
@@ -547,7 +536,7 @@ array.</p>
 </div>
 <div class="section" id="6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype">
 <h3>6. We can also check the data type of our data columns by using <code class="docutils literal notranslate"><span class="pre">x.dtype</span></code><a class="headerlink" href="#6.-We-can-also-check-the-data-type-of-our-data-columns-by-using-x.dtype" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
@@ -557,10 +546,10 @@ array.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 float64
 </pre></div></div>
@@ -572,7 +561,7 @@ decimal numbers (stored with a precision of 64 bytes).</p>
 <h3>7. Like lists, we can find any value in an array by using it’s <em>indices</em>.<a class="headerlink" href="#7.-Like-lists,-we-can-find-any-value-in-an-array-by-using-it's-indices." title="Permalink to this headline">¶</a></h3>
 <p>We can also extract parts of an array using <em>index slicing</em>. Perhaps we
 only want the first three values out of array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
@@ -582,7 +571,7 @@ only want the first three values out of array <code class="docutils literal notr
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[8]:
 </pre></div>
@@ -601,7 +590,7 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 <h2>Useful functions<a class="headerlink" href="#Useful-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="1.-Like-normal-variables,-array-variables-can-also-be-used-for-various-mathematical-operations.">
 <h3>1. Like normal variables, array variables can also be used for various mathematical operations.<a class="headerlink" href="#1.-Like-normal-variables,-array-variables-can-also-be-used-for-various-mathematical-operations." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
@@ -612,10 +601,10 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [  0.           1.3962634    2.7925268    4.1887902    5.58505361
    6.98131701   8.37758041   9.77384381  11.17010721  12.56637061]
@@ -624,7 +613,7 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 </div>
 <div class="section" id="2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type.">
 <h3>2. In addition to the <em>attributes</em> we saw prevously for NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> variables, there are also many <em>methods</em> that are part of the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> data type.<a class="headerlink" href="#2.-In-addition-to-the-attributes-we-saw-prevously-for-NumPy-ndarray-variables,-there-are-also-many-methods-that-are-part-of-the-ndarray-data-type." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
@@ -635,10 +624,10 @@ not include <code class="docutils literal notranslate"><span class="pre">3</span
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 3.14159265359
 6.28318530718
@@ -653,7 +642,7 @@ to a <em>method</em> and not an <em>attribute</em>. There are many other useful
 </div>
 <div class="section" id="3.-Methods-can-also-act-on-part-of-an-array.">
 <h3>3. <em>Methods</em> can also act on part of an array.<a class="headerlink" href="#3.-Methods-can-also-act-on-part-of-an-array." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
@@ -663,10 +652,10 @@ to a <em>method</em> and not an <em>attribute</em>. There are many other useful
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 1.3962634016
 </pre></div></div>
@@ -677,7 +666,7 @@ to a <em>method</em> and not an <em>attribute</em>. There are many other useful
 <p>It is pretty common that you will need to create arrays full of zeros or
 ones to store output from calculations. NumPy includes well-named
 functions for doing this.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
@@ -688,15 +677,15 @@ functions for doing this.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [13]:
 </pre></div>
@@ -707,10 +696,10 @@ functions for doing this.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
 </pre></div></div>
@@ -721,7 +710,7 @@ functions for doing this.</p>
 <p>Unlike many data types in Python, assigning an existing NumPy array to a
 new variable <em>does not</em> create a copy of the array, but rather simply
 creates pointer to the original array. Consider the example below.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [14]:
 </pre></div>
@@ -734,15 +723,15 @@ creates pointer to the original array. Consider the example below.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
@@ -752,10 +741,10 @@ creates pointer to the original array. Consider the example below.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
 </pre></div></div>
@@ -765,7 +754,7 @@ creates pointer to the original array. Consider the example below.</p>
 array <code class="docutils literal notranslate"><span class="pre">b</span></code> is simply a reference to <code class="docutils literal notranslate"><span class="pre">a</span></code>. But what if we want to save
 the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> to another array without having them change when
 <code class="docutils literal notranslate"><span class="pre">a</span></code> changes? For this we need to use <code class="docutils literal notranslate"><span class="pre">np.copy()</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [16]:
 </pre></div>
@@ -777,15 +766,15 @@ the values of <code class="docutils literal notranslate"><span class="pre">a</sp
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 8.  8.  8.  8.  8.  8.  8.  8.  8.  8.]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [17]:
 </pre></div>
@@ -795,10 +784,10 @@ the values of <code class="docutils literal notranslate"><span class="pre">a</sp
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [ 5.  5.  5.  5.  5.  5.  5.  5.  5.  5.]
 </pre></div></div>
@@ -816,7 +805,7 @@ using pointers instead of making complete copies of arrays.</p>
 <li>Is this value what you expect?</li>
 <li>What happens if you use a larger number of increments for <code class="docutils literal notranslate"><span class="pre">x3</span></code>?</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [18]:
 </pre></div>
@@ -834,16 +823,15 @@ using pointers instead of making complete copies of arrays.</p>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="for-loops.html" class="btn btn-neutral float-right" title="for loops" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="for-loops.html" class="btn btn-neutral float-right" title="for loops" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Functions.html" class="btn btn-neutral" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Functions.html" class="btn btn-neutral" title="Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -856,7 +844,7 @@ using pointers instead of making complete copies of arrays.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -878,11 +866,9 @@ using pointers instead of making complete copies of arrays.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -897,11 +883,14 @@ using pointers instead of making complete copies of arrays.</p>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

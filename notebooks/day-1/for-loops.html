@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Conditional statements" href="Conditional-statements.html" />
-    <link rel="prev" title="Introduction to NumPy" href="NumPy.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Conditional statements" href="Conditional-statements.html"/>
+        <link rel="prev" title="Introduction to NumPy" href="NumPy.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -133,6 +135,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/diffadv.html">Heat diffusion + advection</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -147,54 +156,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>for loops</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>for loops</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/notebooks/day-1/for-loops.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -400,7 +389,7 @@ Python</a>.</p>
 <div class="section" id="1.-Loops-allow-parts-of-code-to-be-repeated-over-some-number-of-times.">
 <h3>1. Loops allow parts of code to be repeated over some number of times.<a class="headerlink" href="#1.-Loops-allow-parts-of-code-to-be-repeated-over-some-number-of-times." title="Permalink to this headline">¶</a></h3>
 <p>One of the simple loop options in Python is the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
@@ -412,10 +401,10 @@ Python</a>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 r
 o
@@ -438,7 +427,7 @@ needed to end the loop, just change the indentation back to normal.</p>
 </div>
 <div class="section" id="3.-Let's-consider-another-example.">
 <h3>3. Let’s consider another example.<a class="headerlink" href="#3.-Let's-consider-another-example." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
@@ -450,7 +439,7 @@ needed to end the loop, just change the indentation back to normal.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
@@ -460,18 +449,18 @@ needed to end the loop, just change the indentation back to normal.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-There are 10 letters
+(&#39;There are&#39;, 10, &#39;letters&#39;)
 </pre></div></div>
 </div>
 <p>Note that the variable used in the loop, <code class="docutils literal notranslate"><span class="pre">letter</span></code> is just a normal
 variable and still exists after the loop has completed with the final
 value given to letter.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
@@ -481,12 +470,12 @@ value given to letter.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-After the loop, letter is e
+(&#39;After the loop, letter is&#39;, &#39;e&#39;)
 </pre></div></div>
 </div>
 </div>
@@ -494,7 +483,7 @@ After the loop, letter is e
 <h3>4. A loop can be used to iterate over any list of values in Python.<a class="headerlink" href="#4.-A-loop-can-be-used-to-iterate-over-any-list-of-values-in-Python." title="Permalink to this headline">¶</a></h3>
 <p>So far we have considered only character strings, but we could also
 write a loop that performs a calculation a specified number of times.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
@@ -505,10 +494,10 @@ write a loop that performs a calculation a specified number of times.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 0
 1
@@ -527,7 +516,7 @@ zero and ends with <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values.">
 <h3>5. Often when you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, you are looping over the values in a list and either calculating a new value or modifying the existing values.<a class="headerlink" href="#5.-Often-when-you-use-for-loops,-you-are-looping-over-the-values-in-a-list-and-either-calculating-a-new-value-or-modifying-the-existing-values." title="Permalink to this headline">¶</a></h3>
 <p>Let’s consider an example.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
@@ -538,15 +527,15 @@ zero and ends with <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
@@ -558,10 +547,10 @@ zero and ends with <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [0.0, 2.0, 4.0, 6.0, 8.0, 10.0]
 </pre></div></div>
@@ -575,7 +564,7 @@ existing location in <code class="docutils literal notranslate"><span class="pre
 <p>However, we already know how to find the length of a list using the
 <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, and we can take advantage of this knowledge to make
 our <code class="docutils literal notranslate"><span class="pre">for</span></code> loop more flexible.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
@@ -587,10 +576,10 @@ our <code class="docutils literal notranslate"><span class="pre">for</span></cod
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [0.0, 3.0, 6.0, 9.0, 12.0, 15.0]
 </pre></div></div>
@@ -607,7 +596,7 @@ size as <code class="docutils literal notranslate"><span class="pre">numbers</sp
 <li>Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, calculate the square of each value in
 <code class="docutils literal notranslate"><span class="pre">numbers</span></code> and store it in the corresponding location in <code class="docutils literal notranslate"><span class="pre">squared</span></code></li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
@@ -629,7 +618,7 @@ squared values</li>
 <li>Can you break your function (get it to give an error message)? If so,
 how?</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
@@ -646,7 +635,7 @@ how?</li>
 <p>IPython has a magic function called <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> that you can use in a
 Jupyter Notebook to calculate how long it takes a line of code (or
 program) to execute.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
@@ -657,12 +646,12 @@ program) to execute.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-473 ms ± 7.07 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+1 loop, best of 3: 2.01 s per loop
 </pre></div></div>
 </div>
 <p>We can use this now to compare the performance of your new <code class="docutils literal notranslate"><span class="pre">square()</span></code>
@@ -676,7 +665,7 @@ increments of 0.0000001</li>
 <code class="docutils literal notranslate"><span class="pre">input</span></code> array directly and storing its output as <code class="docutils literal notranslate"><span class="pre">out2</span></code></li>
 <li>Can you see any benefits to using NumPy?</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
@@ -694,16 +683,15 @@ increments of 0.0000001</li>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Conditional-statements.html" class="btn btn-neutral float-right" title="Conditional statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Conditional-statements.html" class="btn btn-neutral float-right" title="Conditional statements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="NumPy.html" class="btn btn-neutral" title="Introduction to NumPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="NumPy.html" class="btn btn-neutral" title="Introduction to NumPy" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -716,7 +704,7 @@ increments of 0.0000001</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -738,11 +726,9 @@ increments of 0.0000001</li>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -757,11 +743,14 @@ increments of 0.0000001</li>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

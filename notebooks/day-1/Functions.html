@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to NumPy" href="NumPy.html" />
-    <link rel="prev" title="Basic elements of Python" href="python-basics.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Introduction to NumPy" href="NumPy.html"/>
+        <link rel="prev" title="Basic elements of Python" href="python-basics.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -129,6 +131,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/diffadv.html">Heat diffusion + advection</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -143,54 +152,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Functions</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Functions</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/notebooks/day-1/Functions.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -410,7 +399,7 @@ Celsius.</p>
 to Celsius. Such an operation is a fairly common task when dealing with
 temperature data.</p>
 <p>Let’s define our first function called <code class="docutils literal notranslate"><span class="pre">celsius_to_fahr</span></code>:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
@@ -438,7 +427,7 @@ be given when the function is used.</p>
 <p>Calling our self-defined function is no different from calling any other
 function such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>. You need to call it with its name and send
 your value to the required parameter(s) inside the parentheses.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
@@ -449,15 +438,15 @@ your value to the required parameter(s) inside the parentheses.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-Freezing point of water in Fahrenheit: 32.0
+(&#39;Freezing point of water in Fahrenheit:&#39;, 32)
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
@@ -467,18 +456,18 @@ Freezing point of water in Fahrenheit: 32.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-Boiling point of water in Fahrenheit: 212.0
+(&#39;Boiling point of water in Fahrenheit:&#39;, 132)
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="2.-Now-that-we-know-how-to-create-a-function-to-convert-Celsius-to-Fahrenheit,-let's-create-another-function-called-kelvin_to_celsius.">
 <h3>2. Now that we know how to create a function to convert Celsius to Fahrenheit, let’s create another function called <code class="docutils literal notranslate"><span class="pre">kelvin_to_celsius</span></code>.<a class="headerlink" href="#2.-Now-that-we-know-how-to-create-a-function-to-convert-Celsius-to-Fahrenheit,-let's-create-another-function-called-kelvin_to_celsius." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
@@ -492,7 +481,7 @@ Boiling point of water in Fahrenheit: 212.0
 </div>
 <div class="section" id="3.-And-let's-use-it-in-a-similar-way-as-the-earlier-one.">
 <h3>3. And let’s use it in a similar way as the earlier one.<a class="headerlink" href="#3.-And-let's-use-it-in-a-similar-way-as-the-earlier-one." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
@@ -503,12 +492,12 @@ Boiling point of water in Fahrenheit: 212.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-Absolute zero in Celsius: -273.15
+(&#39;Absolute zero in Celsius:&#39;, -273.15)
 </pre></div></div>
 </div>
 </div>
@@ -517,7 +506,7 @@ Absolute zero in Celsius: -273.15
 <p>We could write out an own formula for it, but we don’t need to. Instead,
 we can compose it by using the two functions we have already created and
 calling those from the function we are now creating.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
@@ -536,7 +525,7 @@ calling those from the function we are now creating.</p>
 </div>
 <div class="section" id="5.-Let's-use-the-function.">
 <h3>5. Let’s use the function.<a class="headerlink" href="#5.-Let's-use-the-function." title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
@@ -547,12 +536,12 @@ calling those from the function we are now creating.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-Absolute zero in Fahrenheit: -459.66999999999996
+(&#39;Absolute zero in Fahrenheit:&#39;, -241.14999999999998)
 </pre></div></div>
 </div>
 </div>
@@ -561,16 +550,15 @@ Absolute zero in Fahrenheit: -459.66999999999996
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="NumPy.html" class="btn btn-neutral float-right" title="Introduction to NumPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="NumPy.html" class="btn btn-neutral float-right" title="Introduction to NumPy" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="python-basics.html" class="btn btn-neutral" title="Basic elements of Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="python-basics.html" class="btn btn-neutral" title="Basic elements of Python" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -583,7 +571,7 @@ Absolute zero in Fahrenheit: -459.66999999999996
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -605,11 +593,9 @@ Absolute zero in Fahrenheit: -459.66999999999996
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -624,11 +610,14 @@ Absolute zero in Fahrenheit: -459.66999999999996
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

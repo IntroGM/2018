@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Functions" href="Functions.html" />
-    <link rel="prev" title="Solving equations" href="../../lessons/day-1/solving-equations.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Functions" href="Functions.html"/>
+        <link rel="prev" title="Solving equations" href="../../lessons/day-1/solving-equations.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -138,6 +140,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-2/diffadv.html">Heat diffusion + advection</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -152,54 +161,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Basic elements of Python</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Basic elements of Python</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/notebooks/day-1/python-basics.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -440,7 +429,7 @@ operations you can perform using Python.</p>
 <h4>1. Python can be used as a simple calculator.<a class="headerlink" href="#1.-Python-can-be-used-as-a-simple-calculator." title="Permalink to this headline">¶</a></h4>
 <p>Remember, you can press <strong>Shift-Enter</strong> to execute the code in the cells
 below. Try it out and see what you get.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
@@ -450,7 +439,7 @@ below. Try it out and see what you get.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[1]:
 </pre></div>
@@ -460,7 +449,7 @@ below. Try it out and see what you get.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
@@ -470,7 +459,7 @@ below. Try it out and see what you get.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[2]:
 </pre></div>
@@ -528,7 +517,7 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </tbody>
 </table>
 <p>For anything more advanced, we need to load a <em>module</em>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
@@ -538,7 +527,7 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
@@ -548,7 +537,7 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[4]:
 </pre></div>
@@ -558,7 +547,7 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [5]:
 </pre></div>
@@ -568,7 +557,7 @@ cell and press <strong>Shift-Enter</strong> to execute the revised code.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[5]:
 </pre></div>
@@ -592,7 +581,7 @@ the notebook will be available for use in the cells that follow as
 long as you have already executed the cells.</li>
 <li>Modules may also contain constants such as <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>.</li>
 </ol>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [6]:
 </pre></div>
@@ -602,7 +591,7 @@ long as you have already executed the cells.</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[6]:
 </pre></div>
@@ -612,7 +601,7 @@ long as you have already executed the cells.</li>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [7]:
 </pre></div>
@@ -622,7 +611,7 @@ long as you have already executed the cells.</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[7]:
 </pre></div>
@@ -635,7 +624,7 @@ long as you have already executed the cells.</li>
 </div>
 <div class="section" id="3.-Functions-can-also-be-combined.">
 <h4>3. Functions can also be combined.<a class="headerlink" href="#3.-Functions-can-also-be-combined." title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [8]:
 </pre></div>
@@ -645,15 +634,15 @@ long as you have already executed the cells.</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 2.0
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
@@ -663,18 +652,18 @@ long as you have already executed the cells.</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-The square root of 4 is 2.0
+(&#39;The square root of 4 is&#39;, 2.0)
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="4.-Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations.">
 <h4>4. <em>Variables</em> can be used to store values calculated in expressions and used for other calculations.<a class="headerlink" href="#4.-Variables-can-be-used-to-store-values-calculated-in-expressions-and-used-for-other-calculations." title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [10]:
 </pre></div>
@@ -685,15 +674,15 @@ The square root of 4 is 2.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 10.0
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [11]:
 </pre></div>
@@ -703,17 +692,17 @@ The square root of 4 is 2.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
-Temperature in Fahrenheit: 50.0
+(&#39;Temperature in Fahrenheit:&#39;, 42.0)
 </pre></div></div>
 </div>
 <p>Note that if you try to run some code that accesses a variable that has
 not yet been defined you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> message.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [12]:
 </pre></div>
@@ -723,15 +712,15 @@ not yet been defined you will get a <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-green-fg">&lt;ipython-input-12-2067e78f4444&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Temperature in Celsius:&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">/</span><span class="ansi-cyan-fg">9</span> <span class="ansi-blue-fg">*</span> <span class="ansi-blue-fg">(</span>tempFahrenheit <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">32</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Temperature in Celsius:&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">/</span><span class="ansi-cyan-fg">9</span> <span class="ansi-blue-fg">*</span> <span class="ansi-blue-fg">(</span>tempFahrenheit <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">32</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;tempFahrenheit&#39; is not defined
 </pre></div></div>
@@ -747,7 +736,7 @@ the code is executed.</p>
 <p>Note that the number beside the cell, for example <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[2]</span></code>, tells you
 the order in which the Python cells have been executed. This way you can
 see a history of the commands you’ve executed</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [13]:
 </pre></div>
@@ -760,41 +749,15 @@ see a history of the commands you’ve executed</p>
 </div>
 <div class="section" id="5.-There-are-4-basic-data-types-in-Python-as-shown-in-the-table-below.">
 <h4>5. There are 4 basic <em>data types</em> in Python as shown in the table below.<a class="headerlink" href="#5.-There-are-4-basic-data-types-in-Python-as-shown-in-the-table-below." title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="43%" />
-<col width="25%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Data type name</th>
-<th class="head">Data type</th>
-<th class="head">Example</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
-<td>Whole integer values</td>
-<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
-<td>Decimal values</td>
-<td><code class="docutils literal notranslate"><span class="pre">3.1415</span></code></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">str</span></code></td>
-<td>Character strings</td>
-<td><code class="docutils literal notranslate"><span class="pre">'Hot'</span></code></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">bool</span></code></td>
-<td>True/false values</td>
-<td><code class="docutils literal notranslate"><span class="pre">True</span></code></td>
-</tr>
-</tbody>
-</table>
+<p>| Data type name | Data type | Example | | ————– |
+——————– | ———- | | <code class="docutils literal notranslate"><span class="pre">int</span></code> | Whole integer values
+| <code class="docutils literal notranslate"><span class="pre">4</span></code> | | <code class="docutils literal notranslate"><span class="pre">float</span></code> | Decimal values | <code class="docutils literal notranslate"><span class="pre">3.1415</span></code> | | <code class="docutils literal notranslate"><span class="pre">str</span></code>
+| Character strings | <code class="docutils literal notranslate"><span class="pre">'Hot'</span></code> | | <code class="docutils literal notranslate"><span class="pre">bool</span></code> | True/false values |
+<code class="docutils literal notranslate"><span class="pre">True</span></code> |</p>
 <p>The data type can be found using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. As you will
 see, the data types are important because some are not compatible with
 one another.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [14]:
 </pre></div>
@@ -805,7 +768,7 @@ one another.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[14]:
 </pre></div>
@@ -815,7 +778,7 @@ one another.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
@@ -826,10 +789,10 @@ one another.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
@@ -853,7 +816,7 @@ of the samples, we can store many related values in a <em>collection</em>. The
 simplest type of collection in Python is a <strong>list</strong>.</p>
 <div class="section" id="1.-Let's-first-create-a-list-of-selected-SampleID-values.">
 <h4>1. Let’s first create a list of selected SampleID values.<a class="headerlink" href="#1.-Let's-first-create-a-list-of-selected-SampleID-values." title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [16]:
 </pre></div>
@@ -864,15 +827,15 @@ simplest type of collection in Python is a <strong>list</strong>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 [&#39;DW-NP-03&#39;, &#39;DW-NP-12&#39;, &#39;DW-NP-33&#39;, &#39;DW-NP-48&#39;]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [17]:
 </pre></div>
@@ -882,7 +845,7 @@ simplest type of collection in Python is a <strong>list</strong>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[17]:
 </pre></div>
@@ -901,7 +864,7 @@ separating the values in the list.</p>
 <h4>2. To access an individual value in the list we need to use an <em>index value</em>.<a class="headerlink" href="#2.-To-access-an-individual-value-in-the-list-we-need-to-use-an-index-value." title="Permalink to this headline">¶</a></h4>
 <p>An index value is a number that refers to a given position in the list.
 Let’s check out the first value in our list as an example:</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [18]:
 </pre></div>
@@ -911,10 +874,10 @@ Let’s check out the first value in our list as an example:</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 DW-NP-12
 </pre></div></div>
@@ -924,7 +887,7 @@ stored in collections with the index value <code class="docutils literal notrans
 </div>
 <div class="section" id="3.-We-can-find-the-length-of-a-list-using-the-len()-function.">
 <h4>3. We can find the length of a list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.<a class="headerlink" href="#3.-We-can-find-the-length-of-a-list-using-the-len()-function." title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [19]:
 </pre></div>
@@ -934,7 +897,7 @@ stored in collections with the index value <code class="docutils literal notrans
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[19]:
 </pre></div>
@@ -959,7 +922,7 @@ index values to check the data types of the contents of the list.</li>
 <li>What kinds of data can you store in lists? Does each list value need
 to be the same data type?</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [20]:
 </pre></div>
@@ -979,16 +942,15 @@ to be the same data type?</li>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Functions.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Functions.html" class="btn btn-neutral float-right" title="Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../lessons/day-1/solving-equations.html" class="btn btn-neutral" title="Solving equations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../lessons/day-1/solving-equations.html" class="btn btn-neutral" title="Solving equations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1001,7 +963,7 @@ to be the same data type?</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -1023,11 +985,9 @@ to be the same data type?</li>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -1042,11 +1002,14 @@ to be the same data type?</li>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

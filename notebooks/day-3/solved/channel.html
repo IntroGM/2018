@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Solution strategy for the channel flow &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../../index.html"/>
+    <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../../_static/HY-logo-2017.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-2/diffadv.html">Heat diffusion + advection</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Introduction to Geodynamic Modelling</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Solution strategy for the channel flow</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/notebooks/day-3/solved/channel.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-3/solved/channel.ipynb">source/notebooks/day-3/solved/channel.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-3/solved/channel.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Solution-strategy-for-the-channel-flow">
+<h1>Solution strategy for the channel flow<a class="headerlink" href="#Solution-strategy-for-the-channel-flow" title="Permalink to this headline">¶</a></h1>
+<p>Rearranging the discretized equation so that all unknowns are on the
+left hand side, on the right hand side there are only known values.</p>
+<div class="math notranslate nohighlight">
+\[v_{i-1} - 2v_i + v_{i+1} = \frac{dP/dx}{\eta}\Delta y^2\]</div>
+<p>There is one such equation for each internal grid point. At the
+boundaries, boundary conditions have to be used, e.g.
+<span class="math notranslate nohighlight">\(v_0 = v_\mathrm{surf}\)</span> and
+<span class="math notranslate nohighlight">\(v_{\mathrm{ny}-1} = v_\mathrm{bott}\)</span>.</p>
+<p>For five grid points we thus have five equations in total:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+v_0 &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp;     &amp; = &amp; v_\mathrm{surf} \\
+v_0 &amp; -2 &amp; v_1  &amp; +  &amp; v_2 &amp;    &amp;     &amp;   &amp;     &amp; = &amp; \frac{dP/dx}{\eta}\Delta y^2 \\
+    &amp;    &amp; v_1  &amp; -2 &amp; v_2 &amp; +  &amp; v_3 &amp;   &amp;     &amp; = &amp; \frac{dP/dx}{\eta}\Delta y^2 \\
+    &amp;    &amp;      &amp;    &amp; v_2 &amp; -2 &amp; v_3 &amp; + &amp; v_4 &amp; = &amp; \frac{dP/dx}{\eta}\Delta y^2 \\
+    &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp; v_4 &amp; = &amp; v_\mathrm{bott} \\
+\end{eqnarray}\end{split}\]</div>
+<p>This system of equations can be written in matrix format as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+1 &amp; &amp; &amp; &amp; \\
+1 &amp; -2 &amp;  1 &amp; &amp; \\
+ &amp; 1 &amp; -2 &amp; 1 &amp; \\
+ &amp; &amp; 1 &amp; -2 &amp; 1 \\
+ &amp; &amp; &amp; &amp; 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+v_0 \\
+v_1 \\
+v_2 \\
+v_3 \\
+v_4 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+v_\mathrm{surf} \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+v_\mathrm{bott} \\
+\end{pmatrix}\end{split}\]</div>
+<p>and is typically written with symbols</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Ax}=\mathbf{b}\]</div>
+<p>Python comes with a module, <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> that includes function
+<code class="docutils literal notranslate"><span class="pre">solve</span></code>, which can be used to solve this type of systems of linear
+equations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="k">import</span> <span class="n">solve</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">b</span></code> has to be a 1-D NumPy array of size <code class="docutils literal notranslate"><span class="pre">ny</span></code>, and includes the
+numerical values of the right hand side expressions; and <code class="docutils literal notranslate"><span class="pre">A</span></code> a 2-D
+NumPy array of size (<code class="docutils literal notranslate"><span class="pre">ny</span></code>,<code class="docutils literal notranslate"><span class="pre">ny</span></code>), and includes the numerical
+coefficients, as above. <code class="docutils literal notranslate"><span class="pre">x</span></code> will then contain the wanted velocity
+values. The following script utilizes this function to solve the channel
+flow problem.</p>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Complete the following script</li>
+</ul>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define physical parameters</span>
+<span class="n">visc</span> <span class="o">=</span> <span class="mf">1e19</span>                    <span class="c1"># Viscosity of the rock in the channel, Pa s</span>
+<span class="n">dpdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2800</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">4000</span><span class="o">/</span><span class="mf">500e3</span>   <span class="c1"># Pressure gradient within the channel, Pa m^-1</span>
+
+<span class="c1"># Define problem geometry</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># number of grid points</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">10e3</span>    <span class="c1"># size of the problem (width of the channel)</span>
+
+<span class="c1"># Define values for boundary conditions, m s^-1</span>
+<span class="n">vx_surf</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vx_bott</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">365.25</span><span class="p">)</span>
+
+<span class="c1"># Calculate grid spacing and y coordinates</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
+<span class="c1"># Create the empty (zero) coefficient and right hand side arrays</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="n">ny</span><span class="p">))</span>  <span class="c1"># 2-dimensional array, ny rows, ny columns</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span>
+
+<span class="c1"># Set B.C. values in the coefficient array and in the r.h.s. array</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx_surf</span>
+<span class="n">A</span><span class="p">[</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span><span class="p">[</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx_bott</span>
+
+<span class="c1"># Set remaining (internal grid point) coefficients in the array `A`.</span>
+<span class="c1"># TODO: Complete the for loop so that it will write the coefficient</span>
+<span class="c1"># values in the array `A`. The for loop loops over all the rows</span>
+<span class="c1"># of the matrix. On each row, you need to fill in three coefficients.</span>
+<span class="c1"># In python, elements of 2D arrays are referenced to like &#39;A[row, col]&#39;</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Set remaining (internal grid point) coefficients in the r.h.s. array b</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="n">dpdx</span> <span class="o">*</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">visc</span>
+
+<span class="c1"># For debugging purposes, plot A (if it is small enough) and b</span>
+<span class="k">if</span> <span class="n">ny</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;A is:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">b is:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Solve it!</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># Plot it!</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vx</span> <span class="o">*</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">25</span><span class="o">*</span><span class="mf">365.25</span><span class="p">),</span> <span class="o">-</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<div class="highlight"><pre>
+A is:
+ [[ 1.  0.  0.  0.  0.]
+ [ 1. -2.  1.  0.  0.]
+ [ 0.  1. -2.  1.  0.]
+ [ 0.  0.  1. -2.  1.]
+ [ 0.  0.  0.  0.  1.]]
+b is:
+ [ 0.00000000e+00 -1.37340000e-10 -1.37340000e-10 -1.37340000e-10
+ -3.16880878e-10]
+</pre></div></div>
+</div>
+<div class="nboutput nblast container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../../_images/notebooks_day-3_solved_channel_5_1.png" src="../../../_images/notebooks_day-3_solved_channel_5_1.png" />
+</div>
+</div>
+<p>Strain rate in 2D is defined as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underline{\underline{\dot\epsilon}} = \begin{pmatrix}
+\frac{\partial v_x}{\partial x} &amp; \frac{\partial v_x}{\partial y} \\
+\frac{\partial v_y}{\partial x} &amp; \frac{\partial v_y}{\partial y} \\
+\end{pmatrix}\end{split}\]</div>
+<p>In our case the only relevant component is the shear strain rate
+<span class="math notranslate nohighlight">\(\dot\epsilon_{xy} = \frac{\partial v_x}{\partial y}\)</span>.</p>
+</div>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Discretize the shear strain rate expression</li>
+<li>Complete the script below so that it will loop over all the grid
+points, calculate the shear strain, and store it in the array <code class="docutils literal notranslate"><span class="pre">e</span></code></li>
+<li>How does the resulting plot look like? Note that the <em>shear stress</em>
+is defined as <span class="math notranslate nohighlight">\(\sigma_{xy} = \eta\dot\epsilon_{xy}\)</span>. Where is
+the shear stress smallest?</li>
+</ul>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># TODO: Write here a for-loop that loops over the grid points</span>
+<span class="c1"># and calculate the shear strain rate on every step</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">e</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">iy</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vx</span><span class="p">[</span><span class="n">iy</span><span class="p">])</span> <span class="o">/</span> <span class="n">dy</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../../_images/notebooks_day-3_solved_channel_7_0.png" src="../../../_images/notebooks_day-3_solved_channel_7_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Velocity-boundary-conditions">
+<h1>Velocity boundary conditions<a class="headerlink" href="#Velocity-boundary-conditions" title="Permalink to this headline">¶</a></h1>
+<p>Like in the case of heat equation, the FD formulation for velocity field
+may have different boundary conditions:</p>
+<ol class="arabic simple">
+<li>No-slip:<ul>
+<li>Velocity parallel to the surface is fixed at zero</li>
+<li><span class="math notranslate nohighlight">\(v_x = 0\)</span></li>
+</ul>
+</li>
+<li>Free-slip:<ul>
+<li>Shear stress at the surface is zero</li>
+<li><span class="math notranslate nohighlight">\(0 = \sigma_{xy} = \eta\dot\epsilon_{xy} = \eta\frac{\partial v_x}{\partial y} \Rightarrow \frac{\partial v_x}{\partial y} = 0\)</span></li>
+</ul>
+</li>
+<li>Other:<ul>
+<li>Velocity is fixed at non-zero value</li>
+<li>e.g. <span class="math notranslate nohighlight">\(v_x = a \neq 0\)</span>, also incoming/outgoing flow
+(<span class="math notranslate nohighlight">\(v_y \neq 0\)</span>) possible (in 2D models)</li>
+</ul>
+</li>
+</ol>
+<p>We used cases 1 and 3 previously.</p>
+<p>### Do</p>
+<ul class="simple">
+<li>Discretize the free-slip boundary condition
+<span class="math notranslate nohighlight">\(\frac{\partial v_x}{\partial y} = 0\)</span></li>
+<li>If you want to apply this at the upper surface (i.e. at
+<span class="math notranslate nohighlight">\(x=x_0\)</span>), how would your system of equations change? How would
+the coefficients in the matrix <span class="math notranslate nohighlight">\(A\)</span> change?</li>
+<li>Modify your script for the channel flow model, and change the upper
+surface velocity boundarty condition from <span class="math notranslate nohighlight">\(v_x=0\)</span> to a
+free-slip B.C.<ul>
+<li>How does the resulting velocity plot change?</li>
+<li>How does the plot for shear strain rate change?</li>
+</ul>
+</li>
+</ul>
+<p>Free-slip velocity b.c. at the upper boundary leads to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+-1 &amp; 1 &amp; &amp; &amp; \\
+1 &amp; -2 &amp;  1 &amp; &amp; \\
+ &amp; 1 &amp; -2 &amp; 1 &amp; \\
+ &amp; &amp; 1 &amp; -2 &amp; 1 \\
+ &amp; &amp; &amp; &amp; 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+v_0 \\
+v_1 \\
+v_2 \\
+v_3 \\
+v_4 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+\frac{dP/dx}{\eta}\Delta y^2 \\
+v_\mathrm{bott} \\
+\end{pmatrix}\end{split}\]</div>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define physical parameters</span>
+<span class="n">visc</span> <span class="o">=</span> <span class="mf">1e19</span>                    <span class="c1"># Pa s</span>
+<span class="n">dpdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2800</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">4000</span><span class="o">/</span><span class="mf">500e3</span>   <span class="c1"># Pa m^-1</span>
+
+<span class="c1"># Define problem geometry</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">20</span>      <span class="c1"># number of grid points</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">10e3</span>     <span class="c1"># size of problem (width of the channel)</span>
+
+<span class="c1"># Define values for boundary conditions, m s^-1</span>
+<span class="n">vx_surf</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vx_bott</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">365.25</span><span class="p">)</span>
+
+<span class="c1"># Calculate grid spacing and y coordinates</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
+<span class="c1"># Create the empty (zero) coefficient and right hand side arrays</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="n">ny</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span>
+
+<span class="c1"># Set B.C. values in the coefficient array and in the r.h.s. array</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">A</span><span class="p">[</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span><span class="p">[</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx_bott</span>
+
+<span class="c1"># Set remaining (internal grid point) coefficients in the array A</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">iy</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Set remaining (internal grid point) coefficients in the r.h.s. array b</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="n">dpdx</span> <span class="o">*</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">visc</span>
+
+<span class="c1"># For debugging purposes, plot A (if it is small enough) and b</span>
+<span class="k">if</span> <span class="n">ny</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;A is:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">b is:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Solve it!</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># Plot it!</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vx</span> <span class="o">*</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">25</span><span class="o">*</span><span class="mf">365.25</span><span class="p">),</span> <span class="o">-</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../../_images/notebooks_day-3_solved_channel_10_0.png" src="../../../_images/notebooks_day-3_solved_channel_10_0.png" />
+</div>
+</div>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ymp</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">e</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">iy</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vx</span><span class="p">[</span><span class="n">iy</span><span class="p">])</span> <span class="o">/</span> <span class="n">dy</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">-</span><span class="n">ymp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast container">
+<div class="prompt empty container">
+</div>
+<div class="output_area container">
+<img alt="../../../_images/notebooks_day-3_solved_channel_11_0.png" src="../../../_images/notebooks_day-3_solved_channel_11_0.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2018',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

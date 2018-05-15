@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,11 +23,19 @@
   
 
   
+  
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../../index.html"/>
     <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -38,9 +44,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -55,7 +60,7 @@
 
           
             
-            <img src="../../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -84,10 +89,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../course-info/learning-goals.html">Learning goals</a></li>
@@ -114,6 +116,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../stability.html">Stability of the heat equation FD approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../diffadv.html">Heat diffusion + advection</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
@@ -128,54 +137,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction to finite differences</li>
-    
-    
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction to finite differences</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../../_sources/notebooks/day-2/solved/fdbasics.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -368,7 +357,7 @@ div.nboutput div.output_area.stderr {
 This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-2/solved/fdbasics.ipynb">source/notebooks/day-2/solved/fdbasics.ipynb</a>.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-2/solved/fdbasics.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [217]:
 </pre></div>
@@ -404,7 +393,7 @@ the limit:</p>
 arbitrary small values of <span class="math notranslate nohighlight">\(\Delta x\)</span>, we would reach the exact
 value of the derivative, but in reality we are always limited by the
 numerical accuracy of the computers.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [218]:
 </pre></div>
@@ -417,10 +406,10 @@ numerical accuracy of the computers.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 53
 </pre></div></div>
@@ -449,7 +438,7 @@ differences are <em>first-order accurate</em>.</p>
 <h3>Approximating derivatives<a class="headerlink" href="#Approximating-derivatives" title="Permalink to this headline">¶</a></h3>
 <p>Let’s define a known function <span class="math notranslate nohighlight">\(f(x)=\sin(2x)+2\cos(x)\)</span> and plot it
 on range <span class="math notranslate nohighlight">\(x=[-2,2]\)</span>:</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [219]:
 </pre></div>
@@ -465,10 +454,10 @@ on range <span class="math notranslate nohighlight">\(x=[-2,2]\)</span>:</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_4_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_4_0.png" />
 </div>
 </div>
@@ -483,7 +472,7 @@ Let’s define this as a python function and plot it, together with
 <li>Define function <code class="docutils literal notranslate"><span class="pre">dfdx</span></code> that returns the analytically calculated
 derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
@@ -493,7 +482,7 @@ derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [220]:
 </pre></div>
@@ -506,7 +495,7 @@ derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [220]:
 </pre></div>
@@ -521,10 +510,10 @@ derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_8_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_8_0.png" />
 </div>
 </div>
@@ -532,7 +521,7 @@ derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 differences, we can define a function that computes the derivative of a
 given function <span class="math notranslate nohighlight">\(g\)</span> at given position <span class="math notranslate nohighlight">\(x_0\)</span>, using <em>step
 size</em> <span class="math notranslate nohighlight">\(dx\)</span>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [221]:
 </pre></div>
@@ -544,7 +533,7 @@ size</em> <span class="math notranslate nohighlight">\(dx\)</span>.</p>
 </div>
 </div>
 <p>Let’s plot this on top of the analytical solution.</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [222]:
 </pre></div>
@@ -558,10 +547,10 @@ size</em> <span class="math notranslate nohighlight">\(dx\)</span>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_12_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_12_0.png" />
 </div>
 </div>
@@ -575,7 +564,7 @@ to larger and smaller values. What happens?</li>
 central difference form. How does the derivative approximation
 change?</li>
 </ul>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [223]:
 </pre></div>
@@ -601,17 +590,17 @@ change?</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_14_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_14_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="Calculating-the-error">
 <h2>Calculating the error<a class="headerlink" href="#Calculating-the-error" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [251]:
 </pre></div>
@@ -636,10 +625,10 @@ change?</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_16_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_16_0.png" />
 </div>
 </div>
@@ -678,7 +667,7 @@ acceleration <span class="math notranslate nohighlight">\(a=\frac{dv}{dt}\)</spa
 <p>When the sphere has reached its terminal velocity, acceleration is zero,
 so
 <span class="math notranslate nohighlight">\(dv/dt = 0 \Rightarrow v = \frac{2}{9}\frac{\Delta \rho R^2 g}{\eta}\)</span></p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [225]:
 </pre></div>
@@ -690,7 +679,7 @@ so
 </div>
 </div>
 <p>A marble with radius of 2 cm in honey:</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [226]:
 </pre></div>
@@ -700,7 +689,7 @@ so
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[226]:
 </pre></div>
@@ -726,7 +715,7 @@ Note that on the right hand side <span class="math notranslate nohighlight">\(v\
 <div class="math notranslate nohighlight">
 \[v(t_0 + \Delta t) = \left(-\frac{9 \eta v(t_0)}{\rho_\mathrm{sphere} 2 \pi R^2} + \frac{(\rho_\mathrm{sphere} - \rho_\mathrm{fluid})g}{\rho_\mathrm{sphere}}\right) \Delta t + v(t_0)\]</div>
 <p>Let’s write this as a python function:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [227]:
 </pre></div>
@@ -737,7 +726,7 @@ Note that on the right hand side <span class="math notranslate nohighlight">\(v\
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [242]:
 </pre></div>
@@ -756,7 +745,7 @@ Note that on the right hand side <span class="math notranslate nohighlight">\(v\
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[242]:
 </pre></div>
@@ -773,7 +762,7 @@ Note that on the right hand side <span class="math notranslate nohighlight">\(v\
 </div>
 </div>
 <p>We can automate the calculation of the steps:</p>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [245]:
 </pre></div>
@@ -800,17 +789,17 @@ Note that on the right hand side <span class="math notranslate nohighlight">\(v\
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_31_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_31_0.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 Velocity at time  0.0049  s is  0.005202758993971469
 </pre></div></div>
@@ -835,7 +824,7 @@ velocity values calculated using <code class="docutils literal notranslate"><spa
 <code class="docutils literal notranslate"><span class="pre">vel_next_implicit</span></code>, and plot the outcome on top of each other.
 Vary the value of <code class="docutils literal notranslate"><span class="pre">dt</span></code> and see what happens.</li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [246]:
 </pre></div>
@@ -846,7 +835,7 @@ Vary the value of <code class="docutils literal notranslate"><span class="pre">d
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput nblast container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [230]:
 </pre></div>
@@ -859,7 +848,7 @@ Vary the value of <code class="docutils literal notranslate"><span class="pre">d
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [250]:
 </pre></div>
@@ -890,10 +879,10 @@ Vary the value of <code class="docutils literal notranslate"><span class="pre">d
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../../_images/notebooks_day-2_solved_fdbasics_35_0.png" src="../../../_images/notebooks_day-2_solved_fdbasics_35_0.png" />
 </div>
 </div>
@@ -906,7 +895,6 @@ approximation. When applied to functions of time, these are also called
 
 
            </div>
-           
           </div>
           <footer>
   
@@ -919,7 +907,7 @@ approximation. When applied to functions of time, these are also called
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -941,11 +929,9 @@ approximation. When applied to functions of time, these are also called
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -960,11 +946,14 @@ approximation. When applied to functions of time, these are also called
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

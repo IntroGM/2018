@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,13 +23,21 @@
   
 
   
+  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Finite differences for heat equation" href="fdheat.html" />
-    <link rel="prev" title="Conditional statements" href="../day-1/Conditional-statements.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+        <link rel="next" title="Finite differences for heat equation" href="fdheat.html"/>
+        <link rel="prev" title="Conditional statements" href="../day-1/Conditional-statements.html"/>
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -40,9 +46,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -57,7 +62,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -86,10 +91,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -152,54 +154,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-      <li>Introduction to finite differences</li>
-    
-    
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction to finite differences</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/notebooks/day-2/fdbasics.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -392,12 +374,12 @@ div.nboutput div.output_area.stderr {
 This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-2/fdbasics.ipynb">source/notebooks/day-2/fdbasics.ipynb</a>.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-2/fdbasics.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [217]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
@@ -414,26 +396,26 @@ solved analytically, or if the geometry of the problem setup is too
 complex.</p>
 <p>The starting point for the finite differences method is the definition
 of a derivative:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{\mathrm{d}f}{\mathrm{d}x}\Big\rvert_{x=x_0} = \lim_{\Delta x \rightarrow 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
 = \lim_{\Delta x \rightarrow 0} \frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x}\]</div>
 <p>However, computers can only handle numbers of finite value, not
-infinitesimally small values such as <span class="math">\(\Delta x\)</span> at the limit used
+infinitesimally small values such as <span class="math notranslate nohighlight">\(\Delta x\)</span> at the limit used
 in the definition. Thus, the derivative is approximated by dropping out
 the limit:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{\mathrm{d}f}{\mathrm{d}x}\Big\rvert_{x=x_0} \approx \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
 \approx \frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x}\]</div>
-<p>where <span class="math">\(\Delta x\)</span> is <em>sufficiently small</em>. If we could choose
-arbitrary small values of <span class="math">\(\Delta x\)</span>, we would reach the exact
+<p>where <span class="math notranslate nohighlight">\(\Delta x\)</span> is <em>sufficiently small</em>. If we could choose
+arbitrary small values of <span class="math notranslate nohighlight">\(\Delta x\)</span>, we would reach the exact
 value of the derivative, but in reality we are always limited by the
 numerical accuracy of the computers.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [218]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
@@ -441,10 +423,10 @@ numerical accuracy of the computers.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 53
 </pre></div></div>
@@ -452,33 +434,33 @@ numerical accuracy of the computers.</p>
 <p>The first approximation above is called the <em>forward difference</em>, second
 the <em>backward difference</em>. One can define also the <em>central difference</em>
 approximation:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{\mathrm{d}f}{\mathrm{d}x}\Big\rvert_{x=x_0} \approx \frac{ f(x_0 + \Delta x) - f(x_0 - \Delta x)}{2\Delta x}\]</div>
 <p>Other approximations exist, too.</p>
 <div class="section" id="Taylor-series-approach;-accuracy">
 <h2>Taylor series approach; accuracy<a class="headerlink" href="#Taylor-series-approach;-accuracy" title="Permalink to this headline">¶</a></h2>
-<p>Taylor’s Theorem states that function <span class="math">\(f\)</span> can be presented with
-following series in the vicinity of <span class="math">\(a\)</span>:</p>
-<div class="math">
+<p>Taylor’s Theorem states that function <span class="math notranslate nohighlight">\(f\)</span> can be presented with
+following series in the vicinity of <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<div class="math notranslate nohighlight">
 \[f(x) = f(a) + \frac{df}{dx}\frac{(x-a)}{1!} + \frac{d^2f}{dx^2}\frac{(x-a)^2}{2!} + \frac{d^3f}{dx^3}\frac{(x-a)^3}{3!} + \ldots\]</div>
 <p>Finite differences approximation is based on truncating the series,
 typically after the second term, leading to</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{f(x) - f(a)}{x-a} = \frac{df}{dx} + \mathcal{O}((x-a)^2)\]</div>
-<p><span class="math">\(\mathcal{O}\)</span> represents the <em>truncation error</em>, and shows that if
-<span class="math">\(x-a\)</span> (i.e. <span class="math">\(\Delta x\)</span>) is halved, the error is dropped to
+<p><span class="math notranslate nohighlight">\(\mathcal{O}\)</span> represents the <em>truncation error</em>, and shows that if
+<span class="math notranslate nohighlight">\(x-a\)</span> (i.e. <span class="math notranslate nohighlight">\(\Delta x\)</span>) is halved, the error is dropped to
 one-fourth. This applies to central difference. Forward and backward
 differences are <em>first-order accurate</em>.</p>
 <div class="section" id="Approximating-derivatives">
 <h3>Approximating derivatives<a class="headerlink" href="#Approximating-derivatives" title="Permalink to this headline">¶</a></h3>
-<p>Let’s define a known function <span class="math">\(f(x)=\sin(2x)+2\cos(x)\)</span> and plot it
-on range <span class="math">\(x=[-2,2]\)</span>:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<p>Let’s define a known function <span class="math notranslate nohighlight">\(f(x)=\sin(2x)+2\cos(x)\)</span> and plot it
+on range <span class="math notranslate nohighlight">\(x=[-2,2]\)</span>:</p>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [219]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -489,40 +471,40 @@ on range <span class="math">\(x=[-2,2]\)</span>:</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../_images/notebooks_day-2_fdbasics_4_0.png" src="../../_images/notebooks_day-2_fdbasics_4_0.png" />
 </div>
 </div>
-<p>From maths we know that <span class="math">\(\frac{df}{dx} = 2\cos(2x) - 2\sin(x)\)</span>.
+<p>From maths we know that <span class="math notranslate nohighlight">\(\frac{df}{dx} = 2\cos(2x) - 2\sin(x)\)</span>.
 Let’s define this as a python function and plot it, together with
-<span class="math">\(f\)</span>.</p>
+<span class="math notranslate nohighlight">\(f\)</span>.</p>
 </div>
 </div>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Define function <code class="docutils literal"><span class="pre">dfdx</span></code> that returns the analytically calculated
-derivative of <span class="math">\(f\)</span></li>
+<li>Define function <code class="docutils literal notranslate"><span class="pre">dfdx</span></code> that returns the analytically calculated
+derivative of <span class="math notranslate nohighlight">\(f\)</span></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># TODO: Define function `dfdx` here</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [220]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
@@ -532,35 +514,35 @@ derivative of <span class="math">\(f\)</span></li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../_images/notebooks_day-2_fdbasics_7_0.png" src="../../_images/notebooks_day-2_fdbasics_7_0.png" />
 </div>
 </div>
-<p>To calculate <span class="math">\(\frac{df}{dx}\)</span> numerically, using finite
+<p>To calculate <span class="math notranslate nohighlight">\(\frac{df}{dx}\)</span> numerically, using finite
 differences, we can define a function that computes the derivative of a
-given function <span class="math">\(g\)</span> at given position <span class="math">\(x_0\)</span>, using <em>step
-size</em> <span class="math">\(dx\)</span>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+given function <span class="math notranslate nohighlight">\(g\)</span> at given position <span class="math notranslate nohighlight">\(x_0\)</span>, using <em>step
+size</em> <span class="math notranslate nohighlight">\(dx\)</span>.</p>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [221]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">dfdx_fd</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x0</span><span class="o">+</span><span class="n">dx</span><span class="p">)</span><span class="o">-</span><span class="n">g</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
 </pre></div>
 </div>
 </div>
 <p>Let’s plot this on top of the analytical solution.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [222]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dfdx&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfdx_fd</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dfdx_fd&#39;</span><span class="p">)</span>
@@ -569,10 +551,10 @@ size</em> <span class="math">\(dx\)</span>.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../_images/notebooks_day-2_fdbasics_11_0.png" src="../../_images/notebooks_day-2_fdbasics_11_0.png" />
 </div>
 </div>
@@ -580,21 +562,21 @@ size</em> <span class="math">\(dx\)</span>.</p>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Vary the third parameter <code class="docutils literal"><span class="pre">dx</span></code> of the last plot. Change it from 0.3
+<li>Vary the third parameter <code class="docutils literal notranslate"><span class="pre">dx</span></code> of the last plot. Change it from 0.3
 to larger and smaller values. What happens?</li>
-<li>Modify the definition of <code class="docutils literal"><span class="pre">dfdx_fd</span></code> to a) backward difference, b)
+<li>Modify the definition of <code class="docutils literal notranslate"><span class="pre">dfdx_fd</span></code> to a) backward difference, b)
 central difference form. How does the derivative approximation
 change?</li>
 </ul>
 </div>
 <div class="section" id="Calculating-the-error">
 <h2>Calculating the error<a class="headerlink" href="#Calculating-the-error" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [251]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -614,10 +596,10 @@ change?</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../_images/notebooks_day-2_fdbasics_14_0.png" src="../../_images/notebooks_day-2_fdbasics_14_0.png" />
 </div>
 </div>
@@ -627,63 +609,63 @@ change?</li>
 <ul class="simple">
 <li>Compare error to the function itself. When is the error (its absolute
 value) largest?</li>
-<li>Choose another function <span class="math">\(f\)</span> and modify definitions of <code class="docutils literal"><span class="pre">f</span></code> and
-its analytically solved derivative <code class="docutils literal"><span class="pre">dfdx</span></code> above accordingly. What
+<li>Choose another function <span class="math notranslate nohighlight">\(f\)</span> and modify definitions of <code class="docutils literal notranslate"><span class="pre">f</span></code> and
+its analytically solved derivative <code class="docutils literal notranslate"><span class="pre">dfdx</span></code> above accordingly. What
 kind of function gives the smallest error?</li>
-<li>Modify <code class="docutils literal"><span class="pre">dfdx_fd</span></code> and implement backward or central difference
+<li>Modify <code class="docutils literal notranslate"><span class="pre">dfdx_fd</span></code> and implement backward or central difference
 approximation. How does the error change?</li>
 </ul>
 <div class="section" id="Applying-finite-differences-to-a-physical-problem">
 <h3>Applying finite differences to a physical problem<a class="headerlink" href="#Applying-finite-differences-to-a-physical-problem" title="Permalink to this headline">¶</a></h3>
-<p>If we know the analytical form of <span class="math">\(f\)</span>, there is often little
+<p>If we know the analytical form of <span class="math notranslate nohighlight">\(f\)</span>, there is often little
 interest in approximating its derivative numerically. Instead,
 derivative approximations are used indirectly to approximate the values
-of <span class="math">\(f\)</span> itself. Let’s see how this works in a simple example of a
+of <span class="math notranslate nohighlight">\(f\)</span> itself. Let’s see how this works in a simple example of a
 falling sphere.</p>
 <p>Consider a solid sphere in a viscous fluid, with
-<span class="math">\(\rho_\mathrm{sphere} &gt; \rho_\mathrm{fluid}\)</span>. The gravity pulls
+<span class="math notranslate nohighlight">\(\rho_\mathrm{sphere} &gt; \rho_\mathrm{fluid}\)</span>. The gravity pulls
 the sphere downwards, causing a buoyancy force
-<span class="math">\(F_\mathrm{b} = V\Delta\rho g = V (\rho_\mathrm{sphere} - \rho_\mathrm{fluid}) g\)</span>.
+<span class="math notranslate nohighlight">\(F_\mathrm{b} = V\Delta\rho g = V (\rho_\mathrm{sphere} - \rho_\mathrm{fluid}) g\)</span>.
 The viscous fluids resists the movement of the sphere downwards. The
 drag caused is given by the Stokes’s law,
-<span class="math">\(F_\mathrm{d} = -6\pi\eta R v\)</span>. The sum of forces acting on the
+<span class="math notranslate nohighlight">\(F_\mathrm{d} = -6\pi\eta R v\)</span>. The sum of forces acting on the
 ball is then
-<span class="math">\(\sum F = m_\mathrm{sphere} a = V\rho_\mathrm{sphere} a = F_\mathrm{d} + F_\mathrm{b} = -6\pi\eta R v + V (\rho_\mathrm{sphere} - \rho_\mathrm{fluid}) g\)</span>.</p>
-<p>Simplifying, and noting that <span class="math">\(V = \frac{4}{3}\pi R^3\)</span> and
-acceleration <span class="math">\(a=\frac{dv}{dt}\)</span>, gives</p>
-<div class="math">
+<span class="math notranslate nohighlight">\(\sum F = m_\mathrm{sphere} a = V\rho_\mathrm{sphere} a = F_\mathrm{d} + F_\mathrm{b} = -6\pi\eta R v + V (\rho_\mathrm{sphere} - \rho_\mathrm{fluid}) g\)</span>.</p>
+<p>Simplifying, and noting that <span class="math notranslate nohighlight">\(V = \frac{4}{3}\pi R^3\)</span> and
+acceleration <span class="math notranslate nohighlight">\(a=\frac{dv}{dt}\)</span>, gives</p>
+<div class="math notranslate nohighlight">
 \[\frac{dv}{dt} = -\frac{9 \eta v}{\rho_\mathrm{sphere} 2 R^2} + \frac{(\rho_\mathrm{sphere} - \rho_\mathrm{fluid}) g}{\rho_\mathrm{sphere}}\]</div>
 <p>When the sphere has reached its terminal velocity, acceleration is zero,
 so
-<span class="math">\(dv/dt = 0 \Rightarrow v = \frac{2}{9}\frac{\Delta \rho R^2 g}{\eta}\)</span></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<span class="math notranslate nohighlight">\(dv/dt = 0 \Rightarrow v = \frac{2}{9}\frac{\Delta \rho R^2 g}{\eta}\)</span></p>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [225]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">vel_term_stokes</span><span class="p">(</span><span class="n">rhosphere</span><span class="p">,</span> <span class="n">rhofluid</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">viscosity</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="mf">9.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">rhosphere</span><span class="o">-</span><span class="n">rhofluid</span><span class="p">)</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="mf">9.81</span> <span class="o">/</span> <span class="n">viscosity</span>
 </pre></div>
 </div>
 </div>
 <p>A marble with radius of 2 cm in honey:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [226]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">vel_term_stokes</span><span class="p">(</span><span class="mi">2800</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nboutput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[226]:
 </pre></div>
 </div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>0.0052320000000000005
 </pre></div>
 </div>
@@ -691,36 +673,36 @@ so
 <p>We could solve the problem by integrating both sides of the expression
 for acceleration. However, as an example, we will solve this
 numerically. To apply finite differences, we replace all derivatives
-with their finite approximations at time <span class="math">\(t_0\)</span>. In this case,</p>
-<div class="math">
+with their finite approximations at time <span class="math notranslate nohighlight">\(t_0\)</span>. In this case,</p>
+<div class="math notranslate nohighlight">
 \[\frac{dv}{dt}\Big\rvert_{t=t_0} \approx \frac{v(t_0+\Delta t) - v(t_0)}{\Delta t}\]</div>
 <p>Inserting this into the previous formula gives
-<span class="math">\(\frac{v(t_0+\Delta t) - v(t_0)}{\Delta t} = -\frac{9 \eta v(t_0)}{\rho_\mathrm{sphere} 2 R^2} + \frac{(\rho_\mathrm{sphere} - \rho_\mathrm{fluid})g}{\rho_\mathrm{sphere}}\)</span>.
-Note that on the right hand side <span class="math">\(v\)</span> has been replaced by
-<span class="math">\(v(t_0)\)</span>.</p>
-<p>In other words, if we know velocity at some time <span class="math">\(t_0\)</span> (i.e.
-<span class="math">\(v(t_0)\)</span>), we can calculate the velocity after time
-<span class="math">\(\Delta t\)</span> has elapsed:</p>
-<div class="math">
+<span class="math notranslate nohighlight">\(\frac{v(t_0+\Delta t) - v(t_0)}{\Delta t} = -\frac{9 \eta v(t_0)}{\rho_\mathrm{sphere} 2 R^2} + \frac{(\rho_\mathrm{sphere} - \rho_\mathrm{fluid})g}{\rho_\mathrm{sphere}}\)</span>.
+Note that on the right hand side <span class="math notranslate nohighlight">\(v\)</span> has been replaced by
+<span class="math notranslate nohighlight">\(v(t_0)\)</span>.</p>
+<p>In other words, if we know velocity at some time <span class="math notranslate nohighlight">\(t_0\)</span> (i.e.
+<span class="math notranslate nohighlight">\(v(t_0)\)</span>), we can calculate the velocity after time
+<span class="math notranslate nohighlight">\(\Delta t\)</span> has elapsed:</p>
+<div class="math notranslate nohighlight">
 \[v(t_0 + \Delta t) = \left(-\frac{9 \eta v(t_0)}{\rho_\mathrm{sphere} 2 \pi R^2} + \frac{(\rho_\mathrm{sphere} - \rho_\mathrm{fluid})g}{\rho_\mathrm{sphere}}\right) \Delta t + v(t_0)\]</div>
 <p>Let’s write this as a python function:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [227]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">vel_next</span><span class="p">(</span><span class="n">vel_prev</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rhosphere</span><span class="p">,</span> <span class="n">rhofluid</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">viscosity</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="o">*</span><span class="n">viscosity</span><span class="o">*</span><span class="n">vel_prev</span> <span class="o">/</span> <span class="p">(</span><span class="n">rhosphere</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">rhosphere</span><span class="o">-</span><span class="n">rhofluid</span><span class="p">)</span><span class="o">*</span><span class="mf">9.81</span><span class="o">/</span><span class="n">rhosphere</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">vel_prev</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [242]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0001</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">vel_next</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
@@ -734,12 +716,12 @@ Note that on the right hand side <span class="math">\(v\)</span> has been replac
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nboutput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>Out[242]:
 </pre></div>
 </div>
-<div class="output_area highlight-none"><div class="highlight"><pre>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>(0.0005255357142857143,
  0.000998283242984694,
  0.0014235449708098922,
@@ -751,12 +733,12 @@ Note that on the right hand side <span class="math">\(v\)</span> has been replac
 </div>
 </div>
 <p>We can automate the calculation of the steps:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [245]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0001</span>   <span class="c1"># time step size</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># initial condition</span>
 <span class="n">nt</span> <span class="o">=</span> <span class="mi">50</span>      <span class="c1"># num of tsteps to calculate</span>
@@ -778,17 +760,17 @@ Note that on the right hand side <span class="math">\(v\)</span> has been replac
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <img alt="../../_images/notebooks_day-2_fdbasics_29_0.png" src="../../_images/notebooks_day-2_fdbasics_29_0.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nboutput nblast container">
+<div class="prompt empty container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area container">
 <div class="highlight"><pre>
 Velocity at time  0.0049  s is  0.005202758993971469
 </pre></div></div>
@@ -802,30 +784,30 @@ Velocity at time  0.0049  s is  0.005202758993971469
 dropped from an elevation just slightly above the surface of the
 fluid. How do you need to modify the code?</li>
 <li>Take the finite differences approximation of the equation and replace
-<span class="math">\(v(t_0)\)</span> on the right hand side by <span class="math">\(v(t_0 + \Delta t)\)</span>.
+<span class="math notranslate nohighlight">\(v(t_0)\)</span> on the right hand side by <span class="math notranslate nohighlight">\(v(t_0 + \Delta t)\)</span>.
 Rearrange the equation so that you have an expression for
-<span class="math">\(v(t_0 + \Delta t) = \ldots\)</span>.</li>
-<li>Implement a function <code class="docutils literal"><span class="pre">vel_next_implicit</span></code>, similar to <code class="docutils literal"><span class="pre">vel_next</span></code>
+<span class="math notranslate nohighlight">\(v(t_0 + \Delta t) = \ldots\)</span>.</li>
+<li>Implement a function <code class="docutils literal notranslate"><span class="pre">vel_next_implicit</span></code>, similar to <code class="docutils literal notranslate"><span class="pre">vel_next</span></code>
 that calculates the velocity at next time step, but uses this
 modified expression.</li>
 <li>Copy and modify the code above so that you create a storage for both
-velocity values calculated using <code class="docutils literal"><span class="pre">vel_next</span></code> and
-<code class="docutils literal"><span class="pre">vel_next_implicit</span></code>, and plot the outcome on top of each other.
-Vary the value of <code class="docutils literal"><span class="pre">dt</span></code> and see what happens.</li>
+velocity values calculated using <code class="docutils literal notranslate"><span class="pre">vel_next</span></code> and
+<code class="docutils literal notranslate"><span class="pre">vel_next_implicit</span></code>, and plot the outcome on top of each other.
+Vary the value of <code class="docutils literal notranslate"><span class="pre">dt</span></code> and see what happens.</li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [246]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Implement `vel_next_implicit` here</span>
 
 </pre></div>
 </div>
 </div>
-<p>The first approximation (<code class="docutils literal"><span class="pre">vel_next</span></code>) is the forward difference
-approximation. <code class="docutils literal"><span class="pre">vel_next_implicit</span></code> is the backward difference
+<p>The first approximation (<code class="docutils literal notranslate"><span class="pre">vel_next</span></code>) is the forward difference
+approximation. <code class="docutils literal notranslate"><span class="pre">vel_next_implicit</span></code> is the backward difference
 approximation. When applied to functions of time, these are also called
 <em>explicit</em> and <em>implicit</em> approximations.</p>
 </div>
@@ -833,16 +815,15 @@ approximation. When applied to functions of time, these are also called
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="fdheat.html" class="btn btn-neutral float-right" title="Finite differences for heat equation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fdheat.html" class="btn btn-neutral float-right" title="Finite differences for heat equation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../day-1/Conditional-statements.html" class="btn btn-neutral" title="Conditional statements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../day-1/Conditional-statements.html" class="btn btn-neutral" title="Conditional statements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -855,7 +836,7 @@ approximation. When applied to functions of time, these are also called
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -877,11 +858,9 @@ approximation. When applied to functions of time, these are also called
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -896,13 +875,14 @@ approximation. When applied to functions of time, these are also called
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

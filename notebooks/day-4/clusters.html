@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cluster computing &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-2/diffadv.html">Heat diffusion + advection</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/benchmarking.html">Testing your code and benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Cluster computing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/notebooks/day-4/clusters.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-4/clusters.ipynb">source/notebooks/day-4/clusters.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-4/clusters.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Cluster-computing">
+<h1>Cluster computing<a class="headerlink" href="#Cluster-computing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Performance-of-geodynamic-models">
+<h2>Performance of geodynamic models<a class="headerlink" href="#Performance-of-geodynamic-models" title="Permalink to this headline">¶</a></h2>
+<p>For example, typical 2D thermomechanical geodynamic model: - Dimensions
+1000 km x 1000 km - Resolution 1 km - <strong>1 000 000 grid points</strong> - Max.
+time step (diffusion limit) 16 kyrs - Four unknowns (<span class="math notranslate nohighlight">\(v_x\)</span>,
+<span class="math notranslate nohighlight">\(v_y\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(T\)</span>) - Four equations per grid point -
+Discretized versions of the equations: About 20 operations (+-*/) per
+equation - <strong>80 000 000 operations (80 MFLOPS = :math:`80times10^6`
+FLOPS) per step</strong> - Modern PC processors can do about 10-100 GFLOPS
+(GFLOP = <span class="math notranslate nohighlight">\(10^9\)</span> FLOPS) - <em>Processor</em> could do 1000 steps per
+second - E.g. 50 Myrs / 16 kyrs/step = 3200 steps - <strong>Model run time 3.2
+secs</strong> - BUT: Memory access time (random) approx. 50 ns - Each operation
+needs to fetch at least one number from memory - Worst case: random
+location. <span class="math notranslate nohighlight">\(80\times10^6\times50\times10^{-9}~s=4.0~s\)</span> per step -
+<strong>Total runtime (“wall clock time”)
+:math:`approx 4~mathrm{s/step}times3200~mathrm{steps}=3.5~mathrm{hours}`</strong>
+- Also, a lot of other “book keeping” during the model calculations</p>
+<div class="section" id="Do">
+<h3>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Make a similar runtime estimation for a 3D model with same resolution</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="Memory hierarchy" src="notebooks/day-4/img/memory-hierarchy.jpg" />
+<p class="caption"><span class="caption-text">Memory hierarchy</span></p>
+</div>
+<p><em>Memory hierarchy of modern PC (https://allthingsvlsi.wordpress.com)</em></p>
+<p>The cure: Split the job among multiple processors.</p>
+<ul class="simple">
+<li>Each will have less operations to do<ul>
+<li><em>Partitioning</em> of the job:<ul>
+<li>Each processors will handle its own grid points, or</li>
+<li>Each processors will handle itw own part in solving the
+coefficient matrix</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Each will have smaller memory region to worry about (can store
+numbers closer to the processing unit)</li>
+</ul>
+<div class="figure" id="id4">
+<img alt="Processor architecture" src="notebooks/day-4/img/arch1.jpg" />
+<p class="caption"><span class="caption-text">Processor architecture</span></p>
+</div>
+<p><em>Processor architecture of a 4-core processor
+(http://sips.inesc-id.pt/~nfvr/msc_theses/msc10g/)</em></p>
+<p>Modern PCs already use multiple <em>cores</em> (CPUs within one physical
+processor).</p>
+<ul class="simple">
+<li>No speedup if the program/code used does not support multiple cores!</li>
+<li>Limited (currently) to about 16 cores, typically 2-4</li>
+<li>Some PC hardware allows two physical processors</li>
+</ul>
+<p>More cores can be used by interconnecting multiple physical computers
+(<em>nodes</em>)</p>
+<ul class="simple">
+<li>Needs a fast way to communicate between computers<ul>
+<li>Faster is better (&gt;10 Gb/s)</li>
+</ul>
+</li>
+<li>Needs a protocol for CPUs/nodes to discuss with each other in order
+to distribute (partition) the work<ul>
+<li>One of the most common: MPI (Message Passing Interface)</li>
+</ul>
+</li>
+</ul>
+<div class="figure">
+<img alt="" src="notebooks/day-4/img/nodesNetwork.gif" />
+</div>
+<p><em>Architecture of a computing cluster</em></p>
+<p><strong>geo-hpcc</strong> cluster</p>
+<ul class="simple">
+<li>35 nodes, each with 2 processors, each with 8 cores = 560 cores</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Performance-of-parallel-programs">
+<h2>Performance of parallel programs<a class="headerlink" href="#Performance-of-parallel-programs" title="Permalink to this headline">¶</a></h2>
+<p>We will test the effect of running a code in parallel, using the
+<em>geo-hpcc</em> cluster.</p>
+<ol class="arabic">
+<li><p class="first">Login to the cluster using instructions at
+<a class="reference external" href="https://introgm.github.io/2018/instructions/cluster.html">https://introgm.github.io/2018/instructions/cluster.html</a></p>
+</li>
+<li><p class="first">Type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd mpi
+$ srun -n 64 python mpi.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">To see and edit the Python code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano mpi.py
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="Do">
+<h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Run the <code class="docutils literal notranslate"><span class="pre">mpi.py</span></code> script with different number of cores (modify the
+number after <code class="docutils literal notranslate"><span class="pre">-n</span></code>, try values between 1-256 cores). Keep record of
+core count and time elapsed. Use Excel/LibreOffice/Python to plot
+number of processors versus elapsed time. What kind of plot would you
+expect to see? What do you actually see?</li>
+<li>Try plotting 2-base logarithm of time vs 2-base logarithm of number
+of cores used.</li>
+<li>Try commands <code class="docutils literal notranslate"><span class="pre">squeue</span></code> and <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> to see the job queue and the
+status of different nodes</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

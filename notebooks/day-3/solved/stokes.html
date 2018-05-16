@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -25,11 +23,19 @@
   
 
   
+  
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../../index.html"/>
     <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -38,9 +44,8 @@
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -55,7 +60,7 @@
 
           
             
-            <img src="../../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+            <img src="../../../_static/HY-logo-2017.png" class="logo" />
           
           </a>
 
@@ -84,10 +89,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Course information</span></p>
+                <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../course-info/learning-goals.html">Learning goals</a></li>
@@ -136,54 +138,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Introduction to Geodynamic Modelling</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Introduction to Geodynamic Modelling</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-      <li>FD for Stokes equation</li>
-    
-    
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>FD for Stokes equation</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../../_sources/notebooks/day-3/solved/stokes.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -376,12 +358,12 @@ div.nboutput div.output_area.stderr {
 This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-3/solved/stokes.ipynb">source/notebooks/day-3/solved/stokes.ipynb</a>.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-3/solved/stokes.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none"><div class="highlight"><pre>
+<div class="nbinput nblast container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
@@ -394,24 +376,24 @@ Interactive online version:
 momentum and continuity (the Stokes equation) to study the flow of the
 fluid.</p>
 <p>The equation for conservation of momentum is</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\nabla \cdot \underline{\underline{\sigma}} + \underline{f} = \underline{0}\]</div>
 <p>where
-<span class="math">\(\underline{\underline{\sigma}} = \eta(\nabla\underline{v}+(\nabla\underline{v})^T) - P\underline{\underline{I}}\)</span>
-is the stress tensor and <span class="math">\(\underline{f}\)</span> are the body forces.</p>
+<span class="math notranslate nohighlight">\(\underline{\underline{\sigma}} = \eta(\nabla\underline{v}+(\nabla\underline{v})^T) - P\underline{\underline{I}}\)</span>
+is the stress tensor and <span class="math notranslate nohighlight">\(\underline{f}\)</span> are the body forces.</p>
 <p>This can be written, in two dimensions, separately in x- and
 y-directions as</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\eta\left(\frac{\partial^2 v_x}{\partial x^2} + \frac{\partial^2 v_x}{\partial y^2}\right) - \frac{\partial P}{\partial x} = 0\]</div>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\eta\left(\frac{\partial^2 v_y}{\partial x^2} + \frac{\partial^2 v_y}{\partial y^2}\right) - \frac{\partial P}{\partial y} + \rho g = 0\]</div>
 <p>The continuity equation, conservation of mass, or the assumption of
 incompressibility, is</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0\]</div>
 <p>These three equations are readily discretized using finite differences.
 Note that there are no time derivatives, but instead two spatial
-derivatives, in <span class="math">\(x\)</span> and in <span class="math">\(y\)</span>-direction.</p>
+derivatives, in <span class="math notranslate nohighlight">\(x\)</span> and in <span class="math notranslate nohighlight">\(y\)</span>-direction.</p>
 <div class="section" id="Channel-flow">
 <h2>Channel flow<a class="headerlink" href="#Channel-flow" title="Permalink to this headline">¶</a></h2>
 <p>We will apply the Stokes equation to the case of orogenic channel flow.
@@ -429,23 +411,23 @@ flow to right, underthrusting plate imposes shearing flow towards left.</em></p>
 <p>We want to construct a one-dimensional model of this flow, by
 considering the horizontal velocities at different depths within the
 channel, and assuming that there is no vertical flow.</p>
-<p>Since <span class="math">\(v_y=0\)</span> everywhere, we can disregard the second momentum
+<p>Since <span class="math notranslate nohighlight">\(v_y=0\)</span> everywhere, we can disregard the second momentum
 equation (y-direction). In the continuity equation
-<span class="math">\(\frac{\partial v_y}{\partial y}=0\)</span> leading to
-<span class="math">\(\frac{\partial v_x}{\partial x}=0\)</span>. Thus, the first momentum
+<span class="math notranslate nohighlight">\(\frac{\partial v_y}{\partial y}=0\)</span> leading to
+<span class="math notranslate nohighlight">\(\frac{\partial v_x}{\partial x}=0\)</span>. Thus, the first momentum
 equation becomes</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\eta\frac{\partial^2 v_x}{\partial y^2} - \frac{\partial P}{\partial x} = 0\]</div>
 <p>The value of the pressure gradient can be calculated based on the
 estimated lithostatic pressure difference between the channel under
 thick orogenic crust and the surrounding region: If we consider the
-extra topography by the mountain range to be <span class="math">\(h=4000~\mathrm{m}\)</span>,
-and their horizontal extent to be <span class="math">\(d=500~\mathrm{km}\)</span>, we get</p>
-<div class="math">
+extra topography by the mountain range to be <span class="math notranslate nohighlight">\(h=4000~\mathrm{m}\)</span>,
+and their horizontal extent to be <span class="math notranslate nohighlight">\(d=500~\mathrm{km}\)</span>, we get</p>
+<div class="math notranslate nohighlight">
 \[\frac{\partial P}{\partial x}\approx \frac{h \rho g}{d} = 219~\mathrm{Pa~m^{-1}}\]</div>
-<p>The second derivative of the velocity in respect to <span class="math">\(y\)</span> can be
+<p>The second derivative of the velocity in respect to <span class="math notranslate nohighlight">\(y\)</span> can be
 discretizd using central difference, leading to:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\eta \frac{v_{i+1} - 2v_i + v_{i-1}}{\Delta y^2} - \frac{dP}{dx} = 0\]</div>
 <div class="section" id="Do">
 <h3>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h3>
@@ -456,7 +438,7 @@ momentum equation in x-direction</li>
 points that will be assigned a velocity value by the boundary
 conditions.</li>
 <li>Looking at the figure above, what kind of B.C. are needed?</li>
-<li>How would you use your discretized equation to calculate <span class="math">\(v_1\)</span>,
+<li>How would you use your discretized equation to calculate <span class="math notranslate nohighlight">\(v_1\)</span>,
 the first velocity value after the uppermost grid point?</li>
 </ul>
 </div>
@@ -465,7 +447,6 @@ the first velocity value after the uppermost grid point?</li>
 
 
            </div>
-           
           </div>
           <footer>
   
@@ -478,7 +459,7 @@ the first velocity value after the uppermost grid point?</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -500,11 +481,9 @@ the first velocity value after the uppermost grid point?</li>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'2018',
-            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -519,13 +498,14 @@ the first velocity value after the uppermost grid point?</li>
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

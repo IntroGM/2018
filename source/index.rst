@@ -63,6 +63,12 @@ Course goals
 
 .. toctree::
     :maxdepth: 2
+    :caption: Day 4
+
+    notebooks/day-4/clusters.ipynb
+
+.. toctree::
+    :maxdepth: 2
     :caption: Technical instructions
 
     instructions/cluster

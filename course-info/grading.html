@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../index.html"/>
-        <link rel="next" title="Resources" href="resources.html"/>
-        <link rel="prev" title="Learning goals" href="learning-goals.html"/>
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Learning goals" href="learning-goals.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../_static/HY-logo-2017.png" class="logo" />
+            <img src="../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learning-goals.html">Learning goals</a></li>
@@ -123,6 +121,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/day-3/benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-3/stokes.html">FD for Stokes equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-3/channel.html">Solution strategy for the channel flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
@@ -142,34 +141,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Grading</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Grading</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/course-info/grading.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -209,15 +228,16 @@ The course project will be described in more detail later in the course, but the
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="learning-goals.html" class="btn btn-neutral" title="Learning goals" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="learning-goals.html" class="btn btn-neutral" title="Learning goals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -230,7 +250,7 @@ The course project will be described in more detail later in the course, but the
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -252,9 +272,11 @@ The course project will be described in more detail later in the course, but the
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -269,14 +291,13 @@ The course project will be described in more detail later in the course, but the
     <script type="text/javascript" src="../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

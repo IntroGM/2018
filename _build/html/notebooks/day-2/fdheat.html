@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
-        <link rel="next" title="Stability of the heat equation FD approximation" href="stability.html"/>
-        <link rel="prev" title="Introduction to finite differences" href="fdbasics.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Stability of the heat equation FD approximation" href="stability.html" />
+    <link rel="prev" title="Introduction to finite differences" href="fdbasics.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -128,6 +126,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
@@ -147,34 +146,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>Finite differences for heat equation</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Finite differences for heat equation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/notebooks/day-2/fdheat.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -367,12 +386,12 @@ div.nboutput div.output_area.stderr {
 This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-2/fdheat.ipynb">source/notebooks/day-2/fdheat.ipynb</a>.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-2/fdheat.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="nbinput nblast container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
@@ -381,38 +400,38 @@ Interactive online version:
 <div class="section" id="Finite-differences-for-heat-equation">
 <h1>Finite differences for heat equation<a class="headerlink" href="#Finite-differences-for-heat-equation" title="Permalink to this headline">¶</a></h1>
 <p>Simple 1D diffusion-only constant-conductivity heat equation is</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\rho C_p \frac{\partial T}{\partial t} = k \frac{\partial^2 T}{\partial x^2}\]</div>
 <p>The second-order spatial derivative of temperature can be approximated
 with finite differences:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_1}^{t=t_1}
 \approx \left(\frac{\partial T}{\partial x}\Big\vert_{x=x_1+0.5\Delta x}^{t=t_1} - \frac{\partial T}{\partial x}\Big\vert_{x=x_1-0.5\Delta x}^{t=t_1}\right) / \Delta x
 \approx \left(\frac{T_{x=x_1+\Delta x}^{t=t_1} - T_{x=x_1}^{t=t_1}}{\Delta x} - \frac{T_{x=x_1}^{t=t_1} - T_{x=x_1-\Delta x}^{t=t_1}}{\Delta x}\right) / \Delta x
 = \frac{T_{x=x_1+\Delta x}^{t=t_1} - 2T_{x=x_1}^{t=t_1} + T_{x=x_1 - \Delta x}^{t=t_1}}{(\Delta x)^2}\]</div>
-<p>Since <span class="math notranslate nohighlight">\(x_1 - \Delta x = x_0\)</span> and <span class="math notranslate nohighlight">\(x_1 + \Delta x = x_2\)</span>, we
+<p>Since <span class="math">\(x_1 - \Delta x = x_0\)</span> and <span class="math">\(x_1 + \Delta x = x_2\)</span>, we
 get</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_1}^{t=t_1} \approx \frac{T_{x=x_2}^{t=t_1} - 2T_{x=x_1}^{t=t_1} + T_{x=x_0}^{t=t_1}}{(\Delta x)^2} = \frac{T_{2}^{1} - 2T_{1}^{1} + T_{0}^{1}}{(\Delta x)^2}\]</div>
 <p>where the last formula uses the short hand notation for indices. Note
 that here the superscripts do not mean “to power” but are indices for
 time steps.</p>
 <p>Using the same short hand notation, we can approximate the time
 derivative of the temperature:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial T}{\partial t}\Big\vert_{x=x_1}^{t=t_1} \approx \frac{T_1^2-T_1^1}{\Delta t}\]</div>
 <p>These approximations can be generalized:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial^2 T}{\partial x^2}\Big\vert_{x=x_i}^{t=t_q} \approx \frac{T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q}}{(\Delta x)^2}\]</div>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial T}{\partial t}\Big\vert_{x=x_i}^{t=t_q} \approx \frac{T_i^{q+1}-T_i^q}{\Delta t}\]</div>
 <p>And thus the full finite differences approximation of the heat equation
 can be written as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\rho C_p \frac{T_i^{q+1}-T_i^q}{\Delta t} = k \frac{T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q}}{(\Delta x)^2}\]</div>
-<p>This applies to <em>any</em> <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(i\)</span>. If we know <span class="math notranslate nohighlight">\(T\)</span>
-everywhere at time <span class="math notranslate nohighlight">\(t_q\)</span>, we can calculate <span class="math notranslate nohighlight">\(T\)</span> at time
-<span class="math notranslate nohighlight">\(t_{q+1} = t_q + \Delta t\)</span>.</p>
+<p>This applies to <em>any</em> <span class="math">\(q\)</span> and <span class="math">\(i\)</span>. If we know <span class="math">\(T\)</span>
+everywhere at time <span class="math">\(t_q\)</span>, we can calculate <span class="math">\(T\)</span> at time
+<span class="math">\(t_{q+1} = t_q + \Delta t\)</span>.</p>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -420,18 +439,18 @@ everywhere at time <span class="math notranslate nohighlight">\(t_q\)</span>, we
 look like for the heat equation? Recall that in the implicit
 approximation we used the values from the next time step to
 approximate the derivative. What is the problem in calculating
-<span class="math notranslate nohighlight">\(T_i^q\)</span> using the implicit approximation?</li>
+<span class="math">\(T_i^q\)</span> using the implicit approximation?</li>
 </ul>
 <div class="section" id="Boundary-conditions,-initial-conditions">
 <h3>Boundary conditions, initial conditions<a class="headerlink" href="#Boundary-conditions,-initial-conditions" title="Permalink to this headline">¶</a></h3>
-<p>To start calculating the values of <span class="math notranslate nohighlight">\(T\)</span>, we need the <em>initial</em>
-values at some time <span class="math notranslate nohighlight">\(t_0\)</span>. This temperature field is the so called
+<p>To start calculating the values of <span class="math">\(T\)</span>, we need the <em>initial</em>
+values at some time <span class="math">\(t_0\)</span>. This temperature field is the so called
 <em>initial condition</em> for our problem. It is a type of boundary condition
 that applies to a temporally variable field.</p>
 <p>(Spatial) boundary conditions are needed because when applying finite
 differences to a differential equation (in space), we need the
-surrounding values, such as <span class="math notranslate nohighlight">\(T_{i+1}\)</span> and <span class="math notranslate nohighlight">\(T_{i-1}\)</span> in the
-case of heat equation, to calculate the next value of <span class="math notranslate nohighlight">\(T_{i}\)</span>.
+surrounding values, such as <span class="math">\(T_{i+1}\)</span> and <span class="math">\(T_{i-1}\)</span> in the
+case of heat equation, to calculate the next value of <span class="math">\(T_{i}\)</span>.
 These values are not available if we are near the geometrical boundary
 of the problem.</p>
 </div>
@@ -449,24 +468,24 @@ temperature distribution in the crust after 100 kyrs.</p>
 <li>Decide on model geometry and physical parameters<ul>
 <li>one-dimensional</li>
 <li>homogeneous physical parameters</li>
-<li><span class="math notranslate nohighlight">\(\Rightarrow\)</span> we can use the equation above</li>
+<li><span class="math">\(\Rightarrow\)</span> we can use the equation above</li>
 </ul>
 </li>
-<li>Set physical parameters (<span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(C_p\)</span>, <span class="math notranslate nohighlight">\(k\)</span>)</li>
-<li>Set geometrical parameters (<span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(\Delta x\)</span>
-<span class="math notranslate nohighlight">\(\Rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">nx</span></code>)</li>
-<li>Set total run time and time step size (<span class="math notranslate nohighlight">\(t_{total}\)</span>,
-<span class="math notranslate nohighlight">\(\Delta t\)</span> <span class="math notranslate nohighlight">\(\Rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">nt</span></code>)</li>
-<li>Decide and set boundary condition values <span class="math notranslate nohighlight">\(T_0\)</span> and
-<span class="math notranslate nohighlight">\(T_{nx-1}\)</span></li>
-<li>Create two arrays that hold the temperature, size <code class="docutils literal notranslate"><span class="pre">nx</span></code> elements<ul>
-<li><code class="docutils literal notranslate"><span class="pre">Tnew</span></code> for <span class="math notranslate nohighlight">\(T^{q+1}\)</span></li>
-<li><code class="docutils literal notranslate"><span class="pre">Tprev</span></code> for <span class="math notranslate nohighlight">\(T^{q}\)</span></li>
+<li>Set physical parameters (<span class="math">\(\rho\)</span>, <span class="math">\(C_p\)</span>, <span class="math">\(k\)</span>)</li>
+<li>Set geometrical parameters (<span class="math">\(L\)</span>, <span class="math">\(\Delta x\)</span>
+<span class="math">\(\Rightarrow\)</span> <code class="docutils literal"><span class="pre">nx</span></code>)</li>
+<li>Set total run time and time step size (<span class="math">\(t_{total}\)</span>,
+<span class="math">\(\Delta t\)</span> <span class="math">\(\Rightarrow\)</span> <code class="docutils literal"><span class="pre">nt</span></code>)</li>
+<li>Decide and set boundary condition values <span class="math">\(T_0\)</span> and
+<span class="math">\(T_{nx-1}\)</span></li>
+<li>Create two arrays that hold the temperature, size <code class="docutils literal"><span class="pre">nx</span></code> elements<ul>
+<li><code class="docutils literal"><span class="pre">Tnew</span></code> for <span class="math">\(T^{q+1}\)</span></li>
+<li><code class="docutils literal"><span class="pre">Tprev</span></code> for <span class="math">\(T^{q}\)</span></li>
 </ul>
 </li>
-<li>Create an array for grid point locations (<span class="math notranslate nohighlight">\(x\)</span> coordinates),
-size <code class="docutils literal notranslate"><span class="pre">nx</span></code></li>
-<li>Set <code class="docutils literal notranslate"><span class="pre">Tprev</span></code> to hold the initial temperature field<ul>
+<li>Create an array for grid point locations (<span class="math">\(x\)</span> coordinates),
+size <code class="docutils literal"><span class="pre">nx</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">Tprev</span></code> to hold the initial temperature field<ul>
 <li>Linear geotherm throughout the crust, constant temperature within
 the sill</li>
 </ul>
@@ -474,11 +493,11 @@ the sill</li>
 <li>Start the loop that iterates over all the time steps. Within the time
 step:<ul>
 <li>Set the temperature at the boundaries, according to boundary
-conditions, at <code class="docutils literal notranslate"><span class="pre">Tnew[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">Tnew[nx-1]</span></code></li>
-<li>Calculate remaining (internal grid points) within <code class="docutils literal notranslate"><span class="pre">Tnew</span></code> based
-on values of <code class="docutils literal notranslate"><span class="pre">Tprev</span></code></li>
-<li>Prepare for next time step: Copy all values of <code class="docutils literal notranslate"><span class="pre">Tnew</span></code> to
-<code class="docutils literal notranslate"><span class="pre">Tprev</span></code></li>
+conditions, at <code class="docutils literal"><span class="pre">Tnew[0]</span></code> and <code class="docutils literal"><span class="pre">Tnew[nx-1]</span></code></li>
+<li>Calculate remaining (internal grid points) within <code class="docutils literal"><span class="pre">Tnew</span></code> based
+on values of <code class="docutils literal"><span class="pre">Tprev</span></code></li>
+<li>Prepare for next time step: Copy all values of <code class="docutils literal"><span class="pre">Tnew</span></code> to
+<code class="docutils literal"><span class="pre">Tprev</span></code></li>
 </ul>
 </li>
 </ol>
@@ -489,8 +508,8 @@ on values of <code class="docutils literal notranslate"><span class="pre">Tprev<
 <ul class="simple">
 <li>Use the following frame to start implementing the code. Once the code
 seems to work, experiment with it:<ul>
-<li>How does changing values of <code class="docutils literal notranslate"><span class="pre">Cp</span></code> and <code class="docutils literal notranslate"><span class="pre">rho</span></code> affect the results?</li>
-<li>Give <code class="docutils literal notranslate"><span class="pre">dt</span></code> values that are close to the critical time step. How
+<li>How does changing values of <code class="docutils literal"><span class="pre">Cp</span></code> and <code class="docutils literal"><span class="pre">rho</span></code> affect the results?</li>
+<li>Give <code class="docutils literal"><span class="pre">dt</span></code> values that are close to the critical time step. How
 do the results change?</li>
 <li>Can the code handle intrusions that are only 500 m in width?</li>
 </ul>
@@ -499,12 +518,12 @@ do the results change?</li>
 can we model the problem in simplified 1D world? What kind of
 physical processes, that are likely to be present, have we omitted?</li>
 </ul>
-<div class="nbinput nblast container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Frame for FD solution for heat diffusion</span>
 <span class="c1"># Fill in lines marked with &quot;(...)&quot;</span>
 
@@ -603,15 +622,16 @@ physical processes, that are likely to be present, have we omitted?</li>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="stability.html" class="btn btn-neutral float-right" title="Stability of the heat equation FD approximation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="stability.html" class="btn btn-neutral float-right" title="Stability of the heat equation FD approximation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fdbasics.html" class="btn btn-neutral" title="Introduction to finite differences" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="fdbasics.html" class="btn btn-neutral" title="Introduction to finite differences" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -624,7 +644,7 @@ physical processes, that are likely to be present, have we omitted?</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -646,9 +666,11 @@ physical processes, that are likely to be present, have we omitted?</li>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -663,14 +685,13 @@ physical processes, that are likely to be present, have we omitted?</li>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

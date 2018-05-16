@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
-        <link rel="next" title="FD for Stokes equation" href="../day-3/stokes.html"/>
-        <link rel="prev" title="Stability of the heat equation FD approximation" href="stability.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Testing your code and benchmarking" href="../day-3/benchmarking.html" />
+    <link rel="prev" title="Stability of the heat equation FD approximation" href="stability.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -123,6 +121,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
@@ -142,34 +141,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>Heat diffusion + advection</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Heat diffusion + advection</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/notebooks/day-2/diffadv.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -366,10 +385,10 @@ Interactive online version:
 <h1>Heat diffusion + advection<a class="headerlink" href="#Heat-diffusion-+-advection" title="Permalink to this headline">¶</a></h1>
 <p>If we add advection and internal heat generation to our heat equation,
 we get</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\rho C_p \left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}\right) = k \frac{\partial^2 T}{\partial x^2} + H\]</div>
 <p>Leaving only the time derivative on the left-hand side,</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial x^2} + \frac{H}{\rho C_p} - v_x\frac{\partial T}{\partial x}\]</div>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
@@ -377,31 +396,31 @@ we get</p>
 <li>Write the finite difference approximation for (i.e. <em>discretize</em>) the
 diffusion-advection equation. Use forward difference in time and
 central difference in space. Write the expression in form
-<span class="math notranslate nohighlight">\(T_i^{q+1} = \ldots~T^q~\mathrm{terms~only~on~this~side}~\ldots\)</span></li>
+<span class="math">\(T_i^{q+1} = \ldots~T^q~\mathrm{terms~only~on~this~side}~\ldots\)</span></li>
 <li>Modify the intrusion code below (or use the one you modified
 previously):<ul>
-<li>Add variables that store the internal heat production <span class="math notranslate nohighlight">\(H\)</span>
-and the advection velocity <span class="math notranslate nohighlight">\(v_x\)</span> (what are suitable values?)</li>
+<li>Add variables that store the internal heat production <span class="math">\(H\)</span>
+and the advection velocity <span class="math">\(v_x\)</span> (what are suitable values?)</li>
 <li>Modify the line within the time loop that calculates the next
-valuer of <span class="math notranslate nohighlight">\(T\)</span>: include the terms for heat generation and
+valuer of <span class="math">\(T\)</span>: include the terms for heat generation and
 advection</li>
 </ul>
 </li>
-<li>Start with <span class="math notranslate nohighlight">\(H=0\)</span> and <span class="math notranslate nohighlight">\(v_x = 0\)</span>. Gradually change these
+<li>Start with <span class="math">\(H=0\)</span> and <span class="math">\(v_x = 0\)</span>. Gradually change these
 values. How does the results change as you give non-zero values for
-these? What happens if <span class="math notranslate nohighlight">\(v_x &gt; 0\)</span> compared to <span class="math notranslate nohighlight">\(v_x &lt; 0\)</span>?
-What if <span class="math notranslate nohighlight">\(v_x\)</span> has a large (positive or negative) value?</li>
+these? What happens if <span class="math">\(v_x &gt; 0\)</span> compared to <span class="math">\(v_x &lt; 0\)</span>?
+What if <span class="math">\(v_x\)</span> has a large (positive or negative) value?</li>
 <li>Extra:<ul>
 <li>Remove the initial hot intrusion. Instead, add spatially variable
 internal heat generation. For this, you will need to introduce new
-numpy array (of size <code class="docutils literal notranslate"><span class="pre">nx</span></code>), fill it with values of internal heat
-generation, and use it (<code class="docutils literal notranslate"><span class="pre">H[ix]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">H</span></code>) when you
+numpy array (of size <code class="docutils literal"><span class="pre">nx</span></code>), fill it with values of internal heat
+generation, and use it (<code class="docutils literal"><span class="pre">H[ix]</span></code> instead of <code class="docutils literal"><span class="pre">H</span></code>) when you
 calculate the new temperature value.</li>
 <li>Calculating heat flow:<ul>
-<li>Heat flow is defined as <span class="math notranslate nohighlight">\(q=k\frac{dT}{dx}\)</span>. Write an
-approximation for <span class="math notranslate nohighlight">\(q\)</span> by replacing the derivative with a
+<li>Heat flow is defined as <span class="math">\(q=k\frac{dT}{dx}\)</span>. Write an
+approximation for <span class="math">\(q\)</span> by replacing the derivative with a
 finite difference expression.</li>
-<li>Modify the code so that you create an array (of size <code class="docutils literal notranslate"><span class="pre">nt</span></code>)
+<li>Modify the code so that you create an array (of size <code class="docutils literal"><span class="pre">nt</span></code>)
 that stores surface heat flow values each time step. Within the
 time loop, calculate each time step the heat flow between two
 topmost grid points.</li>
@@ -412,12 +431,12 @@ history.</li>
 </ul>
 </li>
 </ul>
-<div class="nbinput container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
@@ -492,26 +511,26 @@ history.</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput container">
-<div class="prompt empty container">
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
 dx is 1206.896551724138 m
 Calculating 10 time steps
 </pre></div></div>
 </div>
-<div class="nboutput container">
-<div class="prompt empty container">
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <img alt="../../_images/notebooks_day-2_diffadv_4_1.png" src="../../_images/notebooks_day-2_diffadv_4_1.png" />
 </div>
 </div>
-<div class="nboutput nblast container">
-<div class="prompt empty container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <img alt="../../_images/notebooks_day-2_diffadv_4_2.png" src="../../_images/notebooks_day-2_diffadv_4_2.png" />
 </div>
 </div>
@@ -520,15 +539,16 @@ Calculating 10 time steps
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../day-3/stokes.html" class="btn btn-neutral float-right" title="FD for Stokes equation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../day-3/benchmarking.html" class="btn btn-neutral float-right" title="Testing your code and benchmarking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="stability.html" class="btn btn-neutral" title="Stability of the heat equation FD approximation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="stability.html" class="btn btn-neutral" title="Stability of the heat equation FD approximation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -541,7 +561,7 @@ Calculating 10 time steps
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -563,9 +583,11 @@ Calculating 10 time steps
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -580,14 +602,13 @@ Calculating 10 time steps
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

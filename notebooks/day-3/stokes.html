@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
-        <link rel="next" title="Solution strategy for the channel flow" href="channel.html"/>
-        <link rel="prev" title="Heat diffusion + advection" href="../day-2/diffadv.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Solution strategy for the channel flow" href="channel.html" />
+    <link rel="prev" title="Testing your code and benchmarking" href="benchmarking.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -120,6 +118,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">FD for Stokes equation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Channel-flow">Channel flow</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Do">Do</a></li>
@@ -145,34 +144,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>FD for Stokes equation</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>FD for Stokes equation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/notebooks/day-3/stokes.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -207,24 +226,24 @@ Interactive online version:
 momentum and continuity (the Stokes equation) to study the flow of a
 fluid.</p>
 <p>The equation for conservation of momentum is</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\nabla \cdot \underline{\underline{\sigma}} + \underline{f} = \underline{0}\]</div>
 <p>where
-<span class="math notranslate nohighlight">\(\underline{\underline{\sigma}} = \eta(\nabla\underline{v}+(\nabla\underline{v})^T) - P\underline{\underline{I}}\)</span>
-is the stress tensor and <span class="math notranslate nohighlight">\(\underline{f}\)</span> are the body forces.</p>
+<span class="math">\(\underline{\underline{\sigma}} = \eta(\nabla\underline{v}+(\nabla\underline{v})^T) - P\underline{\underline{I}}\)</span>
+is the stress tensor and <span class="math">\(\underline{f}\)</span> are the body forces.</p>
 <p>This can be written, in two dimensions, separately in x- and
 y-directions as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\eta\left(\frac{\partial^2 v_x}{\partial x^2} + \frac{\partial^2 v_x}{\partial y^2}\right) - \frac{\partial P}{\partial x} = 0\]</div>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\eta\left(\frac{\partial^2 v_y}{\partial x^2} + \frac{\partial^2 v_y}{\partial y^2}\right) - \frac{\partial P}{\partial y} + \rho g = 0\]</div>
 <p>The continuity equation, conservation of mass, or the assumption of
 incompressibility, is</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} = 0\]</div>
 <p>These three equations are readily discretized using finite differences.
 Note that there are no time derivatives, but instead two spatial
-derivatives, in <span class="math notranslate nohighlight">\(x\)</span> and in <span class="math notranslate nohighlight">\(y\)</span>-direction.</p>
+derivatives, in <span class="math">\(x\)</span> and in <span class="math">\(y\)</span>-direction.</p>
 <div class="section" id="Channel-flow">
 <h2>Channel flow<a class="headerlink" href="#Channel-flow" title="Permalink to this headline">¶</a></h2>
 <p>We will apply the Stokes equation to the case of orogenic channel flow.
@@ -242,21 +261,21 @@ flow to right, underthrusting plate imposes shearing flow towards left.</em></p>
 <p>We want to construct a one-dimensional model of this flow, by
 considering the horizontal velocities at different depths within the
 channel, and assuming that there is no vertical flow.</p>
-<p>Since <span class="math notranslate nohighlight">\(v_y=0\)</span> everywhere, we can disregard the second momentum
+<p>Since <span class="math">\(v_y=0\)</span> everywhere, we can disregard the second momentum
 equation (y-direction). In the continuity equation
-<span class="math notranslate nohighlight">\(\frac{\partial v_y}{\partial y}=0\)</span> leading to
-<span class="math notranslate nohighlight">\(\frac{\partial v_x}{\partial x}=0\)</span>. Thus, the first momentum
+<span class="math">\(\frac{\partial v_y}{\partial y}=0\)</span> leading to
+<span class="math">\(\frac{\partial v_x}{\partial x}=0\)</span>. Thus, the first momentum
 equation becomes</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\eta\frac{\partial^2 v_x}{\partial y^2} - \frac{\partial P}{\partial x} = 0\]</div>
 <p>The value of the pressure gradient can be calculated based on the
 estimated lithostatic pressure difference between the channel under
 thick orogenic crust and the surrounding region: If we consider the
-extra topography by the mountain range to be <span class="math notranslate nohighlight">\(h=4000~\mathrm{m}\)</span>,
-and their horizontal extent to be <span class="math notranslate nohighlight">\(d=500~\mathrm{km}\)</span>, we get</p>
-<div class="math notranslate nohighlight">
+extra topography by the mountain range to be <span class="math">\(h=4000~\mathrm{m}\)</span>,
+and their horizontal extent to be <span class="math">\(d=500~\mathrm{km}\)</span>, we get</p>
+<div class="math">
 \[\frac{\partial P}{\partial x}\approx \frac{h \rho g}{d} = 219~\mathrm{Pa~m^{-1}}\]</div>
-<p>The second derivative of the velocity in respect to <span class="math notranslate nohighlight">\(y\)</span> can be
+<p>The second derivative of the velocity in respect to <span class="math">\(y\)</span> can be
 discretized using central difference, leading to: ???</p>
 <div class="section" id="Do">
 <h3>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h3>
@@ -267,7 +286,7 @@ momentum equation in x-direction</li>
 points that will be assigned a velocity value by the boundary
 conditions.</li>
 <li>Looking at the figure above, what kind of B.C. are needed?</li>
-<li>How would you use your discretized equation to calculate <span class="math notranslate nohighlight">\(v_1\)</span>,
+<li>How would you use your discretized equation to calculate <span class="math">\(v_1\)</span>,
 the first velocity value after the uppermost grid point?</li>
 </ul>
 </div>
@@ -276,15 +295,16 @@ the first velocity value after the uppermost grid point?</li>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="channel.html" class="btn btn-neutral float-right" title="Solution strategy for the channel flow" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="channel.html" class="btn btn-neutral float-right" title="Solution strategy for the channel flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../day-2/diffadv.html" class="btn btn-neutral" title="Heat diffusion + advection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="benchmarking.html" class="btn btn-neutral" title="Testing your code and benchmarking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -297,7 +317,7 @@ the first velocity value after the uppermost grid point?</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -319,9 +339,11 @@ the first velocity value after the uppermost grid point?</li>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -336,14 +358,13 @@ the first velocity value after the uppermost grid point?</li>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

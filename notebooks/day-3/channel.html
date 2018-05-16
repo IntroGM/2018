@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
-        <link rel="next" title="Using geo-hpcc cluster" href="../../instructions/cluster.html"/>
-        <link rel="prev" title="FD for Stokes equation" href="stokes.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using geo-hpcc cluster" href="../../instructions/cluster.html" />
+    <link rel="prev" title="FD for Stokes equation" href="stokes.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -120,6 +118,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stokes.html">FD for Stokes equation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Solution strategy for the channel flow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Do">Do</a></li>
@@ -145,34 +144,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>Solution strategy for the channel flow</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Solution strategy for the channel flow</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/notebooks/day-3/channel.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -365,12 +384,12 @@ div.nboutput div.output_area.stderr {
 This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-3/channel.ipynb">source/notebooks/day-3/channel.ipynb</a>.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-3/channel.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="nbinput nblast container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
@@ -381,14 +400,14 @@ Interactive online version:
 <h1>Solution strategy for the channel flow<a class="headerlink" href="#Solution-strategy-for-the-channel-flow" title="Permalink to this headline">¶</a></h1>
 <p>Rearranging the discretized equation so that all unknowns are on the
 left hand side, on the right hand side there are only known values.</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[v_{i-1} - 2v_i + v_{i+1} = \frac{dP/dx}{\eta}\Delta y^2\]</div>
 <p>There is one such equation for each internal grid point. At the
 boundaries, boundary conditions have to be used, e.g.
-<span class="math notranslate nohighlight">\(v_0 = v_\mathrm{surf}\)</span> and
-<span class="math notranslate nohighlight">\(v_{\mathrm{ny}-1} = v_\mathrm{bott}\)</span>.</p>
+<span class="math">\(v_0 = v_\mathrm{surf}\)</span> and
+<span class="math">\(v_{\mathrm{ny}-1} = v_\mathrm{bott}\)</span>.</p>
 <p>For five grid points we thus have five equations in total:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\begin{eqnarray}
 i=0:\qquad\qquad &amp; v_0 &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp;     &amp; = &amp; v_\mathrm{surf} \\
 i=1:\qquad\qquad &amp; v_0 &amp; -2 &amp; v_1  &amp; +  &amp; v_2 &amp;    &amp;     &amp;   &amp;     &amp; = &amp; \frac{dP/dx}{\eta}\Delta y^2 \\
@@ -397,7 +416,7 @@ i=3:\qquad\qquad &amp;     &amp;    &amp;      &amp;    &amp; v_2 &amp; -2 &amp;
 i=4:\qquad\qquad &amp;     &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp; v_4 &amp; = &amp; v_\mathrm{bott} \\
 \end{eqnarray}\end{split}\]</div>
 <p>This system of equations can be written in matrix format as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\begin{pmatrix}
 1 &amp; &amp; &amp; &amp; \\
 1 &amp; -2 &amp;  1 &amp; &amp; \\
@@ -421,19 +440,19 @@ v_\mathrm{surf} \\
 v_\mathrm{bott} \\
 \end{pmatrix}\end{split}\]</div>
 <p>and is typically written with symbols</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\mathbf{Ax}=\mathbf{b}\]</div>
-<p>Python comes with a module, <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> that includes function
-<code class="docutils literal notranslate"><span class="pre">solve</span></code>, which can be used to solve this type of systems of linear
+<p>Python comes with a module, <code class="docutils literal"><span class="pre">scipy.linalg</span></code> that includes function
+<code class="docutils literal"><span class="pre">solve</span></code>, which can be used to solve this type of systems of linear
 equations:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="k">import</span> <span class="n">solve</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="k">import</span> <span class="n">solve</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">b</span></code> has to be a 1-D NumPy array of size <code class="docutils literal notranslate"><span class="pre">ny</span></code>, and includes the
-numerical values of the right hand side expressions; and <code class="docutils literal notranslate"><span class="pre">A</span></code> a 2-D
-NumPy array of size (<code class="docutils literal notranslate"><span class="pre">ny</span></code>,<code class="docutils literal notranslate"><span class="pre">ny</span></code>), and includes the numerical
-coefficients, as above. <code class="docutils literal notranslate"><span class="pre">x</span></code> will then contain the wanted velocity
+<p>where <code class="docutils literal"><span class="pre">b</span></code> has to be a 1-D NumPy array of size <code class="docutils literal"><span class="pre">ny</span></code>, and includes the
+numerical values of the right hand side expressions; and <code class="docutils literal"><span class="pre">A</span></code> a 2-D
+NumPy array of size (<code class="docutils literal"><span class="pre">ny</span></code>,<code class="docutils literal"><span class="pre">ny</span></code>), and includes the numerical
+coefficients, as above. <code class="docutils literal"><span class="pre">x</span></code> will then contain the wanted velocity
 values. The following script utilizes this function to solve the channel
 flow problem.</p>
 <div class="section" id="Do">
@@ -449,12 +468,12 @@ are set?</li>
 </ul>
 </li>
 </ul>
-<div class="nbinput container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Define physical parameters</span>
 <span class="n">visc</span> <span class="o">=</span> <span class="mf">1e19</span>                    <span class="c1"># Viscosity of the rock in the channel, Pa s</span>
 <span class="n">dpdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2800</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">4000</span><span class="o">/</span><span class="mf">500e3</span>   <span class="c1"># Pressure gradient within the channel, Pa m^-1</span>
@@ -513,10 +532,10 @@ are set?</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput container">
-<div class="prompt empty container">
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
 A is:
  [[ 1.  0.  0.  0.  0.]
@@ -529,10 +548,10 @@ b is:
  -3.16880878e-10]
 </pre></div></div>
 </div>
-<div class="nboutput nblast container">
-<div class="prompt empty container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <img alt="../../_images/notebooks_day-3_channel_5_1.png" src="../../_images/notebooks_day-3_channel_5_1.png" />
 </div>
 </div>
@@ -541,29 +560,29 @@ b is:
 <div class="section" id="Calculating-strain-rates">
 <h1>Calculating strain rates<a class="headerlink" href="#Calculating-strain-rates" title="Permalink to this headline">¶</a></h1>
 <p>Strain rate in 2D is defined as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\underline{\underline{\dot\epsilon}} = \begin{pmatrix}
 \frac{\partial v_x}{\partial x} &amp; \frac{\partial v_x}{\partial y} \\
 \frac{\partial v_y}{\partial x} &amp; \frac{\partial v_y}{\partial y} \\
 \end{pmatrix}\end{split}\]</div>
 <p>In our case the only relevant component is the shear strain rate
-<span class="math notranslate nohighlight">\(\dot\epsilon_{xy} = \frac{\partial v_x}{\partial y}\)</span> (why?).</p>
+<span class="math">\(\dot\epsilon_{xy} = \frac{\partial v_x}{\partial y}\)</span> (why?).</p>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Discretize the shear strain rate expression</li>
 <li>Complete the script below so that it will loop over all the grid
-points, calculate the shear strain, and store it in the array <code class="docutils literal notranslate"><span class="pre">e</span></code></li>
+points, calculate the shear strain, and store it in the array <code class="docutils literal"><span class="pre">e</span></code></li>
 <li>How does the resulting plot look like? Note that the <em>shear stress</em>
-is defined as <span class="math notranslate nohighlight">\(\sigma_{xy} = \eta\dot\epsilon_{xy}\)</span>. Where is
+is defined as <span class="math">\(\sigma_{xy} = \eta\dot\epsilon_{xy}\)</span>. Where is
 the shear stress smallest?</li>
 </ul>
-<div class="nbinput container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># TODO: Write here a for-loop that loops over the grid points</span>
@@ -577,10 +596,10 @@ the shear stress smallest?</li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast container">
-<div class="prompt empty container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area container">
+<div class="output_area docutils container">
 <img alt="../../_images/notebooks_day-3_channel_7_0.png" src="../../_images/notebooks_day-3_channel_7_0.png" />
 </div>
 </div>
@@ -593,18 +612,18 @@ may have different boundary conditions:</p>
 <ol class="arabic simple">
 <li>No-slip:<ul>
 <li>Velocity parallel to the surface is fixed at zero</li>
-<li><span class="math notranslate nohighlight">\(v_x = 0\)</span></li>
+<li><span class="math">\(v_x = 0\)</span></li>
 </ul>
 </li>
 <li>Free-slip:<ul>
 <li>Shear stress at the surface is zero</li>
-<li><span class="math notranslate nohighlight">\(0 = \sigma_{xy} = \eta\dot\epsilon_{xy} = \eta\frac{\partial v_x}{\partial y} \Rightarrow \frac{\partial v_x}{\partial y} = 0\)</span></li>
+<li><span class="math">\(0 = \sigma_{xy} = \eta\dot\epsilon_{xy} = \eta\frac{\partial v_x}{\partial y} \Rightarrow \frac{\partial v_x}{\partial y} = 0\)</span></li>
 </ul>
 </li>
 <li>Other:<ul>
 <li>Velocity is fixed at non-zero value</li>
-<li>e.g. <span class="math notranslate nohighlight">\(v_x = a \neq 0\)</span>, also incoming/outgoing flow
-(<span class="math notranslate nohighlight">\(v_y \neq 0\)</span>) possible (in 2D models)</li>
+<li>e.g. <span class="math">\(v_x = a \neq 0\)</span>, also incoming/outgoing flow
+(<span class="math">\(v_y \neq 0\)</span>) possible (in 2D models)</li>
 </ul>
 </li>
 </ol>
@@ -612,12 +631,12 @@ may have different boundary conditions:</p>
 <p>### Do</p>
 <ul class="simple">
 <li>Discretize the free-slip boundary condition
-<span class="math notranslate nohighlight">\(\frac{\partial v_x}{\partial y} = 0\)</span></li>
+<span class="math">\(\frac{\partial v_x}{\partial y} = 0\)</span></li>
 <li>If you want to apply this at the upper surface (i.e. at
-<span class="math notranslate nohighlight">\(x=x_0\)</span>), how would your system of equations change? How would
-the coefficients in the matrix <span class="math notranslate nohighlight">\(A\)</span> change?</li>
+<span class="math">\(x=x_0\)</span>), how would your system of equations change? How would
+the coefficients in the matrix <span class="math">\(A\)</span> change?</li>
 <li>Modify your script for the channel flow model, and change the upper
-surface velocity boundary condition from <span class="math notranslate nohighlight">\(v_x=0\)</span> to a free-slip
+surface velocity boundary condition from <span class="math">\(v_x=0\)</span> to a free-slip
 B.C.<ul>
 <li>How does the resulting velocity plot change?</li>
 <li>How does the plot for shear strain rate change?</li>
@@ -628,15 +647,16 @@ B.C.<ul>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../instructions/cluster.html" class="btn btn-neutral float-right" title="Using geo-hpcc cluster" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../instructions/cluster.html" class="btn btn-neutral float-right" title="Using geo-hpcc cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="stokes.html" class="btn btn-neutral" title="FD for Stokes equation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="stokes.html" class="btn btn-neutral" title="FD for Stokes equation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -649,7 +669,7 @@ B.C.<ul>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -671,9 +691,11 @@ B.C.<ul>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -688,14 +710,13 @@ B.C.<ul>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

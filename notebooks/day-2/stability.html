@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -23,21 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
-        <link rel="next" title="Heat diffusion + advection" href="diffadv.html"/>
-        <link rel="prev" title="Finite differences for heat equation" href="fdheat.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Heat diffusion + advection" href="diffadv.html" />
+    <link rel="prev" title="Finite differences for heat equation" href="fdheat.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -46,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -62,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -91,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -120,6 +118,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 3</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-3/benchmarking.html">Testing your code and benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/stokes.html">FD for Stokes equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html">Solution strategy for the channel flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
@@ -139,34 +138,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>Stability of the heat equation FD approximation</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Stability of the heat equation FD approximation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/notebooks/day-2/stability.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -203,61 +222,62 @@ Exceeding this time step will lead to the <em>instability</em> of the
 calculations, and typically, misbehaviour or crashing of the
 computational code (and, certainly, erroneous results).</p>
 <p>Consider the simplified heat equation</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial T}{\partial t} = \kappa \frac{\partial^2 T}{\partial x^2}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\kappa = \frac{k}{\rho C_p}\)</span>. The FD approximation is</p>
-<div class="math notranslate nohighlight">
+<p>where <span class="math">\(\kappa = \frac{k}{\rho C_p}\)</span>. The FD approximation is</p>
+<div class="math">
 \[\frac{T_i^{q+1}-T_i^q}{\Delta t} = \kappa \frac{T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q}}{(\Delta x)^2}\]</div>
-<p>and, with <span class="math notranslate nohighlight">\(r=\frac{\kappa\Delta t}{\Delta x^2}\)</span>, can be written</p>
-<div class="math notranslate nohighlight">
+<p>and, with <span class="math">\(r=\frac{\kappa\Delta t}{\Delta x^2}\)</span>, can be written</p>
+<div class="math">
 \[T_i^{q+1} = T_i^q + r (T_{i+1}^{q} - 2T_{i}^{q} + T_{i-1}^{q})\]</div>
-<p>If we assume that the numerical solution of the temperature, <span class="math notranslate nohighlight">\(T\)</span>
-is the sum of the correct temperature values <span class="math notranslate nohighlight">\(\theta\)</span> and the
-error <span class="math notranslate nohighlight">\(\epsilon\)</span> at each grid point
-(<span class="math notranslate nohighlight">\(T_i = \theta_i + \epsilon_i\)</span>), the difference equations of
+<p>If we assume that the numerical solution of the temperature, <span class="math">\(T\)</span>
+is the sum of the correct temperature values <span class="math">\(\theta\)</span> and the
+error <span class="math">\(\epsilon\)</span> at each grid point
+(<span class="math">\(T_i = \theta_i + \epsilon_i\)</span>), the difference equations of
 temperatures and errors can be separated, leading to</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\epsilon_i^{q+1} = \epsilon_i^q + r (\epsilon_{i+1}^{q} - 2\epsilon_{i}^{q} + \epsilon_{i-1}^{q})\]</div>
 <p>That is, the error <em>diffuses</em> from grid point to next grid point,
 similarly to the actual temperature. We want to <em>suppress</em> the error,
 that is, we want
-<span class="math notranslate nohighlight">\(|\epsilon_i^{q+1}| \leq |\epsilon_i^q| \Rightarrow \Big|\frac{\epsilon_i^{q+1}}{\epsilon_i^q}\Big| \leq 1\)</span>,
+<span class="math">\(|\epsilon_i^{q+1}| \leq |\epsilon_i^q| \Rightarrow \Big|\frac{\epsilon_i^{q+1}}{\epsilon_i^q}\Big| \leq 1\)</span>,
 since otherwise the error would grow from time step to next.</p>
-<p>Dividing the error diffusion expression by <span class="math notranslate nohighlight">\(\epsilon_i^q\)</span> and
+<p>Dividing the error diffusion expression by <span class="math">\(\epsilon_i^q\)</span> and
 applying the inequality</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\Big|1 + r (\epsilon_{i+1}^{q} - 2\epsilon_{i}^{q} + \epsilon_{i-1}^{q}) / \epsilon_i^q\Big| \leq 1\]</div>
 <p>Let’s consider the worst case scenario, where
-<span class="math notranslate nohighlight">\(\epsilon_{i+1} = \epsilon_{i-1} = a\)</span> and <span class="math notranslate nohighlight">\(\epsilon_i = -a\)</span>.
+<span class="math">\(\epsilon_{i+1} = \epsilon_{i-1} = a\)</span> and <span class="math">\(\epsilon_i = -a\)</span>.
 We get</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\Big|1 - 4r\Big| \leq 1 \Rightarrow 0 \leq r \leq \frac{1}{2}\]</div>
-<p>The first inequality is naturally true (<span class="math notranslate nohighlight">\(r\)</span> cannot be negative),
+<p>The first inequality is naturally true (<span class="math">\(r\)</span> cannot be negative),
 the second leads to</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\kappa \Delta t}{\Delta x^2} \leq \frac{1}{2}\]</div>
 <p>This inequality can be used to determine a proper time step if grid
 spacing has been chosen, or proper grid spacing if time step has been
 chosen. Typically, it is safer to force stricter condition, e.g.
-<span class="math notranslate nohighlight">\(\frac{\kappa \Delta t}{\Delta x^2} \leq \frac{1}{4}\)</span>.</p>
+<span class="math">\(\frac{\kappa \Delta t}{\Delta x^2} \leq \frac{1}{4}\)</span>.</p>
 <p>Stability of the method does not guarantee its correctness!</p>
 <p>A physical interpretation exists for the stability criterion: The
-diffusive time scale <span class="math notranslate nohighlight">\(\sqrt{\kappa\Delta t}\)</span> should not exceed the
+diffusive time scale <span class="math">\(\sqrt{\kappa\Delta t}\)</span> should not exceed the
 grid spacing, i.e. heat should not diffuse in significant amounts over
 more than one grid point within one time step.</p>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="diffadv.html" class="btn btn-neutral float-right" title="Heat diffusion + advection" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="diffadv.html" class="btn btn-neutral float-right" title="Heat diffusion + advection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fdheat.html" class="btn btn-neutral" title="Finite differences for heat equation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="fdheat.html" class="btn btn-neutral" title="Finite differences for heat equation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -270,7 +290,7 @@ more than one grid point within one time step.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -292,9 +312,11 @@ more than one grid point within one time step.</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -309,14 +331,13 @@ more than one grid point within one time step.</p>
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

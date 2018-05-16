@@ -57,6 +57,7 @@ Course goals
     :maxdepth: 2
     :caption: Day 3
 
+    notebooks/day-3/benchmarking.ipynb
     notebooks/day-3/stokes.ipynb
     notebooks/day-3/channel.ipynb
 

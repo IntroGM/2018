@@ -66,6 +66,8 @@ Course goals
     :caption: Day 4
 
     notebooks/day-4/clusters.ipynb
+    notebooks/day-4/putting-it-together.ipynb
+    notebooks/day-4/numerical-diffusion.ipynb
 
 .. toctree::
     :maxdepth: 2

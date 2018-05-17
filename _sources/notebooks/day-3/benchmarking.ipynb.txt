@@ -27,7 +27,7 @@
     "\n",
     "- **Gross error**: A mistake in the program itself, a bug.\n",
     "- **Truncation error**: Error introduced by approximating the solution to a problem, such as using a finite-difference solution rather than direct integration of an equation. You might recall this is the error we introduce by [truncating the Taylor series expansion](../day-2/fdbasics.ipynb#Taylor-series-approach;-accuracy) of a function $f(x)$.\n",
-    "- **Roundoff error**: Error related to the computers inability to exactly represent floating point numbers. We have seen some examples of roundoff error as well at the [start of the introduction to finite differences](..day-2/fdbasics.ipynb#Introduction-to-finite-differences).\n",
+    "- **Roundoff error**: Error related to the computers inability to exactly represent floating point numbers. We have seen some examples of roundoff error as well at the [start of the introduction to finite differences](../day-2/fdbasics.ipynb#Introduction-to-finite-differences).\n",
     "\n",
     "Although all three of these sources of error can appear in our programs, we mainly will focus on issues related to truncation error in our discussion in the following sections."
    ]
@@ -273,7 +273,7 @@
    "metadata": {},
    "source": [
     "## Stability for advection problems\n",
-    "We have observed that changing the spatial resolution (distance between calculation points) can affect the error in our finite difference solutions. Specifically, larger distances between points tends to increase error. We have also been [introduced](../stability.ipynb) to problems with the **stability** of our solutions. As a reminder, the stability of a solution refers to whether or not a small change in the parameters of the system results in unstable growth of errors. For problems involving time, a stable solution should either show a decrease in error with time or errors that do not change with time. An unstable solution will show growth of errors with time that do not become bounded, and often grow larger over time.\n",
+    "We have observed that changing the spatial resolution (distance between calculation points) can affect the error in our finite difference solutions. Specifically, larger distances between points tends to increase error. We have also been [introduced](../day-2/stability.ipynb) to problems with the **stability** of our solutions. As a reminder, the stability of a solution refers to whether or not a small change in the parameters of the system results in unstable growth of errors. For problems involving time, a stable solution should either show a decrease in error with time or errors that do not change with time. An unstable solution will show growth of errors with time that do not become bounded, and often grow larger over time.\n",
     "\n",
     "Yesterday we dealt mainly with diffusion of thermal energy and encountered a *stability condition for diffusion problems*\n",
     "\n",

@@ -1,0 +1,1295 @@
+!------------------------------------------------------------------------------|
+!------------------------------------------------------------------------------|
+!                                                                              |
+!          8888888b.   .d88888b.  888     888       d8888 8888888b.            |
+!          888  "Y88b d88P" "Y88b 888     888      d88888 888   Y88b           |
+!          888    888 888     888 888     888     d88P888 888    888           |
+!          888    888 888     888 888     888    d88P 888 888   d88P           |
+!          888    888 888     888 888     888   d88P  888 8888888P"            |
+!          888    888 888     888 888     888  d88P   888 888 T88b             |
+!          888  .d88P Y88b. .d88P Y88b. .d88P d8888888888 888  T88b            |
+!          8888888P"   "Y88888P"   "Y88888P" d88P     888 888   T88b           |
+!                                                                              |
+!             Input file for DOUAR-WSMP version 0.3 - 07/08/2013               |
+!------------------------------------------------------------------------------|
+!------------------------------------------------------------------------------|
+
+This file is read by two subroutines in the code:
+- read_controlling_parameters
+- read_input_file
+The indications between [] indicate the type of the read parameter. It can be
+an integer [int], a real*8 [dp], a character chain [char] or a boolean [bool].
+
+
+CONTROLLING PARAMETERS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]debug is a parameter that switches on/off various prints and outputs
+(the level of printing for error, warning and messages of the solver id%cntl(4)
+is set to the debug value).
+if debug is zero, no debugging 
+if debug is equal to one, this triggers the terminal display of some key
+parameters 
+if debug is equal to two, same as debug equal to one, and the code produces
+various vtk files in the DEBUG subdirectories (surfaces, olsf, ...), as well as
+cross sections for all nonlinear iterations. Careful, memory consuming!
+
+      debug = 1
+
+[bool]doDoRuRe is a flag that triggers the production of output files needed to
+produce the DoRuRes. DoRuRe stands for 'Douar Run Report'. 
+
+      doDoRuRe = F
+
+[bool]compute_qp_gram triggers the production of qpgrams for every grid.
+
+      compute_qpgram = F
+
+
+RESTART
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]irestart is a restart flag; if irestart is not 0, the run will restart from
+an output file given by [char]restartfile and at step.
+
+      irestart = 0
+
+      restartfile = OUT/time_0046.bin
+
+SCALING PARAMETERS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+DOUAR internally uses unitless variables, i.e. most variables are scaled by a
+reference value to lie between 0 and 1. For some calculations, natural units
+are required and must be defined here.
+These parameters must be defined when using isostasy, erosion and particle
+tracking and temperature calculations.
+
+[dp]length_scale is the size of the model domain in km 
+[dp]velocity_scale is the velocity scale in km/Myr. 
+[dp]density_scale is the density scale in kg/m^3
+[dp]tempscale is the temperature at the base of the model in Celsius.
+
+      length_scale = 1000.0 !1000.d0 km
+      velocity_scale = 10 !3.17d-10 !10.d0 mm/a
+      density_scale = 3.30d3 !kg/m3
+      tempscale = 1300.d0 !C
+
+
+SPINUP PHASE
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+The spinup phase values will be used during the initial nstep_spinup steps of a
+DOUAR run. These values will overrule the values given in later sections as long
+as the current DOUAR step is less than or equal to nstep_spinup. Note that if
+nstep_spinup is less than 1, these values will not be used. The values that are
+currently supported for the general spinup phase are: dt_spinup,
+griditer_spinup, nonlinear_iterations_spinup, and tol_spinup. Also note that
+spinup phase variables that apply to the material, surface or cloud definitions
+are given in their respective definition sections.
+
+[int]nstep_spinup is the number of steps used for the spinup phase
+
+      nstep_spinup = 5
+
+[dp]dt is the time step length (if dt is negative, courant conidition is used
+and automatic time stepping is turned on)
+
+      dt_spinup = 15 ka
+
+[int]griditer is a flag that allows for nonlinear iterations; when positive, a
+fixed number (griditer) of iterations is permitted; when negative, the number of
+nonlinear iterations is determined by a convergence criterion.
+
+      griditer_spinup = -10
+
+[int]nonlinear_iterations is the maximum number of nonlinear iterations (i.e.
+the iterations on a given constant grid)
+if nonlinear_iterations is positive, it simply is the number of nonlinear
+iterations performed for each grid. When negative it indicates an upper bound
+of nonlinear iterations, but the actual number of nonlinear iterations is
+determined by a convergence criterion (see the 'tol' parameter)
+
+      nonlinear_iterations_spinup = -100
+
+[dp]tol_spinup is the tolerance used to estimate convergence on the computed
+velocity field during the spinup phase. Note that an adaptive tolerance cannot
+be used during the spinup phase.
+
+      tol_spinup = 0.02d0
+
+[bool]sstemp_spinup is a flag for whether a steady-state thermal calculation
+should be performed during the spinup phase iterations. If true, a uniform
+viscosity value should be provided for the first time step using the option
+sstemp_viscosity_spinup below.
+
+      sstemp_spinup = F
+
+[dp]sstemp_viscosity_spinup is a reference linear viscosity value to be used for
+all materials during the first time step of the spinup phase when calculating a
+steady-state thermal field.  This is done to ensure the first calculation
+using temperature-dependent material properties considers thermal advection and
+diffusion with an approximation of the velocity field in the nonlinear case. If
+negative, this value will be ignored and the normal material properties will be
+used.
+
+      sstemp_viscosity_spinup = 1.9577e18 Pas !nondim 1.9577d-7
+
+[dp]sstemp_penalty_spinup is the penalty factor that corresponds to use of the
+sstemp_viscosity_spinup above. A value of 1.d8 is recommended.
+
+      sstemp_penalty_spinup = 1.d8
+
+[bool]all_surf_fixed_spinup is a flag to fix all surface positions during the
+spinup phase. Individual surface positions can be fixed in the section below for
+surface definitions. If true, this option will override the option to fix
+individual surfaces.
+
+      all_surf_fixed_spinup = F
+
+[bool]fixed_cloud_spinup is a flag to skip the update of the cloud particle
+positions during the spinup phase. If true, cloud particles positions will not
+be updated.
+
+      fixed_cloud_spinup = F
+
+
+TIMESTEPPING
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[dp]dt is the time step length (if dt is negative, courant conidition is used
+and automatic time stepping is turned on)
+
+      dt = 75 ka
+
+[int]nstep is the number of time steps
+
+      nstep = 1000
+
+[dp]courant is only used when dt is negative; it determines the size of the time
+step from the maximum value of the velocity field amplitude. The time step s
+the product of courant by the ratio of the smallest leaf size by the maximum
+velocity.
+
+      courant = .5d0
+
+[bool]normaladvect is a flag used to determine which algorithm to use to
+calculate the new geometry of the normals to the surfaces at the nodes on the
+surfaces
+if normaladvect is T, the normals are advected using the velocity gradient
+if normaladvect is F, the normals are re-computed from the geometry of the
+surface
+
+      normaladvect = F
+
+
+      fastscape_dtmax = 15 ka
+
+
+GRID ITERATIONS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]griditer is a flag that allows for nonlinear iterations; when positive, a
+fixed number (griditer) of iterations is permitted; when negative, the number of
+nonlinear iterations is determined by a convergence criterion.
+
+      griditer = -100
+
+[dp]octree_refine_ratio is the threshold value used to determine whether the
+octree has converged or not. the larger the value, the less stringent the test.
+
+      octree_refine_ratio = .025d0
+
+
+NONLINEAR ITERATIONS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]nonlinear_iterations is the maximum number of nonlinear iterations (i.e.
+the iterations on a given constant grid)
+if nonlinear_iterations is positive, it simply is the number of nonlinear
+iterations performed for each grid. When negative it indicates an upper bound
+of nonlinear iterations, but the actual number of nonlinear iterations is
+determined by a convergence criterion (see the 'tol' parameter)
+
+      nonlinear_iterations = -100
+
+[int]nb_iter_nl_min is the number of nonlinear iterations required for velocity
+convergence when using the convergence criterion tolerance value below. Note
+that this is different than simply requiring a given number of nonlinear
+iterations as the velocity field must also be converged within the tolerance
+below.
+
+      nb_iter_nl_min = 0 
+
+[dp]tol is the relative tolerance used to estimate convergence on the computed
+velocity field
+
+      tol = 0.01d0
+
+[bool]adaptive_tol is a flag that toggles on/off the evolution of the tol
+parameter with the grid level: when velocity convergence is reached on a grid,
+the latest meaure of the velocity difference between the two last obtained
+solutions is put in tol, so that on the following generated grid, the solution
+reaches at least the same level of convergence. It allows to start with a not
+too stringent value of tol at uniform octree level that evolves with every
+grid, assuming that increasing the level of refinement of the octree allows to
+better capture the solution, hence allowing a tighter convergence. 
+
+      adaptive_tol = F
+
+
+OCTREES
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]leveluniform_oct is the level of uniform discretization of space; note that
+a level is a power of two used to divide the unit cube
+
+      leveluniform_oct = 5
+
+[int]levelmax_oct is maximum level of octree discretization
+
+      levelmax_oct = 6
+
+[double]vex is the vertical exaggeration scaling factor that allows for
+variable aspect ratio elements. The value should range between 0-1, which
+will be multiplied by the vertical scale of the model domain. For example, a
+value of 0.25 would correspond to a model of dimensions 1x1x0.25, where the
+elements are 1/4 as tall as they are wide. NOTE: vex MUST be larger than the
+highest surface/element in the model at all times.
+
+      vex = 0.2
+
+[bool]ismooth is a flag to impose an additional level of smoothing after
+refinement for the surfaces and strain rate. It ensures that no leaf is flanked
+by other leaves differing by more than 1 level of refinement
+
+      ismooth = T
+
+[int]noctreemax is the maximum size of any octree used in all computations
+
+      noctreemax = 10000000
+
+[dp]refine_ratio is used to determine octree refinement based on a given
+criterion. All leaves where the criterion is larger than refine_ratio times the
+maximum of this criterion are refined 
+
+      refine_ratio = -5500
+
+[int]refine_criterion determines which refinement algorithm is to be used.
+Several criteria exist for the refinement of the osolve octree. 1 is the second 
+invariant of the deviatoric strain-rate tensor; 2 is the sum of the squares of
+the diagonal terms of the deviatoric strain-rate tensor; 3 is the second
+invariant of the deviatoric strain rate tensor timses the leaf size. any other
+value sets the criterion to zero and leads to no refinement. 
+
+      refine_criterion = 0
+
+[int]initial_refine_level is the initial level at which the refinement of the
+octree will be performed. it has to be smaller than levelmax_oct
+this should be used (different from levelmax_oct) in case the flow is very 
+localized (nonlinear/plastic analysis)
+
+      initial_refine_level = 5
+
+[bool]renumber_nodes is a flag that can toggle on/off the renumbering of the
+nodes by mean of Sloan's algorithm (T/F)
+
+      renumber_nodes = T
+
+
+NESTED MODEL PARAMETERS (Ignored if nest = F)
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]nest is the flag that determines whether this model should run as a nested
+version within a larger scale model
+
+      nest = F
+
+[char]ssoutdir is the directory where the nest output should be written (no more
+than 5 characters)
+
+      ssoutdir = SSOUT
+
+[char]lsoutfile is the file that is read to define the velocity B/Cs for the
+nest (i.e., the model output in which the nest is embedded, not necessarily the
+full scale (L'=1) model).
+
+      lsoutfile = OUT/time_0001.bin
+
+[dp]sselemx, sselemy and sselemz are the ratios of the size of the elements in
+the nest in the x, y and z directions, relative to the larger scale model (which
+again does not need to be the full scale (L'=1) model).
+
+      sselemx = 0.5d0
+      sselemy = 0.5d0
+      sselemz = 0.5d0
+
+[dp]xminls, yminls and zminls denote the location of the origin of the nested
+model within the large scale reference model
+
+      xminls = 0.25d0
+      yminls = 0.25d0
+      zminls = 0.109375d0
+
+[dp]sselemx0, sselemy0 and sselemz0 are the ratios of the size of the elements
+in the nest in the x, y and z directions, relative to the FULL scale model (that
+for which L'=1). This is only used for rescaling the output values for VTK
+visualization.
+
+      sselemx0 = 0.5d0
+      sselemy0 = 0.5d0
+      sselemz0 = 0.5d0
+
+
+BOUNDARY CONDITIONS AND VELOCITY CONSTRAINTS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]2d_invariants forces the calculation of the strain rate tensor invariants
+to two dimensions. This assumes no strain in the y direction, and sets eyy, exy
+and eyz to zero.
+
+      invariants_2d = F
+
+[bool]damp_surface suppresses oscillations of interfaces with a density
+contrast using the method described in Kaus et al., 2010 (PEPI). When enabled,
+this allows the user to use a time step (dt) that is 20-100x longer.
+
+      damp_surface = T
+
+[dp]damp_factor is a scaling factor applied to the surface damping. A factor of
+0 will disable surface damping, while a factor of 1 will use full damping.
+Intermediate values will provide partial damping.
+
+      damp_factor = 0.5d0
+
+[char]bc_type is a parameter that selects the type of boundary condition that
+will be applied in the simulation. The names of the types are listed below and
+described in detail in the user's guide. The current available bc_types are:
+basic, 2Dpunch, 2D_punch_vert, 3D_punch,folding, jgr, model1, nest,
+parallipipede, pipo, riedel, ritske, ritske_isurf, segmented_s-line, sphere,
+subduction
+
+Types requiring additional input values are listed below.
+
+- basic            -> Basic velocity boundary conditions specified for each face
+                   -> [char]bcorder is the order in which to apply the boundary
+                      conditions to the faces ('xyz', 'xzy', 'yxz', 'yzx',
+                      'zxy', or 'zyx'). For example, 'xyz' would correspond
+                      to applying the velocity B/Cs on the faces at x=0 and x=1
+                      first, then at y=0 and y=1, then at z=0 and z=1.
+                   -> [bool]fix(u,v,w)(x,y,z)(0,1) are the flags for whether the
+                      given velocity component should be fixed (T) or free (F)
+                      along the given face. For example, fixux0 = T would apply
+                      the specified velocity constraint for the x-component (u)
+                      at x=0.
+                   -> [dp](u,v,w)(x,y,z)(0,1) are the component velocities to be
+                      applied along the faces. For example, ux0 = 1.d0 would
+                      apply a velocity of 1.0 in the x-direction (u) on the face
+                      at x=0.
+                   -> [dp](u,v)trans are translation velocities that can be
+                      applied to all boundary conditions in either the x- (u) or
+                      y- (v) directions. For example, utrans = -1.d0 would
+                      subtract 1.0 from all u component velocities along all
+                      faces.
+
+- segmented_s_line -> S-line geometry split into 3 segments
+                   -> [dp]bc_param1 is l, the height of the Moho above the model
+                      base
+                   -> [dp]bc_param2 is theta, the subduction angle
+                   -> [dp]bc_param3 is gamma, the angle of the oblique segment
+                      relative to the normal segments
+                   -> [dp]bc_param4 is xsym, the middle of oblique segment along
+                      the x-axis
+                   -> [dp]bc_param5 is ystart, distance to end of the first
+                      region of normal convergence from the origin along the
+                      y axis
+                   -> [dp]bc_param6 is yend, distance to the end of the oblique
+                      segment along the y axis
+                   -> [dp]bc_param7 is ymax, the limit of the applied BCs along
+                      the y axis
+                   -> [dp]bc_param8 vin, the scaling factor for all velocity BCs
+                   -> [dp]bc_param9 is nelemx the number of elements across
+                      which to spread the velocity BCs on the x=0 face
+                   -> [dp]bc_param10 is nelemz the number of elements across
+                      which to spread the velocity BCs on the z=0 face
+                   -> [dp]bc_param11 is uextra, an additional velocity in the x
+                      direction, added to influx velocity, vin
+                   -> [dp]bc_param12 is vextra, an additional velocity in the y
+                      direction, currently not implemented
+                   -> [dp](u,v)trans are translation velocities that can be
+                      applied to all boundary conditions in either the x- (u) or
+                      y- (v) directions. For example, utrans = -1.d0 would
+                      subtract 1.0 from all u component velocities along all
+                      faces.
+
+- segmented_s_line_round
+                   -> S-line geometry split into 3 segments with one rounded end
+                   -> [dp]bc_param1 is l, the height of the Moho above the model
+                      base
+                   -> [dp]bc_param2 is theta, the subduction angle
+                   -> [dp]bc_param3 is gamma, the angle of the oblique segment
+                      relative to the normal segments
+                   -> [dp]bc_param4 is xsym, the middle of oblique segment along
+                      the x-axis
+                   -> [dp]bc_param5 is ystart, distance to end of the first
+                      region of normal convergence from the origin along the
+                      y axis
+                   -> [dp]bc_param6 is yend, distance to the end of the oblique
+                      segment along the y axis
+                   -> [dp]bc_param7 is ymax, the limit of the applied BCs along
+                      the y axis
+                   -> [dp]bc_param8 vin, the scaling factor for all velocity BCs
+                   -> [dp]bc_param9 is nelemx the number of elements across
+                      which to spread the velocity BCs on the x=0 face
+                   -> [dp]bc_param10 is nelemz the number of elements across
+                      which to spread the velocity BCs on the z=0 face
+                   -> [dp]bc_param11 is uextra, an additional velocity in the x
+                      direction, added to influx velocity, vin
+                   -> [dp]bc_param12 is vextra, an additional velocity in the y
+                      direction, currently not implemented
+                   -> [dp]bc_param13 is arcradius, the radius of the arcuate end
+                      of the rounded boundary velocities
+                   -> [dp](u,v)trans are translation velocities that can be
+                      applied to all boundary conditions in either the x- (u) or
+                      y- (v) directions. For example, utrans = -1.d0 would
+                      subtract 1.0 from all u component velocities along all
+                      faces.
+
+- thrust           -> segment of x=0 boundary is being pushed with given velocity
+                   -> [dp]bc_param1 is the z-location of the greatest velocity.
+                      Above this, velocity is constant, below this, it gradually
+                      decreases to zero. bc_param3 > bc_param1 > bc_param2.
+                   -> [dp]bc_param2 is the lower boundary (z) of the pushed 
+                      segment
+                   -> [dp]bc_param3 is the upper boundary (z) of the pushed 
+                      segment
+                   -> [dp]bc_param4 is the (max) imposed velocity.
+                   -> [dp]bc_param5 is the type of x=0 bnd:
+                              1 : free-slip
+                              2 : no-slip
+
+- iso_only         -> Applies zero displacement boundary conditions to all faces
+                      and dynamically calculates an initial optimal time step
+                      for isostatic compensation of the model geometry. NOTE:
+                      This option modifies params%dt and params%nstep, and uses
+                      the spinup parameters/materials.
+                   -> [dp]bc_param1 is the maximum allowable velocity for
+                      isostatic compensation. The recommended value is 1.0.
+
+      bctype = basic
+      bcorder = zyx
+
+      ux0 = -1.0
+      ux1 = 1.0
+
+fixuy0 = F
+fixwy0 = F
+
+fixuy1 = F
+fixwy1 = F
+
+fixuz0 = F
+fixvz0 = F
+
+fixuz1 = F
+fixvz1 = F
+
+
+
+PRESSURE
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]smoothing_type is a parameter allows to choose which type of smoothing is
+to be applied to the pressure field: 0 is none, 1 is center->nodes->center, 2 is
+the same, but weighted by neighbouring elemental volumes, 3 is regular grid+SPH,
+and 4 is SPH.  
+
+      smoothing_type = 1
+
+[dp]pressure0 is the pressure value used to initialize the pressure field
+prior to any dynamic pressure calculations. The suggested value is the
+lithostatic pressure at half the thickness of the model. NOTE: This value
+should be given as a postive number, which will be converted to a negative
+value to be consistent with the engineering pressure sign convention used in
+DOUAR (where compression is negative).
+
+      pressure0 = 1.2139875 GPa !3.75d-2
+
+[dp]plastic_stress_min is the minimum allowable yield stress used in the
+pressure-dependent plasticity calculations. If plastic_stress_min is positive,
+this value will be used. If negative, the code will operate as it did in v0.1
+and earlier.
+
+      plastic_stress_min = 1 MPa !3.089d-5
+
+
+CLOUD
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]npmin and [int]npmax are used to update the 3D volumetric cloud. npmin
+corresponds to the minimum number of particles in any leaf; npmax is the maximum
+allowable number in any leaf
+
+      npmin = 9
+      npmax = 16
+
+[bool]gridcloud is a flag for whether particle injection to form the cloud
+should occur randomly (F) or on a regularly spaced grid (T). The default is for
+random injection, as was previously done in DOUAR.
+
+      gridcloud = T
+
+[bool]centerptcloud is a flag for whether a particle should be placed at the
+center of each element when using gridcloud.
+
+      centerptcloud = T
+
+[int]clnpx, clnpy, clnpz are the numbers of particles to be injected in each
+element in the x, y and z directions when using gridcloud.
+
+      clnpx = 2
+      clnpy = 2
+      clnpz = 2
+
+      cloud_inj_by_freesurf = F
+      cloud_inject_style = 2
+
+[bool]fixed_cloud is a flag to skip the update of the cloud particle positions
+during the simulation. If true, cloud particles positions will not be updated.
+
+      fixed_cloud = F
+
+
+FEM + DIVFEM + MUMPS/WSMP
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]matrule determines the rule used to assign material properties to
+elements that are cut by a surface. The default value (0) will use divFEM to
+determine the element properties. A value of 1 will assign the properties of
+the material that occupies the majority of the element, whereas a value of 2
+will assign the properties of the volumetric minority of the element. NOTE:
+divFEM is always used for any element containing void material.
+
+      matrule = 0
+
+[int]levelcut is the number of levels used to estimate the volume integrals in
+the divFEM algorithm for cut cells; by testing, it has been estimated that a
+value of 2 is very accurate
+
+      levelcut = 2
+
+[int]levelapprox is the number of levels used to estimate the remaining
+integrals using an improved version of Marthijn's clever algorithm, usually 3 is
+plenty
+
+      levelapprox = 3
+
+[dp]penalty is a global penalty parameter used to impose the bad faces or
+incompatible faces linear constraints
+
+      penalty = 1.d8
+
+[bool]excl_vol is a parameter that toggles off the assumption that lsf's are
+built on top of one another
+
+      excl_vol = F 
+
+      wsmp_scaling = T
+
+      wsmp_factorize = 1
+
+
+TEMPERATURE
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[dp] tempscale is the temperature at the base of the model in Celsius.
+[bool] sstemp_on_restart is a flag allowing the user to utilize a steady-state
+thermal calculation for the first time step following a restart. This option is
+useful, for instance, for calculating the thermal field with a previous velocity
+solution.
+
+      calculate_temp = F
+
+      ztemp = 116.796875 km !0.116796875d0
+
+Disabled, defined elsewhere:      tempscale = 1300.d0
+
+      sstemp_on_restart = F
+
+
+ISOSTASY
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[bool]isostasy enables calculation of local isostasy with the equilibrium state
+based on the initial geometry. Local isostasy will be used if this is true and
+flexure is false.
+
+      isostasy = F
+
+      local_isoref = T
+
+[bool]flexure enables calculation of flexural isostasy using the parameters
+below. Note that either local or flexural isostasy will be used, based on this
+value. Both must be true for flexure to be used.
+
+      flexure = T
+
+[dp]elastic_plate_thickness is the thickness of the elastic plate used in the
+flexural isostasy calculation, in meters (?)
+
+      elastic_plate_thickness = 20.d3 
+
+      bottom_density = 1.d0
+
+[bool]isobc enables modification of the velocity boundary conditions for certain
+boundary condition types to account for changes in the Moho depth
+
+      isobc = F
+
+      isovelomax = 9.d10
+
+
+MATERIALS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]nmat is number of materials
+
+      nmat = 3
+
+[int]material0 determines what is the material above the 1st surface (the free
+surface) if material0 is 0 then it is the void and the properties "0" are used
+for that part of the model; otherwise the material is one of the material,
+comprised between 1 and nmat
+
+      material0 = 0
+
+[bool]materials_on_cloud is a flag to determine whether material property
+assignment should be done using the surfaces and level set functions (false) or
+using the material numbers assigned to the cloud particles in each element
+(true)
+
+      materials_on_cloud = T
+
+[bool]bulkvisc determines whether the user will input a material penalty value
+that scales with the shear viscosity or whether an independent bulk viscosity
+will be listed. If true, the values listed for [dp]penaltyi below should be
+bulk viscosity values for each material. Otherwise, the listed penalty value
+will be multiplied by the shear viscosity to enforce the incompressibility
+condition.
+
+      bulkvisc = F
+
+[bool]init_e2d determines whether an initial e2d value will be used to put
+plastic materials on yield in the first time step, or whether the standard
+initial material viscosity will be used. If true, an initial e2d value will be
+used to ensure plastic materials behave as desired.
+
+      init_e2d = T
+
+[dp]e2d0 is the initial strain rate value to use if init_e2d is true. This
+value will be used in only the first nonlinear iteration of the first time
+step and should be in scaled DOUAR units.
+
+      e2d0 = 6.4d-31 1/s !6.4d-6
+
+[int]dommat is the number of the dominant material type. If negative, dommat is
+ignored. Otherwise, if the volume of the material corresponding to the given
+dommat number is greater than zero, the element material properties will be set
+to the dominant material properties. When using dommat, the value should be
+between 1 and nmat.
+
+      dommat = -1
+
+[dp]domvol is the volume of an element that must be occupied by the material
+listed above (dommat) before the entire element is converted to that material.
+
+      domvol = 0.125d0
+
+[dp]densityi, [dp]viscosityi and [dp]penaltyi are the density, viscosity and
+incompressibility used for material i; there should be nmat sets of material
+properties; there should also be a nil material if material0 has been set to 0
+[dp]expon is the nonlinear viscosity exponent
+[dp]diffusivity is the heat diffusivity
+[dp]expansion is the coefficient of thermal expansion
+[dp]heat is the heat production
+[char]plasticity_type is the type of plasticity
+(No, vM, DPI, DPII, DPIII, DPIV, DPV, DPVI, DPVII, MC, Tresca), defined below
+[char]plasticity_ss_type_coh is the type of strain softening applied to the
+cohesion/yield strength
+[char]plasticity_ss_type_phi is the type of strain softening applied to phi
+Plasticity_ss_types:
+- tot_strain       -> The accumulated incremental strain will be used (default
+                      prior to adding the plasticity_ss_type option)
+- strain_rate      -> The square root of the second invariant of the strain rate
+                      (e2d) will be used
+- step_strain_rate -> The square root of the second invariant of the strain rate
+                      from the previous time step (e2dp) will be used. Note that
+                      in contrast to the 'strain_rate' case, this value will NOT
+                      change during iterations
+- log_step_s_rate  -> The base 10 log of the square root of the second invariant
+                      of the strain rate from the previous time step (e2dp) will
+                      be used. As above, this value will not change during
+                      iterations.
+- step_srs+srh     -> The square root of the second invariant of the strain rate
+                      from the previous time step (e2dp) will be used. This is
+                      similar to the step_strain_rate case above, but with the
+                      option for strain rate hardening/strengthening in addition
+                      to strain rate softening/weakening
+[dp]plasticity_XXX_params are the plasticity parameters
+For the various plastic materials defined below, the associated plasticity
+parameters correspond to the following, unless otherwise noted.
+- [dp]plasticity_1st_param is the angle of internal friction, phi
+- [dp]plasticity_2nd_param is the cohesion or yield strength
+- [dp]plasticity_3rd_param is the onset value for strain softening of phi (A
+  negative value for this parameter will disable strain softening of phi)
+- [dp]plasticity_4th_param is the terminal value for strain softening of phi
+- [dp]plasticity_5th_param is the fully strain-softened phi value
+- [dp]plasticity_6th_param is the onset value for strain weakening of the
+  cohesion (A negative value for this parameter will disable strain weakening of
+  the cohesion)
+- [dp]plasticity_7th_param is the terminal value for strain weakening of the
+  cohesion/yield strength (A negative value for this parameter will disable
+  strain weakening of the cohesion/yield strength)
+- [dp]plasticity_7th_param is the terminal value for strain weakening of the
+  cohesion/yield strength
+- [dp]plasticity_8th_param is the fully strain-weakened cohesion/yield strength
+- [dp]plasticity_9th_param is the onset value for strain hardening of phi (A
+  negative value for this parameter will disable strain hardening of phi)
+- [dp]plasticity_10th_param is the terminal value for strain hardening of phi
+- [dp]plasticity_11th_param is the fully strain-hardened phi value
+- [dp]plasticity_12th_param is the onset value for strain strengthening of the
+  cohesion/yield strength (A negative value for this parameter will disable
+  strain strengthening of the cohesion/yield strength)
+- [dp]plasticity_13th_param is the terminal value for strain strengthening of
+  the cohesion/yield strength
+- [dp]plasticity_14th_param is the fully strain-strengthened cohesion/yield
+  strength
+Plasticity types:
+- No    -> no plasticity, purely (nonlinear) viscous material
+- vM    -> von Mises yield criterion
+        -> [dp]plasticity_1st_param is the yield strength
+        -> [dp]plasticity_2nd_param-plasticity_5th_param and
+           plasticity_9th_param-plasticity_11th_param are NOT used
+- DPI-VII-> Drucker-Prager type of yield criterion
+- DPI   -> the yield locus passes through the outer apices of the Mohr-Coulomb
+           hexagonal cone
+- DPII  -> the yield locus passes through the inner apices of the Mohr-Coulomb
+           hexagonal cone
+- DPIII -> The average case, intermediate to DPI and DPII (USE ONLY FOR TESTING;
+           this case can not easily be derived as a simplification of the
+           Mohr-Coulomb criterion)
+- DPIV  -> Plane strain Drucker-Prager formulation for associative materials
+           (USE ONLY FOR TESTING)
+- DPV   -> Drucker-Prager type of yield criterion that does not calculate the
+           values of alpha and k from phi and c. They are specified here. Note
+           that strain softening cannot be used for this DP type.
+        -> [dp]plasticity_1st_param is alpha
+        -> [dp]plasticity_2nd_param is k
+        -> [dp]plasticity_3rd_param-plasticity_14th_param are NOT used
+- DPVI  -> Drucker-Prager type of yield criterion that uses the equation below
+           sigma_y = pressure * tan(phi) + c
+           (USE ONLY FOR TESTING)
+- DPVII -> Drucker-Prager type of yield criterion that uses the same 2D
+           formulation that is used in Sopale
+           sigma_y = pressure*sin(phi) + c*cos(phi)
+- MC    -> Mohr-Coulomb type of yield criterion
+- Tresca-> Tresca type of yield criterion
+        -> [dp]plasticity_1st_param is the yield strength
+        -> [dp]plasticity_2nd_param-plasticity_5th_param and
+           plasticity_9th_param-plasticity_11th_param are NOT used
+[dp]mattrans_[xmin,xmax,ymin,ymax,zmin,zmax] are the min/max spatial coordinates
+where the material transition from the given material to material transnum,
+listed below. A negative value will disable a given mattrans.
+[int]transnum_[xmin,xmax,ymin,ymax,zmin,zmax] are the material numbers used when
+one of the above mattrans criteria is met.
+
+Air
+      density0              = 0.d0
+      viscosity0            = 1.9577d4
+      penalty0              = 1.d8
+      expon0                = 1.d0
+      diffusivity0          = 1.d0
+      heat0                 = 0.d0
+      activationenergy0     = 0.d0
+      fviscosity0           = 1.d0
+      plasticity_type0      = MC
+      plasticity_ss_type_phi0 = tot_strain
+      plasticity_ss_type_coh0 = tot_strain
+      plasticity_1st_param0 = 15.d0
+      plasticity_2nd_param0 = 1 MPa !3.0890d-5
+      plasticity_3rd_param0 = -0.1d0
+      plasticity_4th_param0 = 10.d0
+      plasticity_5th_param0 = 5.d0
+
+Crust
+      density1              = 2850.0 kg/m3
+      viscosity1            = 1.9577d4
+      penalty1              = 1.d8
+      expon1                = 1.d0
+      diffusivity1          = 1.116d-7 m/s2    # i.e. k=2.5
+      heat1                 = 0.d0
+      activationenergy1     = 0.d0
+      fviscosity1           = 1.d0
+      plasticity_type1      = MC
+      plasticity_ss_type_phi1 = tot_strain
+      plasticity_ss_type_coh1 = tot_strain
+      plasticity_1st_param1 = 15.d0
+      plasticity_2nd_param1 = 1 MPa !3.0890d-5
+      plasticity_3rd_param1 = 0.5d0
+      plasticity_4th_param1 = 1.5d0
+      plasticity_5th_param1 = 5.0
+
+Weak seed
+      copyof2               = 1
+      ini_strain2           = 1.5
+
+Viscous mantle
+      density3              = 3300.0 kg/m3
+      viscosity3            = 4.d20 Pas-n
+      penalty3              = 1.d8
+      expon3                = 1.d0
+      diffusivity3          = 1.116d-7 m/s2    # i.e. k=2.5
+      heat3                 = 0.d0
+      activationenergy3     = 0.d0
+      fviscosity3           = 1.d0
+      plasticity_type3      = No
+
+[dp]viscositymin and viscositymax are bounds on the viscosity (if negative bound
+is not imposed) These bounds are introduced to prevent the viscosity to reach
+unrealistic values, especially when using non-linear (power-law or brittle)
+rheologies
+
+      viscositymin = 1.9577d17 Pas !1.9577d-8
+      viscositymax = 1.9577d34 Pas !1.9577d9
+
+
+SURFACES
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]remove_surf_pts is a flag for whether surface nodes should be removed to
+decrease their density once the pts are closer together than 4xlevelmax_oct.
+Note that surface nodes will always be removed if they are advected outside of
+the unit cube. Also, it is probably best to leave this false unless you have a
+good reason to change it. Use surface point spreading for each surface instead.
+
+      remove_surf_pts = F
+
+[int]ns is number of surfaces to track
+
+      ns = 1
+
+for each surface, one needs to define a levelt, itype, material, surface_type,
+activation_time and surface_params.
+- [int]levelt is the inital level for the particles on the surface; to be
+  accurate and avoid holes in the surface during definition of the lsf, one
+  should use levelt eq to levelmax_oct+1 for all surfaces as a minimum value; 
+- [int]itype should be 1 for foldable surfaces or 0 for nonfoldable surfaces;
+- [int]closed should be 1 for closed surfaces, or 0 for all others;
+- [int]surface_type is comprised between 1 and 13 with the surface parameters
+  listed below for each type;
+- [bool]rand is T for surfaces with random point distribution, F for surfaces
+  with regularly spaced points at levelt;
+- [dp]surface_param_01-surface_param_12 are the surface parameters below:
+  1 corresponds to a flat surface,
+    -> surface_param_01 is the z level
+  2 to a rectangular emboss,
+    -> surface_param_01 is the z level
+    -> surface_param_02 and 03 are x1,x2
+    -> surface_param_04 and 05 are y1,y2
+    -> surface_param_06 is the thickness
+  3 to a convex spherical emboss,
+    -> surface_param_01 is the z level
+    -> surface_param_02 and 03 are x0,y0
+    -> surface_param_04 is the radius
+  4 to concave spherical emboss,
+    -> surface_param_01 is the z level
+    -> surface_param_02 and 03 are x0,y0
+    -> surface_param_04 is the radius
+  5 to a double rectangular emboss,
+    -> surface_param_01 is the z level
+    -> surface_param_02 and 03 are x1,x2
+    -> surface_param_04 and 05 are x3,x4
+    -> surface_param_06 and 07 are y1,y2
+    -> surface_param_08 and 09 are y3,y4
+    -> surface_param_10 is the thickness
+  6 to a sinus,
+    -> surface_param_01 is the z level
+    -> surface_param_02 is the wavelength
+    -> surface_param_03 is the amplitude
+  7 to a noisy surface,
+    -> surface_param_01 is the z level
+    -> surface_param_02 is the noise amplitude
+  8 to a double sinus,
+    -> surface_param_01 is the z level
+    -> surface_param_02 is the x-wavelength
+    -> surface_param_03 is the x-amplitude
+    -> surface_param_04 is the y-wavelength
+    -> surface_param_05 is the y-amplitude
+  9 to a cosinus,
+    -> surface_param_01 is the z level
+    -> surface_param_02 is the wavelength
+    -> surface_param_03 is the amplitude
+  10 to a 2D embankment,
+    -> surface_param_01 is z0
+    -> surface_param_02 is y0
+    -> surface_param_03 is psi
+    -> surface_param_04 is the thickness
+  11 to a 2D hill,
+    -> surface_param_01 is z level
+    -> surface_param_02 is the height
+    -> surface_param_03 is y0
+    -> surface_param_04 is width
+  12 to a rectangular emboss with specified slope, 
+    -> surface_param_01 is the z level
+    -> surface_param_02 is x1
+    -> surface_param_03 is x2
+    -> surface_param_04 is y1
+    -> surface_param_05 is y2 
+    -> surface_param_06 is the thickness
+    -> surface_param_07 is the slope
+  13 to a 2D embankment of finite length and with 2 kinks
+    -> surface_param_01 is the z level
+    -> surface_param_02 is the thickness (zthick)
+    -> surface_param_03 is slope angle (psi)
+    -> surface_param_04 is x value for the center of the slope (x0)
+    -> surface_param_05 is the x width of the narrow end of the plateau (y0w)
+    -> surface_param_06 is the y position for the start of the slope (y0)
+    -> surface_param_07 is the y position of the first kink (y1)
+    -> surface_param_08 is the angle of the first kink (theta1)
+    -> surface_param_09 is the y position of the second kink (y2)
+    -> surface_param_10 is the angle of the second kink (theta2)
+    -> surface_param_11 is the reference elevation for the flat region
+    -> surface_param_12 is the dip angle of the outer dip panel
+- [int]material is the material type refering to the table of material available
+  (max nmat);
+- [dp]activation_time is the time the surface becomes active (before that time,
+  it is glued to the 0th surface). this parameter is useful when defining
+  stratigraphic horizons; default is -1, ie the surface is not glued to the free
+  surface
+- [int]leveloct is the level at which the octree will be refined in the vicinity
+  of the surface.
+- [dp]stretch is the maximum allowed increase in linear length between two
+  initially adjacent particles on any surface; when this stretch is achieved, a
+  new particle is inserted on the surface, half-way along the stretched edge
+- [dp]anglemax is the maximum allowed angle between two adjacent normals
+  when the angle is reached a new point is inserted bewteen the two points to
+  reduce the angle between the two normals
+- [int]criterion is criterion used to define the octree in the vicinity of the
+  sufaces; criterion 1 corresponds to imposing that all leaves that are cut by
+  any of the surfaces must be at level levelmax_oct; criterion 2 corresponds to
+  imposing that discretization is proportional to the curvature of the surface;
+  curvature is calculated from the local divergence of the normals. criterion 3
+  corresponds to imposing that all leaves that contain at least one particle of
+  any surface is at levelmax_oct; 
+- [dp]anglemaxoctree is only defined for criterion 2; t is the maximum allowable
+  angle between two adjacent normals; if the angle is greater than
+  anglemaxoctree, the local octree leaves are forced to be at level
+  levelmax_oct; otherwise they are proportionally larger (smaller levels)
+  (default is 10)
+- [int]spread_surface_points should be 1 if the point distribution should be
+  redistributed more evenly when refined, 0 if not
+- [bool]fixed_surf_spinup is T for surfaces with a geometry that will not
+  change during the spinup phase, F otherwise
+- [bool]fixed_surf is T for surfaces with a geometry that will not
+  change after the spinup phase, F otherwise
+- [bool]surf_for_mat_props is a flag to specify whether a given surface should
+  be used to assign elemental material properties, overriding the assignment
+  from the cloud particles. NOTE, this option is only used when
+  materials_on_cloud is true and the default value is true.
+- [bool]remove_after_mat_def is T for surfaces that should be removed after the
+  material numbers are assigned to the cloud particles, F otherwise. Note this
+  parameter has no effect if not using the cloud for material properties.
+
+      levelt1             = 7
+      itype1              = 1
+      surface_type_1      = 1
+      surface_param_01_1  = 0.1
+
+      material1           = 1
+      activation_time_1   = -1. 
+      leveloct1           = 5
+      stretch1            = 1.5d0
+      anglemax1           = 180.d0
+      criterion1          = 1
+      anglemaxoctree1     = 180.d0
+      spread_surface_points1 = 1
+      fixed_surf_spinup1  = F
+      fixed_surf1         = F
+      surf_for_mat_props1 = F
+      remove_after_mat_def1 = F
+      fastscape1          = T
+      checkdelaunay1      = F
+
+[int]niter_move is the number of iterations used to update particle positions
+using an implicit, mid-point algorithm (default is 10)
+
+      niter_move = 5
+      move_cloud_at_midpoint = T
+
+      particle_advect_method = 2
+
+
+REFINEMENT IN BOXES
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]nboxes is the number of boxes in which the user imposes a set level of
+discretization
+
+      nboxes = 0
+
+for each box we need to specify the two end corners and the level
+the syntax is [dp]boxnx0, [dp]boxnx1, [dp]boxny0, [dp]boxny1, [dp]boxnz0,
+[dp]boxnz1 and boxnlevel where n is the box number
+
+      box1x0 = 0.d0
+      box1x1 = 1.d0
+      box1y0 = 0.d0
+      box1y1 = 1.d0
+      box1z0 = 0.d0
+      box1z1 = 0.10
+      box1level = 7
+
+
+CLOUD MATERIAL DEFINITIONS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+    ncloudmat = 2
+
+Mantle
+    cloudmat_type1 = 1
+    cloudmat_mat1 = 3
+    cloudmat1_param1 = 0.0       ! minx
+    cloudmat1_param2 = 1.0       ! maxx
+    cloudmat1_param3 = 0.0       ! miny
+    cloudmat1_param4 = 1.0       ! maxy
+    cloudmat1_param5 = 0         ! minz
+    cloudmat1_param6 = 65 km     ! maxz
+
+Weak seed
+    cloudmat_type2 = 1
+    cloudmat_mat2 = 2
+    cloudmat2_param1 = 0.4375    ! minx
+    cloudmat2_param2 = 0.5625    ! maxx
+    cloudmat2_param3 = 0.4375    ! miny
+    cloudmat2_param4 = 0.5625    ! maxy
+    cloudmat2_param5 = 75 km     ! minz
+    cloudmat2_param6 = 100 km    ! maxz
+
+
+REFINEMENT ON CUBE FACES
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[bool]ref_on_faces toggles on/off the user imposed refinement on faces.
+For each of the six faces of the cube, on defines the level at which the
+desired area is to be refined. this area is given by bottom, top, left and
+right coordinates that are comprised between 0 and 1
+faces 1,2,3,4,5,6 respectively correspond to x=0,x=1,y=0,y=1,z=0,z=1
+
+      ref_on_faces = F
+
+      level_face1 = 5
+      b1 = .02
+      t1 = .51
+      l1 = .11
+      r1 = .81
+      level_face2 = 5
+      b2 = .45
+      t2 = .55
+      l2 = .46
+      r2 = .56
+      level_face3 = 5
+      b3 = .0
+      t3 = .2
+      l3 = .3
+      r3 = .7
+      level_face4 = 5
+      b4 = .4
+      t4 = .5
+      l4 = .14
+      r4 = .4
+      level_face5 = 6
+      b5 = 0.
+      t5 = 1.
+      l5 = 0.
+      r5 = 0.75
+      level_face6 = 5
+      b6 = .26
+      t6 = .56
+      l6 = .16
+      r6 = .86
+
+
+EROSION
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]erosion is a flag that toggles on/off the erosion. 
+
+DIS      erosion = F
+      erosion_type = 3
+
+if erosion is on, one also needs to set the erosion level/height, [dp]zerosion
+Note that this is a first attempt at erosion; in future versions, DOUAR
+should be easily linked to a surface processes model like CASCADE
+
+      zerosion = 55 km
+
+[dp]er_start and er_end define the start and end times for erosion.  While time
+is within this range, and if erosion is on, erosion will be applied. Choose these
+to correspond to the start of a time step.  To apply multiple periods of erosion, 
+restart with new erosion parameters. 
+
+      er_start=0
+      er_end=1.d20
+
+If erosion is on, one also needs to define a length scale and a velocity scale
+to properly translate the uplift rate produced by DOUAR into something that is
+adequate for CASCADE; 
+[dp]length_scale is the scale of the unit model in km 
+[dp]velocity_scale is the velocity scale in km/Myr. 
+if length_scale is negative, surface elevations will be limited to zerosion and
+no call to CASCADE is needed
+
+DISABLED      length_scale = -640.d0
+DISABLED      velocity_scale = 20.d0
+
+One then needs to define the erosion constants in CASCADE
+[dp]fluvial_erosion is the fluvial erosion constant in 1/m^2
+[dp]diffusion_erosion is the diffusion erosion constant in m^2/yr
+(4d-2 32d-2)
+
+      fluvial_erosion = 0.0
+      diffusion_erosion = 0.0
+      precipitation = 1.0
+
+      fluvial_erosion_type = 0
+      diffusion_erosion_type = 0
+      precipitation_type = 0
+
+DISABLED      fastscape_zmax = 65 km 
+
+      local_minima = T
+
+One finally needs to specify the boundary conditions for CASCADE
+if [int]baselevelx0 is set to 1 then the boundary at x=0 is set at baselevel
+(water and sediment exit)
+if [int]baselevelx1 is set to 1 then the boundary at x=1 is set at baselevel
+(water and sediment exit)
+if [int]baselevely0 is set to 1 then the boundary at y=0 is set at baselevel
+(water and sediment exit)
+if [int]baselevely1 is set to 1 then the boundary at y=1 is set at baselevel
+(water and sediment exit)
+
+baselevelx1 is y1?
+x1 -> y1
+y1 -> x1
+y0 -> x0???
+
+      baselevelx0 = 0
+      baselevelx1 = 1
+      baselevely0 = 0
+      baselevely1 = 0
+
+
+SEDIMENTATION
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]sedimentation is a flag that toggles on/off the erosion. 
+
+      sedimentation = F
+
+[dp]er_start and er_end define the start and end times for sedimentation. While
+time is within this range, and if sedimentation is on, sedimentation will be
+applied. Choose these values to correspond to the start of a time step. To apply
+multiple periods of sedimentation, restart with new sedimentation parameters.  
+
+      sed_start=0
+      sed_end=321
+
+[integer] sedimentation_type differentiates between sedimenation style options. 
+For now the options are 1: simple aggradation, or 2: aggradation modified within
+a range of x values. This will be updated over the coming weeks, and additional
+comments will be provided.
+
+      sedimentation_type = 2
+
+if sedimentation is true and sediment type is 1, one also needs to set the
+aggradation level/height, [dp]zaggrade_init. Note that future versions will
+allow for other sedimentation options
+
+      zaggrade_init = 0.0165d0
+
+If sedimentation type is 2, aggradation with 2D sinusoidal perterbuations over a
+given range, the following inputs are required. 
+
+[dp] aggrade_rate defines the rate at which the aggradation surface is moved 
+vertically upwards.
+
+      aggrade_rate = 1.55d-5
+
+      x_agg_sinus_amp = 0.6d-2
+      x_agg_sinus_wavelth = 0.1992d0
+
+      y_agg_sinus_amp = 0.6d-2
+      y_agg_sinus_wavelth = 0.1992d0
+
+      x_agg_start = 0.2d0
+      x_agg_end = 0.8d0  
+
+      y_agg_start = 0.1d0
+      y_agg_end = 0.9d0
+  
+If sedimentation type is 3, 2D half Gaussian progradation, the following inputs
+are required.
+
+      z_prog_init = 0.0225d0
+      z_prog_fin = 0.0135d0
+      x_prog_start = -0.25
+      x_prog_end = 0.25
+      x_prog_length = 0.25
+      prog_rate_u = 4.673d-2
+
+
+MATRIX VISUALISATION
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[bool]visualise_matrix allows the user to turn on the visual representation of
+the matrices used in the code. Be careful, the generated postscript files are
+huge!
+
+      visualise_matrix = F
+
+
+CROSS SECTIONS
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+[int]nsections is the number of cross-sections to be output. [dp]scale is the
+scale used to produce the postscript file.
+[int]xyz takes values 1, 2 or 3, and corresponds to planes defined by
+x=constant, y=constant, and z=constant resp.
+The [bool]flags are self explanatory. [char]colormap is the chosen colormap (jet
+or hot). [int]ncolours is the number of colours used to produce the plot. 
+
+nsections = 0
+
+xyz_1          = 1 
+slice_1        = 0.5001
+flag_press_1   = T
+flag_spress_1  = T 
+flag_e2d_1     = T
+flag_e3d_1     = F
+flag_strain_1  = F
+flag_lode_1    = F 
+flag_crit_1    = F 
+flag_grid_1    = T 
+flag_mu_1      = F   
+flag_u_1       = F
+flag_v_1       = F
+flag_w_1       = F
+flag_q_1       = F 
+flag_uvw_1     = F 
+flag_lsf_1     = F 
+flag_vfield_1  = F 
+flag_colour_1  = T
+flag_plastic_1 = F
+flag_temp_1    = F
+flag_velvect_1 = T
+scale_1        = 500.
+colormap_1     = jet
+ncolours_1     = 256

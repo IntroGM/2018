@@ -232,21 +232,39 @@ Interactive online version:
 <h1>Cluster computing<a class="headerlink" href="#Cluster-computing" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Performance-of-geodynamic-models">
 <h2>Performance of geodynamic models<a class="headerlink" href="#Performance-of-geodynamic-models" title="Permalink to this headline">¶</a></h2>
-<p>For example, typical 2D thermomechanical geodynamic model: - Dimensions
-1000 km x 1000 km - Resolution 1 km - <strong>1 000 000 grid points</strong> - Max.
-time step (diffusion limit) 16 kyrs - Four unknowns (<span class="math notranslate nohighlight">\(v_x\)</span>,
-<span class="math notranslate nohighlight">\(v_y\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(T\)</span>) - Four equations per grid point -
-Discretized versions of the equations: About 20 operations (+-*/) per
-equation - <strong>80 000 000 operations (80 MFLOPS = :math:`80times10^6`
-FLOPS) per step</strong> - Modern PC processors can do about 10-100 GFLOPS
-(GFLOP = <span class="math notranslate nohighlight">\(10^9\)</span> FLOPS) - <em>Processor</em> could do 1000 steps per
-second - E.g. 50 Myrs / 16 kyrs/step = 3200 steps - <strong>Model run time 3.2
-secs</strong> - BUT: Memory access time (random) approx. 50 ns - Each operation
-needs to fetch at least one number from memory - Worst case: random
-location. <span class="math notranslate nohighlight">\(80\times10^6\times50\times10^{-9}~s=4.0~s\)</span> per step -
-<strong>Total runtime (“wall clock time”)
-:math:`approx 4~mathrm{s/step}times3200~mathrm{steps}=3.5~mathrm{hours}`</strong>
-- Also, a lot of other “book keeping” during the model calculations</p>
+<p>For example, typical 2D thermomechanical geodynamic model:</p>
+<ul class="simple">
+<li>Dimensions 1000 km x 1000 km</li>
+<li>Resolution 1 km<ul>
+<li><strong>1 000 000 grid points</strong></li>
+<li>Max. time step (diffusion limit) 16 kyrs</li>
+</ul>
+</li>
+<li>Four unknowns (<span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(T\)</span>)</li>
+<li>Four equations per grid point</li>
+<li>Discretized versions of the equations: About 20 operations (+-*/)
+per equation<ul>
+<li><strong>80 000 000 operations (80 MFLOPS =</strong> <span class="math notranslate nohighlight">\(80\times10^6\)</span>
+<strong>FLOPS) per step</strong></li>
+</ul>
+</li>
+<li>Modern PC processors can do about 10-100 GFLOPS (GFLOP = <span class="math notranslate nohighlight">\(10^9\)</span>
+FLOPS)<ul>
+<li><em>Processor</em> could do 1000 steps per second</li>
+<li>E.g. 50 Myrs / 16 kyrs/step = 3200 steps</li>
+<li><strong>Model run time 3.2 secs</strong></li>
+</ul>
+</li>
+<li>BUT: Memory access time (random) approx. 50 ns<ul>
+<li>Each operation needs to fetch at least one number from memory</li>
+<li>Worst case: random location.
+<span class="math notranslate nohighlight">\(80\times10^6\times50\times10^{-9}~s=4.0~s\)</span> per step</li>
+<li><strong>Total runtime</strong> (“<strong>wall clock time</strong>”)
+<span class="math notranslate nohighlight">\(\approx 4~\mathrm{s/step}\times3200~\mathrm{steps}=3.5~\mathrm{hours}\)</span></li>
+</ul>
+</li>
+<li>Also, a lot of other “book keeping” during the model calculations</li>
+</ul>
 <div class="section" id="Do">
 <h3>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">

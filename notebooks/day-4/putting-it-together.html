@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction to DOUAR &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  <title>Putting it all together &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
   
 
+  
+  
   
   
 
@@ -23,19 +25,13 @@
   
 
   
-  
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Introduction to Geodynamic Modelling 2018 documentation" href="../../index.html"/>
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numerical diffusion" href="numerical-diffusion.html" />
+    <link rel="prev" title="Cluster computing" href="clusters.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
 
 
@@ -44,8 +40,9 @@
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -60,7 +57,7 @@
 
           
             
-            <img src="../../_static/HY-logo-2017.png" class="logo" />
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -89,7 +86,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Course information</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
@@ -125,8 +125,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Day 4</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="clusters.html">Cluster computing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Putting it all together</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Processes-to-consider">Processes to consider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Interactions-between-processes/materials">Interactions between processes/materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#General-structure-of-a-thermomechanical-code">General structure of a thermomechanical code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="numerical-diffusion.html">Numerical diffusion</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
@@ -142,34 +149,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
-    <li>Introduction to DOUAR</li>
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Putting it all together</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/notebooks/day-4/intro-to-douar.ipynb.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/notebooks/day-4/putting-it-together.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -195,23 +222,107 @@
 }
 </style>
 <div class="admonition note">
-This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-4/intro-to-douar.ipynb">source/notebooks/day-4/intro-to-douar.ipynb</a>.
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/notebooks/day-4/putting-it-together.ipynb">source/notebooks/day-4/putting-it-together.ipynb</a>.
 Interactive online version:
-<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-4/intro-to-douar.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
-<div class="section" id="Introduction-to-DOUAR">
-<h1>Introduction to DOUAR<a class="headerlink" href="#Introduction-to-DOUAR" title="Permalink to this headline">¶</a></h1>
-<p>DOUAR <a class="reference external" href="Braun%20et%20al.,%202008">DOUAR</a> ,
-<a class="reference external" href="Thieulot%20et%20al.,%202008">DOUAR2</a></p>
-<p><a class="reference external" href="dog">a reference-style link</a></p>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-4/putting-it-together.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Putting-it-all-together">
+<h1>Putting it all together<a class="headerlink" href="#Putting-it-all-together" title="Permalink to this headline">¶</a></h1>
+<p>In the past three days we have been introduced to a number of topics
+related to geodynamic modelling:</p>
+<ul class="simple">
+<li>Physical processes</li>
+<li>Solving equations</li>
+<li>Programming concepts</li>
+<li>Numerical methods</li>
+<li>Benchmarking numerical solutions</li>
+</ul>
+<p>Now we turn to how these different topics are related to one another in
+the design of a modern 3D thermomechanical numerical geodynamic model.
+As you will see, there are a number of different factors we must
+consider in the model design, and the order in which we perform various
+actions is important.</p>
+<div class="section" id="Processes-to-consider">
+<h2>Processes to consider<a class="headerlink" href="#Processes-to-consider" title="Permalink to this headline">¶</a></h2>
+<p>The essential dynamics of a geodynamic model comprise (1) deformation in
+the model owing to the applied boundary conditions, pressures in the
+fluid, and buoyancy, and (2) the transfer of heat by various processes
+strongly linked to the material flow field. We have already seen parts
+of many of these processes, but now we need consider the details of each
+and how they relate. We can see some key processes and their components
+below.</p>
+<ul class="simple">
+<li>Heat transfer in 3D<ul>
+<li>Conduction</li>
+<li>Production</li>
+<li>Advection</li>
+<li>Material thermal properties<ul>
+<li>Thermal conductivity</li>
+<li>Concentration of heat-producing elements</li>
+<li>Heat capacity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Stokes flow<ul>
+<li>Momentum and continuity equations</li>
+<li>Material mechanical properties<ul>
+<li>Viscosity</li>
+</ul>
+</li>
+<li>Material advection (related to of Stokes flow)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Interactions-between-processes/materials">
+<h2>Interactions between processes/materials<a class="headerlink" href="#Interactions-between-processes/materials" title="Permalink to this headline">¶</a></h2>
+<p>How might various processes we consider above interact with one another?
+This is an important consideration because we need to know in which
+order we should handle the different processes. In the Earth, materials
+move and transfer heat simultaneously, but in our model we will solve
+the Stokes flow and heat transfer equations separately.</p>
+<ul class="simple">
+<li>Stokes flow solution will affect advection in the heat transfer
+calculations</li>
+<li>Temperature will affect viscosity of model materials, influencing in
+turn how the material deforms</li>
+<li>Velocities from Stokes flow will influence size of time step for
+material advection</li>
+</ul>
+</div>
+<div class="section" id="General-structure-of-a-thermomechanical-code">
+<h2>General structure of a thermomechanical code<a class="headerlink" href="#General-structure-of-a-thermomechanical-code" title="Permalink to this headline">¶</a></h2>
+<p>With the list of processes and their interactions given above, how
+should we design our numerical modelling code? In what order should we
+do the different steps?</p>
+<div class="figure" id="id2">
+<img alt="Figure 1" src="../../_images/2D-flow-chart-Gerya.png" />
+<p class="caption"><span class="caption-text">Figure 1</span></p>
+</div>
+<p><strong>Figure 1</strong>. An example of a flow chart for the steps needed to
+simulate geodynamic processes in 2D from Gerya (2010).</p>
+<p>Above we see an example of the order in which various processes and
+numerical procedures should be executed. Notably, we calculate the
+velocities for Stokes flow first, temperature after that (using the
+Stokes flow velocities), and move the markers after the new temperature
+values have been interpolated onto them.</p>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numerical-diffusion.html" class="btn btn-neutral float-right" title="Numerical diffusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clusters.html" class="btn btn-neutral" title="Cluster computing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -222,7 +333,7 @@ Interactive online version:
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
     <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
      
 
@@ -244,9 +355,11 @@ Interactive online version:
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'2018',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -261,14 +374,11 @@ Interactive online version:
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

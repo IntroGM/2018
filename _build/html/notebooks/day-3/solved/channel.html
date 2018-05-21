@@ -98,7 +98,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/Course-overview.html">Course overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/solving-equations.html">Solving equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-1/python-basics.html">Basic elements of Python</a></li>
@@ -126,7 +126,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/clusters.html">Cluster computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/putting-it-together.html">Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-4/marker-in-cell.html">Marker-in-cell technique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/numerical-diffusion.html">Numerical diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-4/intro-to-douar.html">Introduction to DOUAR</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day-5/CLI-tools.html">Helpful command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-5/project-overview.html">Project overview</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
@@ -383,11 +390,11 @@ This page was generated from <a class="reference external" href="https://github.
 Interactive online version:
 <span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/notebooks/day-3/solved/channel.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">solve</span>
@@ -398,14 +405,14 @@ Interactive online version:
 <h1>Solution strategy for the channel flow<a class="headerlink" href="#Solution-strategy-for-the-channel-flow" title="Permalink to this headline">¶</a></h1>
 <p>Rearranging the discretized equation so that all unknowns are on the
 left hand side, on the right hand side there are only known values.</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[v_{i-1} - 2v_i + v_{i+1} = \frac{dP/dx}{\eta}\Delta y^2\]</div>
 <p>There is one such equation for each internal grid point. At the
 boundaries, boundary conditions have to be used, e.g.
-<span class="math notranslate nohighlight">\(v_0 = v_\mathrm{surf}\)</span> and
-<span class="math notranslate nohighlight">\(v_{\mathrm{ny}-1} = v_\mathrm{bott}\)</span>.</p>
+<span class="math">\(v_0 = v_\mathrm{surf}\)</span> and
+<span class="math">\(v_{\mathrm{ny}-1} = v_\mathrm{bott}\)</span>.</p>
 <p>For five grid points we thus have five equations in total:</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\begin{eqnarray}
 v_0 &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp;     &amp; = &amp; v_\mathrm{surf} \\
 v_0 &amp; -2 &amp; v_1  &amp; +  &amp; v_2 &amp;    &amp;     &amp;   &amp;     &amp; = &amp; \frac{dP/dx}{\eta}\Delta y^2 \\
@@ -414,7 +421,7 @@ v_0 &amp; -2 &amp; v_1  &amp; +  &amp; v_2 &amp;    &amp;     &amp;   &amp;     
     &amp;    &amp;      &amp;    &amp;     &amp;    &amp;     &amp;   &amp; v_4 &amp; = &amp; v_\mathrm{bott} \\
 \end{eqnarray}\end{split}\]</div>
 <p>This system of equations can be written in matrix format as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\begin{pmatrix}
 1 &amp; &amp; &amp; &amp; \\
 1 &amp; -2 &amp;  1 &amp; &amp; \\
@@ -438,19 +445,19 @@ v_\mathrm{surf} \\
 v_\mathrm{bott} \\
 \end{pmatrix}\end{split}\]</div>
 <p>and is typically written with symbols</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\mathbf{Ax}=\mathbf{b}\]</div>
-<p>Python comes with a module, <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> that includes function
-<code class="docutils literal notranslate"><span class="pre">solve</span></code>, which can be used to solve this type of systems of linear
+<p>Python comes with a module, <code class="docutils literal"><span class="pre">scipy.linalg</span></code> that includes function
+<code class="docutils literal"><span class="pre">solve</span></code>, which can be used to solve this type of systems of linear
 equations:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="k">import</span> <span class="n">solve</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="k">import</span> <span class="n">solve</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">b</span></code> has to be a 1-D NumPy array of size <code class="docutils literal notranslate"><span class="pre">ny</span></code>, and includes the
-numerical values of the right hand side expressions; and <code class="docutils literal notranslate"><span class="pre">A</span></code> a 2-D
-NumPy array of size (<code class="docutils literal notranslate"><span class="pre">ny</span></code>,<code class="docutils literal notranslate"><span class="pre">ny</span></code>), and includes the numerical
-coefficients, as above. <code class="docutils literal notranslate"><span class="pre">x</span></code> will then contain the wanted velocity
+<p>where <code class="docutils literal"><span class="pre">b</span></code> has to be a 1-D NumPy array of size <code class="docutils literal"><span class="pre">ny</span></code>, and includes the
+numerical values of the right hand side expressions; and <code class="docutils literal"><span class="pre">A</span></code> a 2-D
+NumPy array of size (<code class="docutils literal"><span class="pre">ny</span></code>,<code class="docutils literal"><span class="pre">ny</span></code>), and includes the numerical
+coefficients, as above. <code class="docutils literal"><span class="pre">x</span></code> will then contain the wanted velocity
 values. The following script utilizes this function to solve the channel
 flow problem.</p>
 <div class="section" id="Do">
@@ -459,11 +466,11 @@ flow problem.</p>
 <li>Complete the following script</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Define physical parameters</span>
 <span class="n">visc</span> <span class="o">=</span> <span class="mf">1e19</span>                    <span class="c1"># Viscosity of the rock in the channel, Pa s</span>
 <span class="n">dpdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2800</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">4000</span><span class="o">/</span><span class="mf">500e3</span>   <span class="c1"># Pressure gradient within the channel, Pa m^-1</span>
@@ -542,30 +549,30 @@ b is:
 </div>
 </div>
 <p>Strain rate in 2D is defined as</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\underline{\underline{\dot\epsilon}} = \begin{pmatrix}
 \frac{\partial v_x}{\partial x} &amp; \frac{\partial v_x}{\partial y} \\
 \frac{\partial v_y}{\partial x} &amp; \frac{\partial v_y}{\partial y} \\
 \end{pmatrix}\end{split}\]</div>
 <p>In our case the only relevant component is the shear strain rate
-<span class="math notranslate nohighlight">\(\dot\epsilon_{xy} = \frac{\partial v_x}{\partial y}\)</span>.</p>
+<span class="math">\(\dot\epsilon_{xy} = \frac{\partial v_x}{\partial y}\)</span>.</p>
 </div>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Discretize the shear strain rate expression</li>
 <li>Complete the script below so that it will loop over all the grid
-points, calculate the shear strain, and store it in the array <code class="docutils literal notranslate"><span class="pre">e</span></code></li>
+points, calculate the shear strain, and store it in the array <code class="docutils literal"><span class="pre">e</span></code></li>
 <li>How does the resulting plot look like? Note that the <em>shear stress</em>
-is defined as <span class="math notranslate nohighlight">\(\sigma_{xy} = \eta\dot\epsilon_{xy}\)</span>. Where is
+is defined as <span class="math">\(\sigma_{xy} = \eta\dot\epsilon_{xy}\)</span>. Where is
 the shear stress smallest?</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># TODO: Write here a for-loop that loops over the grid points</span>
@@ -594,18 +601,18 @@ may have different boundary conditions:</p>
 <ol class="arabic simple">
 <li>No-slip:<ul>
 <li>Velocity parallel to the surface is fixed at zero</li>
-<li><span class="math notranslate nohighlight">\(v_x = 0\)</span></li>
+<li><span class="math">\(v_x = 0\)</span></li>
 </ul>
 </li>
 <li>Free-slip:<ul>
 <li>Shear stress at the surface is zero</li>
-<li><span class="math notranslate nohighlight">\(0 = \sigma_{xy} = \eta\dot\epsilon_{xy} = \eta\frac{\partial v_x}{\partial y} \Rightarrow \frac{\partial v_x}{\partial y} = 0\)</span></li>
+<li><span class="math">\(0 = \sigma_{xy} = \eta\dot\epsilon_{xy} = \eta\frac{\partial v_x}{\partial y} \Rightarrow \frac{\partial v_x}{\partial y} = 0\)</span></li>
 </ul>
 </li>
 <li>Other:<ul>
 <li>Velocity is fixed at non-zero value</li>
-<li>e.g. <span class="math notranslate nohighlight">\(v_x = a \neq 0\)</span>, also incoming/outgoing flow
-(<span class="math notranslate nohighlight">\(v_y \neq 0\)</span>) possible (in 2D models)</li>
+<li>e.g. <span class="math">\(v_x = a \neq 0\)</span>, also incoming/outgoing flow
+(<span class="math">\(v_y \neq 0\)</span>) possible (in 2D models)</li>
 </ul>
 </li>
 </ol>
@@ -613,12 +620,12 @@ may have different boundary conditions:</p>
 <p>### Do</p>
 <ul class="simple">
 <li>Discretize the free-slip boundary condition
-<span class="math notranslate nohighlight">\(\frac{\partial v_x}{\partial y} = 0\)</span></li>
+<span class="math">\(\frac{\partial v_x}{\partial y} = 0\)</span></li>
 <li>If you want to apply this at the upper surface (i.e. at
-<span class="math notranslate nohighlight">\(x=x_0\)</span>), how would your system of equations change? How would
-the coefficients in the matrix <span class="math notranslate nohighlight">\(A\)</span> change?</li>
+<span class="math">\(x=x_0\)</span>), how would your system of equations change? How would
+the coefficients in the matrix <span class="math">\(A\)</span> change?</li>
 <li>Modify your script for the channel flow model, and change the upper
-surface velocity boundarty condition from <span class="math notranslate nohighlight">\(v_x=0\)</span> to a
+surface velocity boundarty condition from <span class="math">\(v_x=0\)</span> to a
 free-slip B.C.<ul>
 <li>How does the resulting velocity plot change?</li>
 <li>How does the plot for shear strain rate change?</li>
@@ -626,7 +633,7 @@ free-slip B.C.<ul>
 </li>
 </ul>
 <p>Free-slip velocity b.c. at the upper boundary leads to</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\begin{split}\begin{pmatrix}
 -1 &amp; 1 &amp; &amp; &amp; \\
 1 &amp; -2 &amp;  1 &amp; &amp; \\
@@ -650,11 +657,11 @@ v_4 \\
 v_\mathrm{bott} \\
 \end{pmatrix}\end{split}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [48]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1"># Define physical parameters</span>
 <span class="n">visc</span> <span class="o">=</span> <span class="mf">1e19</span>                    <span class="c1"># Pa s</span>
 <span class="n">dpdx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2800</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">4000</span><span class="o">/</span><span class="mf">500e3</span>   <span class="c1"># Pa m^-1</span>
@@ -714,11 +721,11 @@ v_\mathrm{bott} \\
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [50]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ymp</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span>
 
@@ -797,7 +804,9 @@ v_\mathrm{bott} \\
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

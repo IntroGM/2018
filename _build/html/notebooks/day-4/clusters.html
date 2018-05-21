@@ -100,7 +100,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/Course-overview.html">Course overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lessons/day-1/solving-equations.html">Solving equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../day-1/python-basics.html">Basic elements of Python</a></li>
@@ -132,11 +132,21 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Performance-of-parallel-programs">Performance of parallel programs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Do">Do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do">Do</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Parallel-performance-results">Parallel performance results</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="putting-it-together.html">Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-4/marker-in-cell.html">Marker-in-cell technique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numerical-diffusion.html">Numerical diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-4/intro-to-douar.html">Introduction to DOUAR</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/CLI-tools.html">Helpful command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/day-5/project-overview.html">Project overview</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
@@ -240,15 +250,15 @@ Interactive online version:
 <li>Max. time step (diffusion limit) 16 kyrs</li>
 </ul>
 </li>
-<li>Four unknowns (<span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(T\)</span>)</li>
+<li>Four unknowns (<span class="math">\(v_x\)</span>, <span class="math">\(v_y\)</span>, <span class="math">\(P\)</span>, <span class="math">\(T\)</span>)</li>
 <li>Four equations per grid point</li>
 <li>Discretized versions of the equations: About 20 operations (+-*/)
 per equation<ul>
-<li><strong>80 000 000 operations (80 MFLOPS =</strong> <span class="math notranslate nohighlight">\(80\times10^6\)</span>
+<li><strong>80 000 000 operations (80 MFLOPS =</strong> <span class="math">\(80\times10^6\)</span>
 <strong>FLOPS) per step</strong></li>
 </ul>
 </li>
-<li>Modern PC processors can do about 10-100 GFLOPS (GFLOP = <span class="math notranslate nohighlight">\(10^9\)</span>
+<li>Modern PC processors can do about 10-100 GFLOPS (GFLOP = <span class="math">\(10^9\)</span>
 FLOPS)<ul>
 <li><em>Processor</em> could do 1000 steps per second</li>
 <li>E.g. 50 Myrs / 16 kyrs/step = 3200 steps</li>
@@ -258,9 +268,9 @@ FLOPS)<ul>
 <li>BUT: Memory access time (random) approx. 50 ns<ul>
 <li>Each operation needs to fetch at least one number from memory</li>
 <li>Worst case: random location.
-<span class="math notranslate nohighlight">\(80\times10^6\times50\times10^{-9}~s=4.0~s\)</span> per step</li>
+<span class="math">\(80\times10^6\times50\times10^{-9}~s=4.0~s\)</span> per step</li>
 <li><strong>Total runtime</strong> (“<strong>wall clock time</strong>”)
-<span class="math notranslate nohighlight">\(\approx 4~\mathrm{s/step}\times3200~\mathrm{steps}=3.5~\mathrm{hours}\)</span></li>
+<span class="math">\(\approx 4~\mathrm{s/step}\times3200~\mathrm{steps}=3.5~\mathrm{hours}\)</span></li>
 </ul>
 </li>
 <li>Also, a lot of other “book keeping” during the model calculations</li>
@@ -334,13 +344,13 @@ to distribute (partition) the work<ul>
 <a class="reference external" href="https://introgm.github.io/2018/instructions/cluster.html">https://introgm.github.io/2018/instructions/cluster.html</a></p>
 </li>
 <li><p class="first">Type</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd mpi
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd mpi
 $ srun -n 64 python mpi.py
 </pre></div>
 </div>
 </li>
 <li><p class="first">To see and edit the Python code</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nano mpi.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ nano mpi.py
 </pre></div>
 </div>
 </li>
@@ -349,16 +359,21 @@ $ srun -n 64 python mpi.py
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Run the <code class="docutils literal notranslate"><span class="pre">mpi.py</span></code> script with different number of cores (modify the
-number after <code class="docutils literal notranslate"><span class="pre">-n</span></code>, try values between 1-256 cores). Keep record of
+<li>Run the <code class="docutils literal"><span class="pre">mpi.py</span></code> script with different number of cores (modify the
+number after <code class="docutils literal"><span class="pre">-n</span></code>, try values between 1-256 cores). Keep record of
 core count and time elapsed. Use Excel/LibreOffice/Python to plot
 number of processors versus elapsed time. What kind of plot would you
 expect to see? What do you actually see?</li>
 <li>Try plotting 2-base logarithm of time vs 2-base logarithm of number
 of cores used.</li>
-<li>Try commands <code class="docutils literal notranslate"><span class="pre">squeue</span></code> and <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> to see the job queue and the
+<li>Try commands <code class="docutils literal"><span class="pre">squeue</span></code> and <code class="docutils literal"><span class="pre">sinfo</span></code> to see the job queue and the
 status of different nodes</li>
 </ul>
+<div class="section" id="Parallel-performance-results">
+<h3>Parallel performance results<a class="headerlink" href="#Parallel-performance-results" title="Permalink to this headline">¶</a></h3>
+<p>You can find the results of the parallel performance exercise in the
+<a class="reference internal" href="parallel-performance.html"><span class="doc">exercise summary notebook</span></a>.</p>
+</div>
 </div>
 </div>
 
@@ -429,7 +444,9 @@ status of different nodes</li>
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

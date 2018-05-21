@@ -152,6 +152,14 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Parallel performance results\n",
+    "You can find the results of the parallel performance exercise in the [exercise summary notebook](parallel-performance.ipynb)."
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},

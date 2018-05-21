@@ -8,9 +8,7 @@
     }
    },
    "source": [
-    "# Introduction to geodynamic modelling\n",
-    "\n",
-    "*Course overview*\n",
+    "# Course overview\n",
     "\n",
     "Lars Kaislaniemi and David Whipp\n",
     "\n",

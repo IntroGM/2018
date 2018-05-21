@@ -67,7 +67,16 @@ Course goals
 
     notebooks/day-4/clusters.ipynb
     notebooks/day-4/putting-it-together.ipynb
+    lessons/day-4/marker-in-cell
     notebooks/day-4/numerical-diffusion.ipynb
+    lessons/day-4/intro-to-douar
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Day 5
+
+    notebooks/day-5/CLI-tools.ipynb
+    lessons/day-5/project-overview.ipynb
 
 .. toctree::
     :maxdepth: 2

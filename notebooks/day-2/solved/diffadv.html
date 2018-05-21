@@ -98,7 +98,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Day 1</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/Course-overview.html">Introduction to geodynamic modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/Course-overview.html">Course overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/physical-processes.html">Key physical processes and concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-1/solving-equations.html">Solving equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-1/python-basics.html">Basic elements of Python</a></li>
@@ -126,7 +126,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/clusters.html">Cluster computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/putting-it-together.html">Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-4/marker-in-cell.html">Marker-in-cell technique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../day-4/numerical-diffusion.html">Numerical diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-4/intro-to-douar.html">Introduction to DOUAR</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../day-5/CLI-tools.html">Helpful command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lessons/day-5/project-overview.html">Project overview</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical instructions</span></p>
 <ul>
@@ -386,10 +393,10 @@ Interactive online version:
 <h1>Heat diffusion + advection<a class="headerlink" href="#Heat-diffusion-+-advection" title="Permalink to this headline">¶</a></h1>
 <p>If we add advection and internal heat generation to our heat equation,
 we get</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\rho C_p \left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}\right) = k \frac{\partial^2 T}{\partial x^2} + H\]</div>
 <p>Leaving only the time derivative on the left-hand side,</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial T}{\partial t} = \frac{k}{\rho C_p} \frac{\partial^2 T}{\partial x^2} + \frac{H}{\rho C_p} - v_x\frac{\partial T}{\partial x}\]</div>
 <div class="section" id="Do">
 <h2>Do<a class="headerlink" href="#Do" title="Permalink to this headline">¶</a></h2>
@@ -397,31 +404,31 @@ we get</p>
 <li>Write the finite difference approximation for (i.e. <em>discretize</em>) the
 diffusion-advection equation. Use forward difference in time and
 central difference in space. Write the expression in form
-<span class="math notranslate nohighlight">\(T_i^{q+1} = \ldots~T^q~\mathrm{terms~only~on~this~side}~\ldots\)</span></li>
+<span class="math">\(T_i^{q+1} = \ldots~T^q~\mathrm{terms~only~on~this~side}~\ldots\)</span></li>
 <li>Modify the intrusion code below (or use the one you modified
 previously):<ul>
-<li>Add variables that store the internal heat production <span class="math notranslate nohighlight">\(H\)</span>
-and the advection velocity <span class="math notranslate nohighlight">\(v_x\)</span> (what are suitable values?)</li>
+<li>Add variables that store the internal heat production <span class="math">\(H\)</span>
+and the advection velocity <span class="math">\(v_x\)</span> (what are suitable values?)</li>
 <li>Modify the line within the time loop that calculates the next
-valuer of <span class="math notranslate nohighlight">\(T\)</span>: include the terms for heat generation and
+valuer of <span class="math">\(T\)</span>: include the terms for heat generation and
 advection</li>
 </ul>
 </li>
-<li>Start with <span class="math notranslate nohighlight">\(H=0\)</span> and <span class="math notranslate nohighlight">\(v_x = 0\)</span>. Gradually change these
+<li>Start with <span class="math">\(H=0\)</span> and <span class="math">\(v_x = 0\)</span>. Gradually change these
 values. How does the results change as you give non-zero values for
-these? What happens if <span class="math notranslate nohighlight">\(v_x &gt; 0\)</span> compared to <span class="math notranslate nohighlight">\(v_x &lt; 0\)</span>?
-What if <span class="math notranslate nohighlight">\(v_x\)</span> has a large (positive or negative) value?</li>
+these? What happens if <span class="math">\(v_x &gt; 0\)</span> compared to <span class="math">\(v_x &lt; 0\)</span>?
+What if <span class="math">\(v_x\)</span> has a large (positive or negative) value?</li>
 <li>Extra:<ul>
 <li>Remove the initial hot intrusion. Instead, add spatially variable
 internal heat generation. For this, you will need to introduce new
-numpy array (of size <code class="docutils literal notranslate"><span class="pre">nx</span></code>), fill it with values of internal heat
-generation, and use it (<code class="docutils literal notranslate"><span class="pre">H[ix]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">H</span></code>) when you
+numpy array (of size <code class="docutils literal"><span class="pre">nx</span></code>), fill it with values of internal heat
+generation, and use it (<code class="docutils literal"><span class="pre">H[ix]</span></code> instead of <code class="docutils literal"><span class="pre">H</span></code>) when you
 calculate the new temperature value.</li>
 <li>Calculating heat flow:<ul>
-<li>Heat flow is defined as <span class="math notranslate nohighlight">\(q=k\frac{dT}{dx}\)</span>. Write an
-approximation for <span class="math notranslate nohighlight">\(q\)</span> by replacing the derivative with a
+<li>Heat flow is defined as <span class="math">\(q=k\frac{dT}{dx}\)</span>. Write an
+approximation for <span class="math">\(q\)</span> by replacing the derivative with a
 finite difference expression.</li>
-<li>Modify the code so that you create an array (of size <code class="docutils literal notranslate"><span class="pre">nt</span></code>)
+<li>Modify the code so that you create an array (of size <code class="docutils literal"><span class="pre">nt</span></code>)
 that stores surface heat flow values each time step. Within the
 time loop, calculate each time step the heat flow between two
 topmost grid points.</li>
@@ -433,11 +440,11 @@ history.</li>
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
@@ -537,14 +544,14 @@ Calculating 10 time steps
 </div>
 <div class="section" id="ANSWER">
 <h3>ANSWER<a class="headerlink" href="#ANSWER" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[T_i^{q+1} = \left(\frac{k}{\rho C_p} \frac{T_{i+1}^q - 2T_i^q + T_{i-1}^q}{\Delta x^2} + \frac{H}{\rho C_p} - v_x\frac{T_{i+1}^q - T_{i-1}^q}{2\Delta x}\right)\Delta t+T_i^q\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="c1">### ANSWER ###</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -707,7 +714,9 @@ Calculating 10 time steps
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

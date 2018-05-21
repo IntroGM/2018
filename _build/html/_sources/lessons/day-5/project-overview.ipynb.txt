@@ -1,0 +1,278 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Project overview\n",
+    "\n",
+    "*Introduction to geodynamic modelling*\n",
+    "\n",
+    "Lars Kaislaniemi and David Whipp\n",
+    "\n",
+    "14-18 May 2018"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## Course project"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### What is the idea?\n",
+    "\n",
+    "We'd like to see you take your new skills as geodynamic modellers and apply them to learning something about a problem of your choosing.\n",
+    "\n",
+    "Example problems could include:\n",
+    "- Modifying our DOUAR models of rifting of a continent\n",
+    "- Using DOUAR to model continent-continent collision\n",
+    "- Writing a 2D finite-difference solution to the heat advection-diffusion equation\n",
+    "- Modelling sinking of tectonic plates in the mantle using DOUAR"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### What do you need to do?\n",
+    "For the project you should design a model, run 1-3 numerical experiments with your model, and write a short paper describing the model and your results in the format of a scientic journal article."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## The paper"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Format\n",
+    "\n",
+    "The paper should be formatted as follows:\n",
+    "- 12 pt Times New Roman (or similar) font\n",
+    "- Single spacing between lines\n",
+    "- Text and figures should not exceed 8 pages\n",
+    "    - References and the appendix can be on additional pages as needed\n",
+    "\n",
+    "The paper should include the sections described on the following slides"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Abstract\n",
+    "\n",
+    "A one-paragraph summary of the exercise and your results"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Introduction\n",
+    "\n",
+    "- Clearly describe the problem you are addressing (or hypothesis being tested) and it's significance\n",
+    "- Provide background information on the topic (e.g., from lecture notes and other sources)\n",
+    "- Provide 1 short paragraph about how your models relate to understanding your stated problem\n",
+    "- 2-4 paragraphs in length"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Methods\n",
+    "\n",
+    "- Clearly state the equations being solved and the different methods used in solving the equations\n",
+    "- List the main variables or free parameters in the equations\n",
+    "- This should be more than 1 paragraph in length"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Results\n",
+    "\n",
+    "- This part describes the results from your experiments\n",
+    "- Include selected figures from the output of your model with figure captions describing the results\n",
+    "- You should have at least 1 paragraph of text that describes each figure\n",
+    "\n",
+    "**Note**: The results section should only contain observations that resulted from your experiment. No interpretations of the results should be included in this section."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Discussion\n",
+    "\n",
+    "- This part of the report discusses your results. It can have multiple subsections if you desire. Any interpretation you make from your plots/calculations should be presented here.\n",
+    "\n",
+    "- An example discussion section topics (at least one paragraph each) could include:\n",
+    "    - What are the main geological or geophysical implications of your results?\n",
+    "    - Was there any result that was unexpected or counterintuitive?\n",
+    "    - What are the limitations of the modeling approach and how do they affect the results?\n",
+    "    - What are the implications of your results for the problem/hypothesis you stated in the introduction? Have you su ciently tested your hypothesis or are more experiments needed?\n",
+    "    - Any other topics you feel should be discussed about the implications of the model results"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Conclusions/summary\n",
+    "\n",
+    "- This should summarize the main findings of your research paper\n",
+    "- 1-2 paragraphs in length"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### References\n",
+    "\n",
+    "- Include a list of cited references from your paper\n",
+    "    - This should include at least 6 primary sources"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Appendices\n",
+    "\n",
+    "- Include a link to a webpage containing the code you have used to generate your results (if relevant)\n",
+    "    - If you have made any significant changes to the code, describe them here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## Due date and credit points"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "### Project due date\n",
+    "\n",
+    "- The final project should be submitted via email to Dave/Lars by the end of the day on **31.8.2018**\n",
+    "- Completion of the course project will provide an additional 2 CP"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "## Any questions?"
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.4"
+  },
+  "livereveal": {
+   "autolaunch": true,
+   "theme": "serif"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

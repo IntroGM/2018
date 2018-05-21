@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to DOUAR &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Helpful command line tools" href="../../notebooks/day-5/CLI-tools.html" />
+    <link rel="prev" title="Numerical diffusion" href="../../notebooks/day-4/numerical-diffusion.html" />
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Course-overview.html">Course overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/diffadv.html">Heat diffusion + advection</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/benchmarking.html">Testing your code and benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 4</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/clusters.html">Cluster computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/putting-it-together.html">Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marker-in-cell.html">Marker-in-cell technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/numerical-diffusion.html">Numerical diffusion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to DOUAR</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-5/CLI-tools.html">Helpful command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-5/project-overview.html">Project overview</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to DOUAR</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/day-4/intro-to-douar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="introduction-to-douar">
+<h1>Introduction to DOUAR<a class="headerlink" href="#introduction-to-douar" title="Permalink to this headline">¶</a></h1>
+<p>Most of this lecture was given on the whiteboard.
+The few introductory lecture slides can be found at the link below.</p>
+<div class="admonition-lecture-slides admonition">
+<p class="first admonition-title">Lecture slides</p>
+<p class="last"><a class="reference external" href="../../_static/4.2-Introduction-to-DOUAR.pdf">Introduction to DOUAR (PDF)</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../notebooks/day-5/CLI-tools.html" class="btn btn-neutral float-right" title="Helpful command line tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../notebooks/day-4/numerical-diffusion.html" class="btn btn-neutral" title="Numerical diffusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

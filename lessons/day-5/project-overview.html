@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project overview &mdash; Introduction to Geodynamic Modelling 2018 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using geo-hpcc cluster" href="../../instructions/cluster.html" />
+    <link rel="prev" title="Helpful command line tools" href="../../notebooks/day-5/CLI-tools.html" />
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Geodynamic Modelling
+          
+
+          
+            
+            <img src="../../_static/HY-logo-2017.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2018
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/course-info.html">General info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/learning-goals.html">Learning goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/licensing.html">License and terms of usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/previous-years.html">Past versions of this course</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/Course-overview.html">Course overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/physical-processes.html">Key physical processes and concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-1/solving-equations.html">Solving equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/python-basics.html">Basic elements of Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/Functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/NumPy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/for-loops.html">for loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-1/Conditional-statements.html">Conditional statements</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdbasics.html">Introduction to finite differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/fdheat.html">Finite differences for heat equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/stability.html">Stability of the heat equation FD approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-2/diffadv.html">Heat diffusion + advection</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/benchmarking.html">Testing your code and benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/stokes.html">FD for Stokes equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html">Solution strategy for the channel flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html#Calculating-strain-rates">Calculating strain rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-3/channel.html#Velocity-boundary-conditions">Velocity boundary conditions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/clusters.html">Cluster computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/putting-it-together.html">Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/marker-in-cell.html">Marker-in-cell technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-4/numerical-diffusion.html">Numerical diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day-4/intro-to-douar.html">Introduction to DOUAR</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Day 5</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks/day-5/CLI-tools.html">Helpful command line tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Course-project">Course project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#What-is-the-idea?">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#What-do-you-need-to-do?">What do you need to do?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#The-paper">The paper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Format">Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Abstract">Abstract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Results">Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Discussion">Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Conclusions/summary">Conclusions/summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#References">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Appendices">Appendices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Due-date-and-credit-points">Due date and credit points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Project-due-date">Project due date</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Any-questions?">Any questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Technical instructions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../instructions/cluster.html">Using geo-hpcc cluster</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Geodynamic Modelling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Project overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/lessons/day-5/project-overview.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="admonition note">
+This page was generated from <a class="reference external" href="https://github.com/IntroGM/2018/blob/master/source/lessons/day-5/project-overview.ipynb">source/lessons/day-5/project-overview.ipynb</a>.
+Interactive online version:
+<span class="raw-html"><a href="https://mybinder.org/v2/gh/IntroGM/2018/master?urlpath=lab/tree/source/lessons/day-5/project-overview.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Project-overview">
+<h1>Project overview<a class="headerlink" href="#Project-overview" title="Permalink to this headline">¶</a></h1>
+<p><em>Introduction to geodynamic modelling</em></p>
+<p>Lars Kaislaniemi and David Whipp</p>
+<p>14-18 May 2018</p>
+<div class="section" id="Course-project">
+<h2>Course project<a class="headerlink" href="#Course-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="What-is-the-idea?">
+<h3>What is the idea?<a class="headerlink" href="#What-is-the-idea?" title="Permalink to this headline">¶</a></h3>
+<p>We’d like to see you take your new skills as geodynamic modellers and
+apply them to learning something about a problem of your choosing.</p>
+<p>Example problems could include: - Modifying our DOUAR models of rifting
+of a continent - Using DOUAR to model continent-continent collision -
+Writing a 2D finite-difference solution to the heat advection-diffusion
+equation - Modelling sinking of tectonic plates in the mantle using
+DOUAR</p>
+</div>
+<div class="section" id="What-do-you-need-to-do?">
+<h3>What do you need to do?<a class="headerlink" href="#What-do-you-need-to-do?" title="Permalink to this headline">¶</a></h3>
+<p>For the project you should design a model, run 1-3 numerical experiments
+with your model, and write a short paper describing the model and your
+results in the format of a scientic journal article.</p>
+</div>
+</div>
+<div class="section" id="The-paper">
+<h2>The paper<a class="headerlink" href="#The-paper" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Format">
+<h3>Format<a class="headerlink" href="#Format" title="Permalink to this headline">¶</a></h3>
+<p>The paper should be formatted as follows: - 12 pt Times New Roman (or
+similar) font - Single spacing between lines - Text and figures should
+not exceed 8 pages - References and the appendix can be on additional
+pages as needed</p>
+<p>The paper should include the sections described on the following slides</p>
+</div>
+<div class="section" id="Abstract">
+<h3>Abstract<a class="headerlink" href="#Abstract" title="Permalink to this headline">¶</a></h3>
+<p>A one-paragraph summary of the exercise and your results</p>
+</div>
+<div class="section" id="Introduction">
+<h3>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Clearly describe the problem you are addressing (or hypothesis being
+tested) and it’s significance</li>
+<li>Provide background information on the topic (e.g., from lecture notes
+and other sources)</li>
+<li>Provide 1 short paragraph about how your models relate to
+understanding your stated problem</li>
+<li>2-4 paragraphs in length</li>
+</ul>
+</div>
+<div class="section" id="Methods">
+<h3>Methods<a class="headerlink" href="#Methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Clearly state the equations being solved and the different methods
+used in solving the equations</li>
+<li>List the main variables or free parameters in the equations</li>
+<li>This should be more than 1 paragraph in length</li>
+</ul>
+</div>
+<div class="section" id="Results">
+<h3>Results<a class="headerlink" href="#Results" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This part describes the results from your experiments</li>
+<li>Include selected figures from the output of your model with figure
+captions describing the results</li>
+<li>You should have at least 1 paragraph of text that describes each
+figure</li>
+</ul>
+<p><strong>Note</strong>: The results section should only contain observations that
+resulted from your experiment. No interpretations of the results should
+be included in this section.</p>
+</div>
+<div class="section" id="Discussion">
+<h3>Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This part of the report discusses your results. It can have multiple
+subsections if you desire. Any interpretation you make from your
+plots/calculations should be presented here.</li>
+<li>An example discussion section topics (at least one paragraph each)
+could include:<ul>
+<li>What are the main geological or geophysical implications of your
+results?</li>
+<li>Was there any result that was unexpected or counterintuitive?</li>
+<li>What are the limitations of the modeling approach and how do they
+affect the results?</li>
+<li>What are the implications of your results for the
+problem/hypothesis you stated in the introduction? Have you su
+ciently tested your hypothesis or are more experiments needed?</li>
+<li>Any other topics you feel should be discussed about the
+implications of the model results</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Conclusions/summary">
+<h3>Conclusions/summary<a class="headerlink" href="#Conclusions/summary" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This should summarize the main findings of your research paper</li>
+<li>1-2 paragraphs in length</li>
+</ul>
+</div>
+<div class="section" id="References">
+<h3>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Include a list of cited references from your paper<ul>
+<li>This should include at least 6 primary sources</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Appendices">
+<h3>Appendices<a class="headerlink" href="#Appendices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Include a link to a webpage containing the code you have used to
+generate your results (if relevant)<ul>
+<li>If you have made any significant changes to the code, describe
+them here</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Due-date-and-credit-points">
+<h2>Due date and credit points<a class="headerlink" href="#Due-date-and-credit-points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Project-due-date">
+<h3>Project due date<a class="headerlink" href="#Project-due-date" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The final project should be submitted via email to Dave/Lars by the
+end of the day on <strong>31.8.2018</strong></li>
+<li>Completion of the course project will provide an additional 2 CP</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Any-questions?">
+<h2>Any questions?<a class="headerlink" href="#Any-questions?" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../instructions/cluster.html" class="btn btn-neutral float-right" title="Using geo-hpcc cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../notebooks/day-5/CLI-tools.html" class="btn btn-neutral" title="Helpful command line tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, L. Kaislaniemi and D. Whipp.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    <p><br/><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /></a></p>
+     
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2018',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

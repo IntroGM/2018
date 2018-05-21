@@ -6,4 +6,4 @@ The few introductory lecture slides can be found at the link below.
 
 .. admonition:: Lecture slides
 
-    `Introduction to DOUAR (PDF) <../../_static/4.2-Intro-to-DOUAR.pdf>`__
+    `Introduction to DOUAR (PDF) <../../_static/4.2-Introduction-to-DOUAR.pdf>`__

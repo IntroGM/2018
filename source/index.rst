@@ -76,7 +76,7 @@ Course goals
     :caption: Day 5
 
     notebooks/day-5/CLI-tools.ipynb
-    notebooks/day-5/project-overview.ipynb
+    lessons/day-5/project-overview.ipynb
 
 .. toctree::
     :maxdepth: 2
